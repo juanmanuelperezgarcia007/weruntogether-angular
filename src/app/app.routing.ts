@@ -8,6 +8,7 @@ import { TiendasComponent } from './tiendas/tiendas.component';
 
 
 
+
 export const appRoutes: Routes=[
     {path: '', redirectTo: 'index', pathMatch: 'full'},
     {path: 'index', component: IndexComponent},
@@ -15,6 +16,7 @@ export const appRoutes: Routes=[
     {path: 'carreras', component: CarrerasComponent},
     {path: 'tiendas', component: TiendasComponent},
     {path: 'registro', component: RegistroComponent},
+   
   
 
 ]

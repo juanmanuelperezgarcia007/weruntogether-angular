@@ -12,6 +12,7 @@ import { NoticiasComponent } from './noticias/noticias.component';
 import { CarrerasComponent } from './carreras/carreras.component';
 import { TiendasComponent } from './tiendas/tiendas.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { TiendasComponent } from './tiendas/tiendas.component';
     RegistroComponent,
     NoticiasComponent,
     CarrerasComponent,
-    TiendasComponent
+    TiendasComponent,
+   
   ],
   imports: [
     BrowserModule,
