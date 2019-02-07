@@ -1,0 +1,12 @@
+.marco{
+	height: 500px;
+	background-color:black;
+	padding: 100px;
+}
+
+.video{
+	background-color: white;
+	height: 100%;
+	text-align: center;
+	width: 100%;
+}

@@ -1,0 +1,19 @@
+.text-center {
+    text-align: center !important;
+ 
+
+}
+.pb-5, .py-5 {
+	padding-bottom: 1rem !important;
+	padding-top: 1rem  !important;
+	line-height: 78px;
+}
+
+.mb-5, .my-5 {
+	margin-bottom: 0 !important;
+	padding-top: 25px;
+}
+
+.footer{
+	background-color:  #40E0D0
+}
