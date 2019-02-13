@@ -57,6 +57,9 @@
 }
 .modal-login .avatar img {
     width: 100%;
+    color: #45aba6;
+    border-radius: 50%;
+    background-color: black
 }
 .modal-login.modal-dialog {
     margin-top: 80px;

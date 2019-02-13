@@ -1,7 +1,7 @@
 nav{
 	
 	margin:0 auto!important;
-	background-color: #40E0D0;
+	background-color: #D2C66D
 
 }
 nav div div a{
@@ -13,7 +13,8 @@ nav div div a{
 
 nav div div a:hover{
 
-	background-color:#2BBBAD;
+	background-color:#7FDC72;
+	color: black !important;
 	
 }
 
@@ -27,13 +28,12 @@ nav div div a:hover{
 }
 h1{
 	font-family: 'Monoton', cursive;
-	font-size: 4em;
+	font-size: 3.5em;
 	padding: 15px 0;
-	color: green;
 	text-align: center;
 	background-color: black;
 	margin: 0 auto;
-	color: #40E0D0;
+	color: #7FDC72;
 
 }
 .navbar-light .navbar-nav .nav-link {

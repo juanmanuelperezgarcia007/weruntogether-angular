@@ -1,1 +1,20 @@
 #success_message{ display: none;}
+.container{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+label{
+    font-weight: 700
+}
+.btn-warning:hover{
+    background-color: #7FDC72 !important;
+   
+    border-color: #7FDC72;
+    color: black;
+    
+}
+.btn-warning {
+	color: white;
+	background-color: #D2C66D;
+	border-color: #D2C66D;
+}

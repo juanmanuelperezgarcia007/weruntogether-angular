@@ -1,6 +1,8 @@
-<div class="container">
+<div class="body container">
 
-    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+    <form novalidate class="well form-horizontal" id="contact_form"
+    [formGroup]="form"
+    (ngSumit)="enviarRegistro(form.value)">
 <fieldset>
 
 <!-- Form Name -->
@@ -9,9 +11,9 @@
 <!-- Text input-->
 
 <div class="form-group input-group">
-  <div class=" offset-md-1 offset-xl-2 col-md-2 col-xl-3 control-label"><label >Nombre</label>  </div>
-  <div class=" col-md-2 col-xl-4 inputGroupContainer">
-  <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
+  <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label >Nombre</label>  </div>
+  <div class=" col-md-4 col-xl-4 inputGroupContainer">
+  <input forControlName="nombre" name="nombre" placeholder="Nombre" class="form-control"  type="text">
     
   </div>
 </div>
@@ -19,20 +21,48 @@
 <!-- Text input-->
 
 <div class="form-group input-group">
-  <div class=" offset-md-1 offset-xl-2 col-md-2 col-xl-3 control-label"><label >Apellidos</label>  </div>
-  <div class=" col-md-2 col-xl-4 inputGroupContainer">
-  <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
+  <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label >Apellidos</label>  </div>
+  <div class=" col-md-4 col-xl-4 inputGroupContainer">
+  <input  forControlName="apellidos" name="apellidos" placeholder="Apellidos" class="form-control"  type="text">
     
   </div>
 </div>
 
 <div class="form-group input-group">
-  <div class=" offset-md-1 offset-xl-2 col-md-2 col-xl-3 control-label"><label >Provincia</label>  </div>
-  <div class=" col-md-2 col-xl-4 inputGroupContainer">
+  <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label >Email</label>  </div>
+  <div class=" col-md-4 col-xl-4 inputGroupContainer">
+  <input  forControlName="email" name="email" placeholder="Email" class="form-control"  type="email">
+    
+  </div>
+</div>
+
+
+<div class="form-group input-group">
+  <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label >Usuario</label>  </div>
+  <div class=" col-md-4 col-xl-4 inputGroupContainer">
+  <input  forControlName="usuario" name="usuario" placeholder="Usuario" class="form-control"  type="text">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group input-group">
+  <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label >Contraseña</label></div>
+  <div class=" col-md-4 col-xl-4 inputGroupContainer">
+  <input  forControlName="contraseña" name="contraseña" placeholder="Contraseña" class="form-control"  type="password">
+    
+  </div>
+</div>
+
+
+<div class="form-group input-group">
+  <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label>Provincia</label>  </div>
+  <div class=" col-md-4 col-xl-4 inputGroupContainer">
   
     
  
-    <select name="department" class="form-control selectpicker">
+    <select  forControlName="provincia" name="provincia" class="form-control selectpicker">
       <option value="">Seleciona tus provincia</option>
       <option >Albacete</option>
       <option >Alicante</option>
@@ -47,61 +77,61 @@
       <option >Caceres</option>
       <option >Cadiz</option>
       <option >Cantabria</option>
-      <option >Almeria</option>
-      <option >Asturias</option>
-      <option >Avila</option>
-      <option >Badajoz</option>
-      <option >Barcelona</option>
+      <option >Castellon</option>
+      <option >Ciudad Real</option>
+      <option >Cordoba</option>
+      <option >Cuenca</option>
+      <option >Gerona</option>
+      <option >Granada</option>
+      <option >Guadalajara</option>
+      <option >Guipuzcoa</option>
+      <option >Huelva</option>
+      <option >Huesca</option>
+      <option >Islas Baleares</option>
+      <option >Jaen</option>
+      <option >La Coruña</option>
+      <option >La Rioja</option>
+      <option >Las Palmas</option>
+      <option >Leon</option>
+      <option >Lerida</option>
+      <option >Lugo</option>
+      <option >Madrid</option>
+      <option >Malaga</option>
+      <option >Murcia</option>
+      <option >Navarra</option>
+      <option >Orense</option>
+      <option >Palencia</option>
+      <option >Pontevedra</option>
+      <option >Salamanca</option>
+      <option >Segovia</option>
+      <option >Sevilla</option>
+      <option >Soria</option>
+      <option >Teruel</option>
+      <option >Tarragona</option>
+      <option >Tenerife</option>
+      <option >Toledo</option>
+      <option >Valencia</option>
+      <option >Valladolid</option>
+      <option >Vizcaya</option>
+      <option >Zamora</option>
+      <option >Zaragoza</option>
     </select>
   </div>
 </div>
 
   
-<div class="form-group input-group">
-  <div class=" offset-md-1 offset-xl-2 col-md-2 col-xl-3 control-label"><label >First Name</label>  </div>
-  <div class=" col-md-2 col-xl-4 inputGroupContainer">
-  <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
-    
-  </div>
-</div>
-<!-- Text input-->
-
-<div class="form-group input-group">
-  <div class=" offset-md-1 offset-xl-2 col-md-2 col-xl-3 control-label"><label >First Name</label>  </div>
-  <div class=" col-md-2 col-xl-4 inputGroupContainer">
-  <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-
-<div class="form-group input-group">
-  <div class=" offset-md-1 offset-xl-2 col-md-2 col-xl-3 control-label"><label >First Name</label>  </div>
-  <div class=" col-md-2 col-xl-4 inputGroupContainer">
-  <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
-    
-  </div>
-</div>
-
-<div class="form-group input-group">
-  <div class=" offset-md-1 offset-xl-2 col-md-2 col-xl-3 control-label"><label >First Name</label>  </div>
-  <div class=" col-md-2 col-xl-4 inputGroupContainer">
-  <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
-    
-  </div>
-</div>
 
 
 <!-- Text input-->
-       
+
 <div class="form-group input-group">
-  <div class=" offset-md-1 offset-xl-2 col-md-2 col-xl-3 control-label"><label >First Name</label>  </div>
-  <div class=" col-md-2 col-xl-4 inputGroupContainer">
-  <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
+  <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label >Poblacion</label>  </div>
+  <div class=" col-md-4 col-xl-4 inputGroupContainer">
+  <input forControlName="provincia" name="poblacion" placeholder="Poblacion" class="form-control"  type="text">
     
   </div>
 </div>
+
 
 <!-- Select Basic -->
 
@@ -111,10 +141,12 @@
 <!-- Button -->
 <div class="form-group input-group">
   <div class="col-md-12 col-xl-12"><br>
-   <button type="submit" class="col-xl-6 btn btn-warning" >Enviar <span class="glyphicon glyphicon-send"></span></button>
+   <button type="submit" class="col-xl-6 btn btn-warning" >Enviar<span class="glyphicon glyphicon-send"></span></button>
   </div>
 </div>
-
+<div>
+  <p *ngIf=""></p>
+</div>
 </fieldset>
 </form>
 </div>

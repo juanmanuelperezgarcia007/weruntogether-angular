@@ -1,5 +1,6 @@
 .text-center {
-    text-align: center !important;
+	text-align: center !important;
+	color: white
  
 
 }
@@ -15,5 +16,13 @@
 }
 
 .footer{
-	background-color:  #40E0D0
+	background-color:  #D2C66D
+}
+a{
+	cursor: pointer;
+	color: white !important;
+
+}
+a:hover {
+	color:#7FDC72 !important;
 }

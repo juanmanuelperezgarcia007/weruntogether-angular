@@ -1,0 +1,16 @@
+.tituloNoticias{
+    margin-top: 20px;
+    font-size: 3em !important;
+    font-weight: 900;
+
+    
+}
+.titulo p{
+   
+    font-size: 1.2em !important;
+    cursor: pointer;
+    
+}
+.noticias{
+    padding: 15px
+}
