@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routing';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { CarrerasComponent } from './carreras/carreras.component';
-
+import { TiendasComponent } from './tiendas/tiendas.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
@@ -25,7 +25,7 @@ import { AgmCoreModule } from '@agm/core';
     RegistroComponent,
     NoticiasComponent,
     CarrerasComponent,
-   
+    TiendasComponent,
  
     
    
