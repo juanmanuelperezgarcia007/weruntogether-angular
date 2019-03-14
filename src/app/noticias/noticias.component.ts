@@ -8,14 +8,22 @@ import { NoticiasService } from '../noticias.service';
 })
 export class NoticiasComponent implements OnInit {
     noticias: any  []  
+    noticia_selecionada:any
+    
   constructor(private noticiasService:NoticiasService){
-    this.noticiasService.getAllNoticiasPromise().then((res)=>{
+     this.noticiasService.getAllNoticiasPromise().then((res)=>{
      this.noticias=res['items']
-     console.log (res['items'])
+     this.noticia_selecionada=this.noticias[0]
     })
+    
+  }
+
+  selecionarNoticia(not){
+    this.noticia_selecionada= not
   }
 
   ngOnInit() {
+  
   }
-
+ 
 }

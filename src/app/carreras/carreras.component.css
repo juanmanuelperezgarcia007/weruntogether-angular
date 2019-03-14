@@ -1,0 +1,42 @@
+
+.carreras{
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: white
+}
+
+
+#distancia{
+    margin: 0 auto
+}
+
+input {
+    
+    text-align: center;
+    padding: 10px
+}
+label{
+    padding: 10px;
+    font-weight: 900;
+    font-size: 1.2em
+}
+.titulo{
+    padding: 25px;
+    font-size: 2.5em
+}
+
+.btn{
+    margin: 15px
+}
+strong{
+    margin-left: 10px
+}
+.container{
+    background-color: #e0e4e5;
+    padding-bottom: 5px
+
+}
+.nombrecarrera{
+    max-width:312px;
+}

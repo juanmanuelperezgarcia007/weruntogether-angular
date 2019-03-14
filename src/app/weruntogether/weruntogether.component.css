@@ -1,0 +1,116 @@
+.container{
+    background-color: #e0e4e5;
+    
+    padding-top: 15px
+}
+
+#buscador {
+    background-color: white;
+    color:#989c9e;
+   
+    border-radius: 5px;
+    padding: 25px
+    
+}
+
+#blog {
+    background-color: white;
+    color:#989c9e;
+    margin: 20px auto;
+    border-radius: 5px;
+    padding: 25px
+    
+}
+
+.pbuscador{
+    font-weight: 900;
+    font-size: 27px
+}
+
+.post{
+   
+    color:white;
+    margin: 20px auto;
+    border-radius: 5px;
+    padding: 25px;
+    padding-top: 0px
+    
+}
+
+.btn{
+	
+	
+    background-color: #70c5c0;
+    border: 1px solid #70c5c0;
+    margin: 25px auto;
+    padding: 25px 35px!important;
+	font-size: 1.3em;
+	
+
+}
+
+
+.btn:hover{
+
+	background-color: #6DA2D2;
+	color: #3C4545 !important;
+	
+}
+
+
+.post div a{
+    color:black;
+    
+    
+}
+
+.descripcion{
+    text-align: center
+}
+
+#icons{
+    font-size: 70px;
+    
+}
+label{
+    font-weight: 900
+}
+
+.titulo{
+    font-size: 5em;
+    padding:25px;
+    font-weight: 900
+}
+h2{
+    color: black
+}
+.activacion{
+    color: black
+}
+.dia{
+    margin-top: 8px
+}
+.maps{
+    margin-top: 20px;
+    margin-bottom: 20px
+}
+
+.usuario{
+ 
+    height: 150px;
+    border-radius: 25%
+}
+.onePost{
+    background-color: #6DA2D2;
+    padding: 20px;
+    border-radius: 5px
+}
+
+.close{
+    width: 20px;
+    position: absolute;
+    right: 0px;
+    cursor: pointer;
+    color: black;
+    top: 5px;
+}

@@ -1,0 +1,92 @@
+.container{
+    background-color: #e0e4e5;
+    padding-bottom: 15px;
+    padding-top: 15px
+}
+
+#icons{
+    font-size: 70px;
+    
+}
+label{
+    font-weight: 900
+}
+.titulo{
+    font-size: 5em;
+    padding:25px;
+    font-weight: 900
+}
+h2{
+    color: black
+}
+.maps{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: .25rem;
+}
+
+.post{
+   
+    color:white;
+    margin: 58px auto;
+    border-radius: 5px;
+    padding: 25px;
+    background-color: #70c5c0
+    
+}
+
+
+.comentarios{
+    
+    border-radius: .25rem;
+}
+
+.enviar{
+    margin-top: 25px;
+    padding: 25px
+}
+h3{
+    padding-bottom: 25px;
+    margin-bottom: 0px
+}
+.pintarcomentario{
+    color:black;
+    margin: 58px auto;
+    border-radius: 5px;
+    padding: 25px;
+    background-color: #70c5c0
+}
+.comentario{
+    background-color: white;
+    padding: 10px 30px;
+    margin:10px;
+    border-radius: 5px;
+    border: .5px solid #213b3a;
+
+}
+
+.comentario hr{
+    margin-top: 1.25rem;
+    margin-bottom: .25rem;
+    border: 0;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.comentario .descomentario{
+    text-align: left;
+    font-size: 120%;
+    font-style: italic;
+}
+
+.comentario .usercoment{
+    text-align: right;
+}
+.close{
+    width: 20px;
+    position: absolute;
+    right: 52px;
+    cursor: pointer;
+    color: black;
+    margin-top: 3px;
+}
+

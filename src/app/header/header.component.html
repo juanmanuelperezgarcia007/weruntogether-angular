@@ -1,6 +1,6 @@
 <header class="container">
   <div>
-        <h1>WE    RUN    TOGETHER</h1>
+        <a [routerLink]="['index']"><h1>WE    RUN    TOGETHER</h1></a>
   </div>
 
   <div class="navigation">
@@ -12,11 +12,22 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
+          
           <a class="nav-item nav-link" [routerLink]="['noticias']">Noticias</a>
+          
           <a class="nav-item nav-link" [routerLink]="['carreras']">Proximas Carreras</a>
-          <a class="nav-item nav-link" [routerLink]="['tiendas']">Tiendas</a>
-          <a class="nav-item nav-link trigger-btn" href="#myModal"  data-toggle="modal">Iniciar Sesion</a>
-          <a class="nav-item nav-link" [routerLink]="['registro']">Registro</a>
+          
+          <a class="nav-item nav-link trigger-btn" *ngIf="loginService.mostrar" href="#myModal"  data-toggle="modal" >Iniciar Sesion</a>
+          
+          <a class="nav-item nav-link" *ngIf="loginService.mostrar" [routerLink]="['registro']">Registro</a>
+          
+          <a class="nav-item nav-link" *ngIf="loginService.noMostrar" [routerLink]="['weruntogether']">Quedadas</a>
+          
+          <a class="nav-item nav-link" *ngIf="loginService.noMostrar" [routerLink]="
+          ['perfil']">Perfil</a>
+
+          <a class="nav-item nav-link" *ngIf="loginService.noMostrar" (click)='closedSession()'>Cerrar Sesion</a>
+
         </div>
       </div>
     </nav>
