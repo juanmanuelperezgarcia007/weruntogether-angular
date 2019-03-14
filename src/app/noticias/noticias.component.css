@@ -1,8 +1,8 @@
 .tituloNoticias{
-    margin-top: 20px;
-    font-size: 3em !important;
+   
+    font-size: 3.5em !important;
     font-weight: 900;
-
+    padding: 35px 25px 0 25px
     
 }
 .titulo p{
@@ -13,4 +13,27 @@
 }
 .noticias{
     padding: 15px
+}
+.tituloNoticia{
+    font-weight: 900;
+    background-color: white;
+    padding: 25px;
+    border-radius: 5px
+}
+
+.titulares{
+    padding-top: 35px;
+    
+}
+
+.contenido_noticia{
+    font-size: 1.1em;
+    padding: 25px;
+    background-color: white;
+    border-radius: 5px;
+    margin-right: 15px
+}
+
+.container{
+    background-color: #e0e4e5
 }

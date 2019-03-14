@@ -1,22 +1,16 @@
 <div class="container">
- <div class="row">
-  <div class="col-4">
     <h2 class="tituloNoticias">Noticias</h2>
-  
-    
-  <div *ngFor="let not of noticias" class="col-12 noticias">
-      <div class="titulo">
-        <p [innerHtml]="not.title"></p>
-        
-      </div >
-      
-  </div>
-  </div>
+   <div class="row">
+     <div class="titulares col-5">
+       <div *ngFor="let not of noticias" class="col-12 noticias" (click)="selecionarNoticia(not)">
+        <div class="titulo">
+         <p class="tituloNoticia" [innerHtml]="not.title"></p>
+       </div >
+     </div>
+    </div>
 
-<div class="descripcionNoticia col-8 mx-3 my-3" >
- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente facilis vero, ea quo repellat aliquid enim neque dicta expedita sit. Harum iusto aliquam nostrum velit repudiandae sed ad, impedit cum!</p>
- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente facilis vero, ea quo repellat aliquid enim neque dicta expedita sit. Harum iusto aliquam nostrum velit repudiandae sed ad, impedit cum!</p>
- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente facilis vero, ea quo repellat aliquid enim neque dicta expedita sit. Harum iusto aliquam nostrum velit repudiandae sed ad, impedit cum!</p>
+<div class="descripcionNoticia col-7 my-5" *ngIf='noticia_selecionada'>
+  <p class="contenido_noticia" [innerHtml]="noticia_selecionada.description"></p>
 </div>
  </div>
 </div>

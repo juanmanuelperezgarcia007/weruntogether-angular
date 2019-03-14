@@ -1,8 +1,72 @@
 <div class="container">
-    <h2>Carreras</h2>
-  <div class="col-3">
-      <h3>Carrera</h3>
+  <h2 class="titulo">Carreras</h2>
+
+
+  <div class="filtradodecarreras ">
+
+    <form novalidate id="contact_form" 
+    [formGroup]="form" 
+    (ngSubmit)="getFiltersRace()">
+
+
+     <div class="col12 row">
+      <div class="filtrodistancia col-6">
+        
+        <label>Distancia Min</label> <select formControlName="min" class="col-12 form-control selectpicker">
+          <option selected>Seleciona tu distancia</option>
+          <option value="5000">hasta 5km</option>
+          <option value="10000">hasta 10km</option>
+          <option value="21000">hasta 21km</option>
+          <option value="43000">hasta 42km</option>
+        </select>
+
+        <label>Distancia Max</label> <select formControlName="max" class="col-12 form-control selectpicker">
+         
+          <option selected>Seleciona tu distancia</option>
+          <option value="5000">hasta 5km</option>
+          <option value="10000">hasta 10km</option>
+          <option value="21000">hasta 21km</option>
+          <option value="43000">hasta 42km</option>
+        </select>
+      </div>
+     <div class="col-6">
+      <label>Dia</label>
+      <input class="form-control selectpicker " formControlName="date" type="date">
+      
+      <label>Tipo de carrera</label>
+      <select formControlName="type" class="form-control selectpicker " id="type">
+        <option value="" selected></option>
+        <option value="asfalto">Asfalto</option>
+        <option value="tierra">Tierra</option>
+        <option value="obstaculos">Obstaculos</option>
+
+      </select>
+
+    
     </div>
+
+    <div class="col-12">
+        <label>Ciudad</label>
+      <input class="col-12 form-control ciudad selectpicker" formControlName="city" type="text">
+    </div>
+    
+    </div>
+
+      <button type="submit" class="col-4 btn btn-primary">Filtrar</button>
+
+    </form>
+  </div>
+
+
+  <div class="carreras col-12" *ngFor="let car of carrerasAll">
+    <strong>Dia: </strong> <span>{{ car.date | date:"dd/MM"}}</span>
+    <strong>Nombre: </strong><span class="nombrecarrera"> {{ car.name}}</span>
+    <strong>Distancia: </strong> <span>{{ car.distance}} </span>
+    <strong>Ciudad: </strong><span>{{ car.city}}</span>
+    <strong>Tipo de Carerra: </strong><span> {{ car.type}}</span>
+  </div>
+  
+
 
 
 </div>

@@ -18,3 +18,12 @@ label{
 	background-color: #70C5C0;
 	border-color: #70C5C0;
 }
+
+.photo{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: aqua;
+    margin:0 auto;
+    margin-bottom: 25px
+}
