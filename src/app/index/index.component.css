@@ -14,7 +14,8 @@ h3{
 }
 
 .descripcion ul li span .numeros{
-text-align: center
+text-align: center;
+color: white
 } 
 .descripcion p{
 	

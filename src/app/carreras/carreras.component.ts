@@ -38,9 +38,16 @@ export class CarrerasComponent implements OnInit {
  
 
   getFiltersRace(){
-    this.carrerasService.getFilters(this.form.value.min,this.form.value.max,this.form.value.type,this.form.value.city)
+    this.carrerasService.getFilters(
+      this.form.value.min,
+      this.form.value.max,
+      this.form.value.date,
+      this.form.value.type,
+      this.form.value.city)
+    
     .then((res)=>{
       console.log(res)
+      
       this.carrerasAll = res
       if(this.carrerasAll==0){
         alert('No hay resultados vuelve a realizar una busqueda')
