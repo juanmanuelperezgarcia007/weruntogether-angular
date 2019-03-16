@@ -1,5 +1,5 @@
 .modal-login {		
-    color: #636363;
+    color: #485460;
     width: 350px;
 }
 .modal-login .modal-content {
@@ -18,7 +18,7 @@
     margin: 30px 0 -15px;
 }
 .modal-login .form-control:focus {
-    border-color: #70c5c0;
+    border-color: #ffdd59;
 }
 .modal-login .form-control, .modal-login .btn {
     min-height: 40px;
@@ -29,14 +29,22 @@
     top: -5px;
     right: -5px;
 }	
+.modal-title{
+    color:black
+}	
+
 .modal-login .modal-footer {
-    background: #ecf0f1;
-    border-color: #dee4e7;
+    background: #ffdd59;
+    border-color: #ffdd59;
     text-align: center;
     justify-content: center;
     margin: 0 -20px -20px;
     border-radius: 5px;
     font-size: 13px;
+}
+.modal-login .modal-footer a:hover{
+    color: black;
+    font-weight: 900
 }
 .modal-login .modal-footer a {
     color: #999;
@@ -51,13 +59,13 @@
     height: 95px;
     border-radius: 50%;
     z-index: 9;
-    background: #60c7c1;
+    background: #ffdd59;
     padding: 15px;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
 }
 .modal-login .avatar img {
     width: 100%;
-    color: #45aba6;
+    color: #ffdd59;
     border-radius: 50%;
     background-color: black
 }
@@ -67,15 +75,17 @@
 .modal-login .btn {
     color: #fff;
     border-radius: 4px;
-    background: #60c7c1;
+    background: #485460;
     text-decoration: none;
     transition: all 0.4s;
     line-height: normal;
     border: none;
 }
 .modal-login .btn:hover, .modal-login .btn:focus {
-    background: #45aba6;
+    background: #ffdd59;
     outline: none;
+    color:#485460;
+    transition: 0.7s
 }
 .trigger-btn {
     display: inline-block;

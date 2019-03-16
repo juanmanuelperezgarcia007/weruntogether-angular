@@ -22,7 +22,7 @@ export const appRoutes: Routes=[
     {path: 'weruntogether', component: WeruntogetherComponent},
     {path: 'perfil', component: PerfilComponent},
     {path: 'comentarios/:id', component: ComentariosComponent},  
-    { path: '**', redirectTo: 'index' } 
+    {path: '**', redirectTo: 'index' } 
     
   
 

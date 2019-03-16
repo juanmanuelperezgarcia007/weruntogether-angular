@@ -7,7 +7,7 @@
       <div class="usuario col-2 my-3">
 
         <fa id="icons" name="fas fa-user"></fa>
-        <p>{{pos.usuario}}</p>
+        <p>{{pos.usuario | uppercase}}</p>
       </div>
 
       <div class="col-10 descripcion my-3">
@@ -41,7 +41,7 @@
     <div *ngIf="!allComent?.length == 0" class="post pintarcomentario">
       
       <div *ngFor="let coment of allComent">
-          <div><img class="close" src="../../assets/close.png" (click)="deleteComent(coment.id)" alt=""></div>
+          <div *ngIf='allComent.token== tokenUsuario'><img class="close" src="../../assets/close.png" (click)="deleteComent(coment.id)" alt=""></div>
      <div class="comentario">
         <div class="descomentario"><strong>"{{coment.comentarios}}"</strong></div>
         <hr>

@@ -32,6 +32,7 @@ export class WeruntogetherComponent implements OnInit {
   fk_usuarios: any
   posicionLatitude:number
   posicionLongitude:number
+
   constructor(private postService: PostService, private router:Router) {
     
 
@@ -39,15 +40,14 @@ export class WeruntogetherComponent implements OnInit {
   }
 
   ngOnInit() {
-   
+    
 
     this.image =`https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitud}&zoom=16&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C${this.latitude},${this.longitud}&key=AIzaSyCsfD7R9a5zeVCisKnbWYbfKBh5lYpZC28`
     
-    console.log(this.image)
+   
 
 
-    // PINTAR POST
-    this.mostrarPost()
+  
 
     // FORMULARIO BUSCADOR
 
@@ -73,11 +73,13 @@ export class WeruntogetherComponent implements OnInit {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.coords = position.coords
-      this.posicionLatitude=position.coords.latitude,this.posicionLongitude=position.coords.longitude;
-    
+        this.posicionLatitude=position.coords.latitude
+        this.posicionLongitude=position.coords.longitude
+        // PINTAR POST
+      this.mostrarPost()
       }, this.showError)
 
-
+     
     } else {
       console.log('La liamos')
     }
@@ -208,8 +210,11 @@ export class WeruntogetherComponent implements OnInit {
   // MOSTRAR POSTS
 
   mostrarPost() {
+    
     this.postService.getAllPost(
-      
+      this.posicionLatitude,
+      this.posicionLongitude
+    
     )
       .then((res) => {
       

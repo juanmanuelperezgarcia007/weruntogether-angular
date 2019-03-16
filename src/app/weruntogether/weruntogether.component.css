@@ -1,37 +1,54 @@
 .container{
-    background-color: #e0e4e5;
-    
-    padding-top: 15px
+    border:25px solid white;
+    background-color: white;
+    padding: 0px;
+   
+}
+
+label{
+    padding: 10px;
+    font-weight: 900;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    color: black
 }
 
 #buscador {
-    background-color: white;
-    color:#989c9e;
+    padding: 25px;
+    font-size: 3em;
+        background-color: white;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+    
+}
+.container-fluid img{
+    padding: 0px;
+}
+.container-fluid {
+    padding: 0px;
+    background-color: #d2dae2;
    
-    border-radius: 5px;
-    padding: 25px
-    
-}
 
-#blog {
-    background-color: white;
-    color:#989c9e;
-    margin: 20px auto;
-    border-radius: 5px;
-    padding: 25px
-    
 }
+.imagen{
+    border:25px solid white;
+    height: 150px;
 
-.pbuscador{
+}
+.mensaje a{
+    cursor: pointer;
+    
     font-weight: 900;
-    font-size: 27px
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    color: black
 }
+
 
 .post{
    
     color:white;
-    margin: 20px auto;
-    border-radius: 5px;
+    border-bottom:2px solid black;
     padding: 25px;
     padding-top: 0px
     
@@ -39,24 +56,30 @@
 
 .btn{
 	
-	
-    background-color: #70c5c0;
-    border: 1px solid #70c5c0;
-    margin: 25px auto;
-    padding: 25px 35px!important;
-	font-size: 1.3em;
-	
+    margin-top: 25px;
+    background-color: #485460;
+    padding: 25px;
+    border: 1px solid black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.3em;
+	color: #ffdd59;
 
 }
-
+.bordere{
+    border-bottom: 3px solid black;
+    padding-bottom: 25px
+}
 
 .btn:hover{
-
-	background-color: #6DA2D2;
-	color: #3C4545 !important;
+    background-color: #ffdd59;
+    color:#485460;
+    transition: 0.7s
 	
 }
-
+.col-11{
+    margin: 0 auto
+}
 
 .post div a{
     color:black;
@@ -65,22 +88,18 @@
 }
 
 .descripcion{
-    text-align: center
+    text-align: center;
+
 }
 
 #icons{
     font-size: 70px;
+    background-color: #485460;
     
 }
-label{
-    font-weight: 900
-}
 
-.titulo{
-    font-size: 5em;
-    padding:25px;
-    font-weight: 900
-}
+
+
 h2{
     color: black
 }
@@ -90,22 +109,23 @@ h2{
 .dia{
     margin-top: 8px
 }
-.maps{
-    margin-top: 20px;
-    margin-bottom: 20px
-}
+
 
 .usuario{
  
     height: 150px;
-    border-radius: 25%
+    
+  
 }
 .onePost{
-    background-color: #6DA2D2;
-    padding: 20px;
-    border-radius: 5px
+    background-color: #d2dae2;
+   
+   
+    margin: 0 auto;
 }
-
+.maps{
+    margin: 40px auto;
+}
 .close{
     width: 20px;
     position: absolute;
@@ -113,4 +133,11 @@ h2{
     cursor: pointer;
     color: black;
     top: 5px;
+}
+
+.mapas{
+    margin-bottom: 20px;
+}
+.bordere-up{
+    border-top:none
 }

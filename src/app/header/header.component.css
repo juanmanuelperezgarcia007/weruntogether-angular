@@ -1,20 +1,26 @@
 nav{
 	
-	margin:0 auto!important;
-	background-color: #70c5c0
 
+	background-color: #485460
+
+}
+.titulo{
+	padding:0px;
+	
 }
 nav div div a{
 
-	padding: 25px 35px!important;
+	padding: 25px!important;
 	font-size: 1.3em;
 	
 }
 
 nav div div a:hover{
 
-	background-color: #6DA2D2;
+	background-color: #ffdd59;
 	color: #3C4545 !important;
+	transition: 0.7s;
+	border-radius: 5px;
 	
 }
 
@@ -22,18 +28,16 @@ nav div div a:hover{
 	padding-left: 15px;
 	padding-right: 15px;
 }	
-.container{
-	padding: 0;
-	margin: 0 auto !important;
-}
+
 h1{
 	font-family: 'Monoton', cursive;
-	font-size: 3.5em;
-	padding: 15px 0;
-	text-align: center;
-	background-color: #3C4545;
-	margin: 0 auto;
-	color: #6DA2D2
+	font-size: 2.5em;
+	padding:50px!important;;
+	text-align: left;
+	background-color: #485460;
+	margin: 0;
+	color : #ffdd59;
+	
 
 }
 .navbar-light .navbar-nav .nav-link {
@@ -42,3 +46,7 @@ h1{
 }
 
 
+.container-fluid{
+	padding: 0;
+	margin: 0px
+}

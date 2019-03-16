@@ -1,12 +1,31 @@
-<div class="container">
+<div class="container-fluid">
+
+  <img class="foto-noticias col-12" src="../../assets/noticias/noticia (16).jpg" alt="">
+
+</div>
 
 
-  <!-- BUSCADOR -->
+<div class="container col-md-12 ">
+  <h2 id="buscador">Buscador</h2>
+</div>
 
-  <form novalidate class="col-12 well form-horizontal " id="contact_form" [formGroup]="formBuscador"
-    *ngIf="formBuscador">
-    <div id="buscador" class="row col-md-12 ">
-      <p class="col-12 pbuscador">Buscador</p>
+<!-- BUSCADOR -->
+<div id="blog" class=" col-12 container-fluid  blog">
+
+    <div class="container frases">
+  
+      <h2><label>Busca tu quedada y unete </label></h2>
+  
+      <h2><label>Puedes dejar un comentario en la quedada</label></h2>
+  
+      <p class="activacion"><small>Acuerdate de activar la geolocalizacion</small></p>
+  
+    </div>
+<div class="container-fluid">
+  <div class="container bordere">
+    <form novalidate class="col-12 well row form-horizontal " id="contact_form" [formGroup]="formBuscador"
+      *ngIf="formBuscador">
+
       <div class="input col-6">
 
         <label>Dia</label>
@@ -33,65 +52,92 @@
 
         </select>
       </div>
-    </div>
-  </form>
+
+    </form>
+  </div>
+</div>
+
+</div>
+<!-- BLOG -->
 
 
 
-  <!-- BLOG -->
+  <div *ngFor="let pos of AllPost" class="row onePost container-fluid col-12">
 
-  <div id="blog" class=" col-12 blog">
+    <div class="post container" *ngIf="!AllPost?.length == 0">
 
-    <h2>Por que salir solo, sal en buena compañia. Comparte tu lugar y hora</h2>
-    <p class="activacion"><small>Acuerdate de activar la geolocalizacion</small></p>
-    <div class="post col-10 my-5">
 
-      <div *ngFor="let pos of AllPost" class="row onePost my-5 col-12">
-          <div class="row">
-              <div><img class="close" src="../../assets/close.png" (click)="deletePost(pos.eventoId)" alt=""></div>
-              <div class="usuario col-2 my-3">
-            
-                <fa id="icons" name="fas fa-user"></fa>
-                <p>{{pos.usuario}}</p>
-              </div>
-            
-              <div class="col-10 descripcion my-3">
-            
-                <a [routerLink]="['/comentarios',pos.eventoId]">
-            
-                  <h2 id="titulo">El dia {{pos.formularioDia | date:"dd/MM/yyyy"}}</h2>
-                   
-                </a>
-            
-            
-                <p> Buenas estare a las {{pos.formularioHora }}. La distancia sera de {{pos.formularioDistancia}}.
-                </p>
-            
-                <p>{{pos.formularioMensaje}}</p>
-            
-                <div col-12>
-                    <img class="col-12" src="https://maps.googleapis.com/maps/api/staticmap?center={{pos.latitude}},{{pos.longitud}}&zoom=16&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C{{pos.latitude}},{{pos.longitud}}&key=AIzaSyCsfD7R9a5zeVCisKnbWYbfKBh5lYpZC28" alt="">
-                </div>
-            
-            
-            
-              </div>
+
+      <div *ngIf='AllPost.token== tokenUsuario'><img class="close" src="../../assets/close.png"
+          (click)="deletePost(pos.eventoId)" alt="">
+      </div>
+
+      <div class="row">
+        <div class="usuario col-2 ">
+
+          <img src="../../assets/iconfinder_user_male2_172626.png" alt="">
+
+          <label>{{pos.usuario | uppercase}}</label>
+          <label>{{pos.formularioDia | date:"dd/MM/yyyy"}}</label>
+          <label>{{pos.formularioHora }}</label>
+          <label>{{pos.formularioDistancia}}</label>
+        </div>
+
+        <div class="col-10 descripcion">
+
+<div class="mensaje">
+    <a class="mensaje" [routerLink]="['/comentarios',pos.eventoId]">{{pos.formularioMensaje}}</a>
+
+</div>
+
+          
+
+         
+
+          <div col-12 class="mapas">
+            <img class="col-10"
+              src="https://maps.googleapis.com/maps/api/staticmap?center={{pos.latitude}},{{pos.longitud}}&zoom=16&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C{{pos.latitude}},{{pos.longitud}}&key=AIzaSyCsfD7R9a5zeVCisKnbWYbfKBh5lYpZC28"
+              alt="">
+          </div>
+
+
+
+        </div>
       </div>
 
     </div>
   </div>
+
+
+<!-- FORMULARIO -->
+<div class="container col-md-12 ">
+
+    <h2 id="buscador">Publica tu Quedada</h2>
+    
   </div>
- 
-  <!-- FORMULARIO -->
 
-  <div id="formulario" class="form col-md-12 col-12">
+  <div class="container-fluid">
+      <div class="container frases">
 
+          <h2><label>NO encuentras tu quedada...</label></h2>
+      
+          <h2><label>Pues publica una con Fecha, distancia y lugar..
+      </label></h2>
+          <p class="activacion"><small>Acuerdate de activar la geolocalizacion</small></p>
+      
+        </div>
+  </div>
+
+
+<div id="formulario" class="container-fluid form col-md-12 col-12">
+
+  <div class="container bordere-up">
     <form novalidate class="well form-horizontal" id="contact_form" [formGroup]="formPost" (ngSubmit)="guardarNewPost()"
       *ngIf="formPost">
 
-     
-      <div class="row my-3">
-         
+
+      <div class="row col-11">
+
         <div class="input col-6">
 
           <label>Dia</label>
@@ -115,11 +161,13 @@
           Lugar
         </label>
 
-        <div class="row justify-content-center map">
+        <div class="container-fluid justify-content-center map">
 
-          <input class="form-control" type="text" id="inputPlace">
+          <div class="container bordere-up">
+            <input class="form-control col-11" type="text" id="inputPlace">
 
-          <div class="maps col-12" #googleMap style='width:900px; height:600px'>
+            <div class="maps col-12" #googleMap style='width:900px; height:600px'>
+            </div>
           </div>
 
         </div>
@@ -128,7 +176,7 @@
           Distancia
         </label>
 
-        <select class="form-control " formControlName="formularioDistancia">
+        <select class="form-control col-11 " formControlName="formularioDistancia">
 
           <option value="">Distancia que tienes pensado correr</option>
 
@@ -148,8 +196,7 @@
             Mensaje
           </label>
 
-          <textarea class="form-control" formControlName="formularioMensaje" placeholder="Me acompañas en el recorrido?"
-            name="" id="" cols="50" rows="10">
+          <textarea class="form-control col-11" formControlName="formularioMensaje" placeholder="Me acompañas en el recorrido?" rows="10"      >
           </textarea>
 
           <p><small>Acuerdate de activar la geolocalizacion</small></p>
@@ -164,5 +211,4 @@
 
     </form>
   </div>
-
 </div>

@@ -9,10 +9,12 @@ import { NoticiasService } from '../noticias.service';
 export class NoticiasComponent implements OnInit {
     noticias: any  []  
     noticia_selecionada:any
-    
+    i:any
   constructor(private noticiasService:NoticiasService){
+    this.i=0
      this.noticiasService.getAllNoticiasPromise().then((res)=>{
      this.noticias=res['items']
+     console.log(this.noticias)
      this.noticia_selecionada=this.noticias[0]
     })
     

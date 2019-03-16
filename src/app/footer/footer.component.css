@@ -1,22 +1,9 @@
-.text-center {
-	text-align: center !important;
-	color: white
- 
 
-}
-.pb-5, .py-5 {
-	padding-bottom: 1rem !important;
-	padding-top: 1rem  !important;
-	line-height: 78px;
-}
-
-.mb-5, .my-5 {
-	margin-bottom: 0 !important;
-	padding-top: 25px;
-}
 
 .footer{
-	background-color:  #70c5c0
+	background-color:  #3C4545;
+	box-sizing: border-box;
+	padding: 25px
 }
 a{
 	cursor: pointer;
@@ -24,5 +11,13 @@ a{
 
 }
 a:hover {
-	color: #6DA2D2 !important;
+	color: #ffdd59 !important;
+}
+
+.logos {
+margin: 0 auto
+}
+span{
+	font-size: 1em;
+	color: white
 }

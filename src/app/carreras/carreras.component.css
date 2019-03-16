@@ -1,9 +1,13 @@
 
 .carreras{
-    padding: 10px;
-    margin: 10px 0;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    
     border-radius: 5px;
-    background-color: white
+    
+}
+.titulo-noticias{
+    background-color: white;
 }
 
 
@@ -19,24 +23,85 @@ input {
 label{
     padding: 10px;
     font-weight: 900;
-    font-size: 1.2em
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
 }
 .titulo{
     padding: 25px;
-    font-size: 2.5em
+    font-size: 3em;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+   
 }
 
 .btn{
-    margin: 15px
-}
-strong{
-    margin-left: 10px
-}
-.container{
-    background-color: #e0e4e5;
-    padding-bottom: 5px
+    margin-top: 25px;
+    background-color: #485460;
+    padding: 25px;
+    border: 1px solid black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.3em;
+	color: #ffdd59;
+    
 
 }
-.nombrecarrera{
-    max-width:312px;
+
+.btn:hover{
+    background-color: #ffdd59;
+    color:#485460;
+    transition: 0.7s
+}
+
+strong{
+    margin-left: 10px
+    
+}
+
+.carrer{
+  margin: 0 0;
+  text-align: left
+}
+.imagen{
+    
+    height: 150px;
+
+}
+.container-fluid img{
+    padding: 0px;
+}
+.container-fluid {
+    padding: 0px;
+}
+
+.filtradodecarreras{
+    background-color: #d2dae2
+}
+.filtro{
+    background-color: white;
+    border: 25px solid white;
+}
+
+.descripcionCarreras{
+    background-color: white;
+}
+.dia{
+    box-sizing: border-box;
+    border: 20px solid white;
+    font-size: 3.5em;
+    padding: 0px;
+}
+
+.carreraDescripcion{
+    box-sizing: border-box;
+    border: 20px solid white
+}
+strong{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3em
+}
+span{
+    font-family: 'Hind', sans-serif;
+    font-size: 1.3em
 }

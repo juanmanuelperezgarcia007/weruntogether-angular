@@ -32,9 +32,11 @@ export class PostService {
 
   }
 
-  getAllPost() {
+  getAllPost(lon,lat) {
   
-    return this.httpClient.get(`${this.url}/${'allPost'}`,)
+    return this.httpClient.post(`${this.url}/${'allPost'}`,{
+      lat:lat,
+      lon:lon})
     .toPromise()
     
   }

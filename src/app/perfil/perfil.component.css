@@ -7,16 +7,39 @@ label{
     font-weight: 700
 }
 .btn-warning:hover{
-    background-color: #6DA2D2 !important;
-   
-    border-color: #6DA2D2;
-    color: black;
-    
+    background-color: #ffdd59;
+    color:#485460;
+    transition: 0.7s
 }
-.btn-warning {
-	color: white;
-	background-color: #70C5C0;
-	border-color: #70C5C0;
+.btn-warning{
+	
+    margin-top: 25px;
+    background-color: #485460;
+    padding: 25px;
+    border: 1px solid black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.3em;
+	color: #ffdd59;
+
+}
+
+.btn-delete:hover{
+    background-color: #485460;
+    color:#ffdd59;
+    transition: 0.7s
+}
+.btn-delete{
+	
+    margin-top: 25px;
+    background-color: #ffdd59;
+    padding: 25px;
+    border: 1px solid black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.3em;
+	color: #485460;
+
 }
 
 .photo{
