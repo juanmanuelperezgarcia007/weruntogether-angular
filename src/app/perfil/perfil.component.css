@@ -4,7 +4,11 @@
     margin-bottom: 50px;
 }
 label{
-    font-weight: 900
+    padding: 10px;
+    font-weight: 900;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    color: black
 }
 .btn-warning:hover{
     background-color: #ffdd59;

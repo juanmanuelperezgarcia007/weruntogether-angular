@@ -1,72 +1,108 @@
-<div class="container">
+<div id="quedadas"  class="container-fluid">
+
+  <img class="foto-noticias col-12" src="../../assets/noticias/noticia (16).jpg" alt="">
+
+</div>
 
 
-  <div *ngFor="let pos of AllPost" class="onePost my-5 col-12">
-    <div class="post row">
 
-      <div class="usuario col-2 my-3">
+<div class="container col-md-12 ">
+  <h2 id="quedada">Quedada</h2>
+</div>
 
-        <i id="icons" clas="fas fa-user"></i>
-        <p>{{pos.usuario | uppercase}}</p>
+<div *ngFor="let pos of AllPost" class="row container-fluid onePost">
+
+  <div class="post container" *ngIf="!AllPost?.length == 0">
+
+
+    <div class="row">
+      <div class="usuario col-2 ">
+
+        <img src="../../assets/iconfinder_user_male2_172626.png" alt="">
+
+        <label>{{pos.usuario | uppercase}}</label>
+        <label>{{pos.formularioDia | date:"dd/MM/yyyy"}}</label>
+        <label>{{pos.formularioHora }}</label>
+        <label>{{pos.formularioDistancia}}</label>
+        <div *ngIf='AllPost?.token === tokenUsuario'>
+
+        
+
+        </div>
       </div>
 
-      <div class="col-10 descripcion my-3">
+      <div class="col-10 descripcion">
+
+        <div class="mensaje">
+          <span class="mensaje">{{pos.formularioMensaje}}</span>
+
+        </div>
 
 
 
-        <h2 id="titulo">El dia {{pos.formularioDia | date:"dd/MM/yyyy"}}</h2>
 
 
-
-        <p> Buenas estare a las {{pos.formularioHora}}. La distancia sera de {{pos.formularioDistancia}}.
-        </p>
-
-        <p>{{pos.formularioMensaje}}</p>
-
-        <div col-12>
-          <img class="col-12"
+        <div col-12 class="mapas">
+          <img class="col-10"
             src="https://maps.googleapis.com/maps/api/staticmap?center={{pos.latitude}},{{pos.longitud}}&zoom=16&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C{{pos.latitude}},{{pos.longitud}}&key=AIzaSyCsfD7R9a5zeVCisKnbWYbfKBh5lYpZC28"
             alt="">
         </div>
 
 
 
-
-      </div>
-
-
-
-    </div>
-    <!-- PINTAR COMENTARIOS -->
-    <div *ngIf="!allComent?.length == 0" class="post pintarcomentario">
-      
-      <div *ngFor="let coment of allComent">
-          <div *ngIf='allComent.token== tokenUsuario'><img class="close" src="../../assets/close.png" (click)="deleteComent(coment.id)" alt=""></div>
-     <div class="comentario">
-       <div>{{coment.formularioMensaje}}</div>
-        <div class="descomentario"><strong>"{{coment.comentarios}}"</strong></div>
-        <hr>
-      <div class="usercoment">{{coment.usuario | uppercase}}</div>
- 
-     </div>
-
-
       </div>
     </div>
 
-      <!-- ESCRIBIR COMENTARIO -->
+  </div>
+</div>
 
 
-      <div class="escribirpost">
-        <h3>Escribe tu comentarios</h3>
-        <textarea class="comentarios primary" #mensaje cols="80" rows="5">
+
+
+<!-- PINTAR COMENTARIOS -->
+<div class="container-fluid">
+  <div *ngIf="!allComent?.length == 0" class="post pintarcomentario container ">
+
+    <div *ngFor="let coment of allComent">
+      <div *ngIf='allComent.token== tokenUsuario'></div>
+      <div class="comentario">
+        <div class="row">
+          <div class="usuario col-2 ">
+
+            <img src="../../assets/iconfinder_user_male2_172626.png" alt="">
+
+            <label>{{coment.usuario | uppercase}}</label>
+            <i class="fas fa-trash borrar" (click)="deleteComent(coment.id)"></i>
+            
+            
+          </div>
+
+
+          <div class="col-10 descripcion">
+
+            <div class="comentarios">
+              <span class="comentarios">{{coment.comentarios}}</span>
+
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ESCRIBIR COMENTARIO -->
+
+  <div class="row comentarios">
+    <div class="escribirpost">
+      <p class="label">Escribe tu comentarios</p>
+      <textarea class="comentarios primary" #mensaje cols="80" rows="5">
 
    </textarea>
 
-        <button (click)="saveComentario(mensaje.value)" class="btn btn-primary enviar col-6" type="submit">Guardar
-          Comentario</button>
-      </div>
+      <button (click)="saveComentario(mensaje.value)" class="btn btn-primary enviar col-6" type="submit">Guardar
+        Comentario</button>
+    </div>
 
-
-    
   </div>

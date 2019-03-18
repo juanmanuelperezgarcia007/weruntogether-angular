@@ -15,7 +15,7 @@ h3{
 
 .descripcion ul li span .numeros{
 text-align: center;
-color: white
+color: #ffdd59
 } 
 .descripcion p{
 	
@@ -37,5 +37,5 @@ color: white
 	font-size: 1.5em;
 	border: 1px solid #485460;
 	margin:0 auto;
-	color: #ffdd59
+	
 }

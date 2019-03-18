@@ -1,15 +1,80 @@
-.container{
-    background-color: #e0e4e5;
-    padding-bottom: 15px;
-    padding-top: 15px
+.container-fluid img{
+    padding: 0px;
 }
+.container-fluid {
+    padding: 0px;
+    background-color: #d2dae2;
+   
 
+}
+.container{
+    border:25px solid white;
+    background-color: white;
+    padding: 0px;
+   
+}
 #icons{
     font-size: 70px;
+}
+    .mapas{
+        margin: 20px auto;
+    }
+#quedada {
+    padding: 25px;
+    font-size: 3em;
+        background-color: white;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
     
 }
+.btn:hover{
+    background-color: #ffdd59;
+    color:#485460;
+    transition: 0.7s
+	
+}
+.btn{
+	
+    margin:25px auto;
+    background-color: #485460;
+    padding: 25px;
+    border: 1px solid black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.3em;
+	color: #ffdd59;
+
+}
+.mensaje{
+    cursor: pointer;
+  
+    font-weight: 900;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    color: black
+}
 label{
-    font-weight: 900
+    
+        padding: 10px;
+        font-weight: 900;
+        font-size: 1.2em;
+        font-family: 'Montserrat', sans-serif;
+        color: black
+    
+}
+.label{
+    
+    padding: 25px;
+    font-weight: 900;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    color: black
+
+}
+.borrar{
+    color: black;
+    font-size: 25px;
+    cursor: pointer;
 }
 .titulo{
     font-size: 5em;
@@ -24,21 +89,34 @@ h2{
     margin-bottom: 20px;
     border-radius: .25rem;
 }
+h3{
+    margin: 25px auto
+
+}
 
 .post{
    
     color:white;
-    margin: 58px auto;
+    margin: 0 auto;
     border-radius: 5px;
     padding: 25px;
-    background-color: #70c5c0
+    border-top: 3px solid black;
+    border-bottom: 3px solid black
     
 }
 
 
 .comentarios{
     
-    border-radius: .25rem;
+   padding: 15px;
+    
+   padding: 10px;
+   font-weight: 506;
+   font-size: 1.2em;
+   font-family: 'Montserrat', sans-serif;
+   color: black
+
+    
 }
 
 .enviar{
@@ -51,10 +129,10 @@ h3{
 }
 .pintarcomentario{
     color:black;
-    margin: 58px auto;
+    margin: 0 auto;
     border-radius: 5px;
     padding: 25px;
-    background-color: #70c5c0
+    background-color: white
 }
 .comentario{
     background-color: white;
@@ -90,3 +168,6 @@ h3{
     margin-top: 3px;
 }
 
+.escribirpost{
+    margin: 0 auto
+}
