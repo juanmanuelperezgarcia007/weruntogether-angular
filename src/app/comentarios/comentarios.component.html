@@ -43,6 +43,7 @@
       <div *ngFor="let coment of allComent">
           <div *ngIf='allComent.token== tokenUsuario'><img class="close" src="../../assets/close.png" (click)="deleteComent(coment.id)" alt=""></div>
      <div class="comentario">
+       <div>{{coment.formularioMensaje}}</div>
         <div class="descomentario"><strong>"{{coment.comentarios}}"</strong></div>
         <hr>
       <div class="usercoment">{{coment.usuario | uppercase}}</div>
