@@ -203,6 +203,7 @@ export class WeruntogetherComponent implements OnInit {
 
       console.log(res)
     })
+    this.formPost.reset()
   }
 
 
