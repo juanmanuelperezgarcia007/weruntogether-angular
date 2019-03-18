@@ -91,3 +91,10 @@
     display: inline-block;
     margin: 100px auto;
 }
+.contenido{
+	padding-top: 148px
+}
+
+#myModal{
+  margin-top:148px  
+}

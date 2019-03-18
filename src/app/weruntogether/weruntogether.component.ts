@@ -212,8 +212,9 @@ export class WeruntogetherComponent implements OnInit {
   mostrarPost() {
     
     this.postService.getAllPost(
-      this.posicionLatitude,
-      this.posicionLongitude
+      this.posicionLongitude,
+      this.posicionLatitude
+     
     
     )
       .then((res) => {
@@ -249,9 +250,9 @@ export class WeruntogetherComponent implements OnInit {
     console.log(pid)
     this.postService.borrarPost(pid).then((res)=>{
       console.log(res)
-      
-      this.mostrarPost()
       alert('Evento borrado')
+      this.mostrarPost()
+      
     })
   }
 

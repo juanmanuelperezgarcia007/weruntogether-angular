@@ -35,9 +35,12 @@ label{
     height: 150px;
 
 }
+div.mensaje{
+    margin-bottom: 25px;
+}
 .mensaje a{
     cursor: pointer;
-    
+  
     font-weight: 900;
     font-size: 1.2em;
     font-family: 'Montserrat', sans-serif;
@@ -129,10 +132,10 @@ h2{
 .close{
     width: 20px;
     position: absolute;
-    right: 0px;
+    left: 375px;
     cursor: pointer;
     color: black;
-    top: 5px;
+    top: 350px;
 }
 
 .mapas{
@@ -140,4 +143,10 @@ h2{
 }
 .bordere-up{
     border-top:none
+}
+
+.borrar{
+    color: black;
+    font-size: 25px;
+    cursor: pointer;
 }

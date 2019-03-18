@@ -54,6 +54,8 @@ export class CarrerasComponent implements OnInit {
       }
     })
     
+    this.form.reset()
+
   }
 
   

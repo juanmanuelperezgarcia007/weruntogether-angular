@@ -65,12 +65,7 @@
   <div *ngFor="let pos of AllPost" class="row onePost container-fluid col-12">
 
     <div class="post container" *ngIf="!AllPost?.length == 0">
-
-
-
-      <div *ngIf='AllPost.token== tokenUsuario'><img class="close" src="../../assets/close.png"
-          (click)="deletePost(pos.eventoId)" alt="">
-      </div>
+   
 
       <div class="row">
         <div class="usuario col-2 ">
@@ -81,6 +76,11 @@
           <label>{{pos.formularioDia | date:"dd/MM/yyyy"}}</label>
           <label>{{pos.formularioHora }}</label>
           <label>{{pos.formularioDistancia}}</label>
+          <div *ngIf='AllPost.token == tokenUsuario'>
+            
+            <i class="fas fa-trash borrar" (click)="deletePost(pos.id)"></i>
+      
+          </div>
         </div>
 
         <div class="col-10 descripcion">

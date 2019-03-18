@@ -1,7 +1,7 @@
 .noticias{
     border: 1px solid black;
    
-    cursor: pointer;
+   
     font-weight: 900;
     border: 10px solid white;
     box-sizing: border-box
@@ -15,7 +15,11 @@
     padding: 0px;
 }
 
-
+a{
+    color:black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 .tituloNoticias{
     

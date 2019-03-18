@@ -9,7 +9,7 @@ import { NoticiasService } from '../noticias.service';
 export class NoticiasComponent implements OnInit {
     noticias: any  []  
     noticia_selecionada:any
-    i:any
+    i:number
   constructor(private noticiasService:NoticiasService){
     this.i=0
      this.noticiasService.getAllNoticiasPromise().then((res)=>{

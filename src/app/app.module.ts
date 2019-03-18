@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -40,7 +39,6 @@ import { ComentariosComponent } from './comentarios/comentarios.component';
   ],
   imports: [
     BrowserModule,
-    AngularFontAwesomeModule,
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
     FormsModule,
