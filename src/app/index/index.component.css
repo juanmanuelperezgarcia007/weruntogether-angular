@@ -31,10 +31,11 @@ color: white
 .circulo{
 	width: 60px;
 	padding: 15px; 
-	background-color: #ff5e57;
+	background-color: #485460;
 	height: 60px;
 	border-radius:50%;
 	font-size: 1.5em;
 	border: 1px solid #485460;
-	margin:0 auto
+	margin:0 auto;
+	color: #ffdd59
 }
