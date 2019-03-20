@@ -1,3 +1,104 @@
-<p>
-  carreras works!
-</p>
+<div class="container-fluid">
+
+  <img class="foto-noticias col-12" src="../../assets/noticias/noticia(17).jpg" alt="">
+
+</div>
+
+
+<div class="container titulo-noticias ">
+  <div class="titulo-noticias">
+    <h2 class="titulo">Carreras</h2>
+  </div>
+</div>
+
+<div class="filtradodecarreras container-fluid">
+  
+<div class="filtro container">
+
+  <form novalidate id="contact_form" [formGroup]="form" (ngSubmit)="getFiltersRace()">
+
+
+    <div class="col12 container row">
+      <div class="filtrodistancia col-xl-6 col-xs-12">
+
+        <label>Distancia Min</label> <select formControlName="min" class="col-12 form-control selectpicker">
+          <option selected>Seleciona tu distancia</option>
+          <option value="5000">hasta 5km</option>
+          <option value="10000">hasta 10km</option>
+          <option value="21000">hasta 21km</option>
+          <option value="43000">hasta 42km</option>
+        </select>
+
+        <label>Distancia Max</label> <select formControlName="max" class="col-12 form-control selectpicker">
+
+          <option selected>Seleciona tu distancia</option>
+          <option value="5000">hasta 5km</option>
+          <option value="10000">hasta 10km</option>
+          <option value="21000">hasta 21km</option>
+          <option value="43000">hasta 42km</option>
+        </select>
+      </div>
+      <div class="col-xl-6 col-xs-12">
+        <label>Dia</label>
+        <input class="form-control selectpicker " formControlName="date" type="date">
+
+        <label>Tipo de carrera</label>
+        <select formControlName="type" class="form-control selectpicker " id="type">
+          <option value="" selected></option>
+          <option value="asfalto">Asfalto</option>
+          <option value="tierra">Tierra</option>
+          <option value="obstaculos">Obstaculos</option>
+
+        </select>
+
+
+      </div>
+
+      <div class="col-12">
+        <label>Ciudad</label>
+        <input class="col-12 form-control ciudad selectpicker" formControlName="city" type="text">
+      </div>
+
+    </div>
+
+    <button type="submit" class="col-xl-4 col-xs-8 btn btn-primary">Filtrar</button>
+
+  </form>
+</div>
+</div>
+
+<div class="container-fluid filtradodecarreras">
+
+    <div class="container  descripcionCarreras">
+
+        <div class="carreras row col-12" *ngFor="let car of carrerasAll">
+
+            <div class="dia col-xl-3 col-xs-12">
+              
+                <strong>{{ car.date | date:"dd/MM"}} </strong>
+              
+            </div>
+            <div class="carreraDescripcion col-xl-9 col-sm-12">
+              
+           <p class="carrer col-sm-12 col-12 ">
+              <strong class="col-xl-3 col-sm-12">Nombre: </strong><span class="col-xl-9 col-sm-12"> {{ car.name}}</span>
+            
+            </p>
+
+            <p class="carrer col-xl-12 "><strong class="col-xl-3">Distancia: </strong> <span class="col-xl-9">{{ car.distance}} </span></p>
+
+            <p  class="carrer col-sm-12 col-12 ">
+           
+              <strong class="col-xl-3">Ciudad: </strong><span class="col-9">{{ car.city}}</span>
+          
+            </p>
+
+            <p  class="carrer col-sm-12 col-12"><strong class="col-md-3 col-sm-12">Tipo de Carrera: </strong><span class="col-9 col-sm-12"> {{ car.type}}</span></p>
+
+            </div>
+
+          </div>
+    
+    </div>
+
+</div>

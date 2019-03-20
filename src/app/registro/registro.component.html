@@ -1,3 +1,153 @@
-<div class="container col-xl-12 col-sm-12">
+<div class="body container">
 
+    <form novalidate class="well form-horizontal" id="contact_form"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()">
+    <fieldset>
+
+<!-- Form Name -->
+<legend><h2><b>Registro</b></h2></legend><br>
+
+<!-- Text input-->
+
+<div class="form-group input-group">
+  <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label >Nombre</label>  </div>
+  <div class=" col-md-4 col-xl-4 inputGroupContainer">
+  <input formControlName="nombre"  placeholder="Nombre" class="form-control" required  type="text">
+    
+  </div>
 </div>
+
+<!-- Text input-->
+
+<div class="form-group input-group">
+  <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label >Apellidos</label>  </div>
+  <div class=" col-md-4 col-xl-4 inputGroupContainer">
+  <input  formControlName="apellidos" placeholder="Apellidos" required class="form-control"  type="text">
+    
+  </div>
+</div>
+
+<div class="form-group input-group">
+  <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label >Email</label>  </div>
+  <div class=" col-md-4 col-xl-4 inputGroupContainer">
+  <input  formControlName="email"  placeholder="Email" required class="form-control"  type="email">
+    
+  </div>
+</div>
+
+
+<div class="form-group input-group">
+  <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label >Usuario</label>  </div>
+  <div class=" col-md-4 col-xl-4 inputGroupContainer">
+  <input  formControlName="usuario"  placeholder="Usuario" required class="form-control"  type="text">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+
+<div class="form-group input-group">
+  <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label >Contraseña</label></div>
+  <div class=" col-md-4 col-xl-4 inputGroupContainer">
+  <input  formControlName="password"  placeholder="password" required class="form-control"  type="password">
+    
+  </div>
+</div>
+
+
+<div class="form-group input-group">
+  <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label>Provincia</label>  </div>
+  <div class=" col-md-4 col-xl-4 inputGroupContainer">
+  
+    
+ 
+    <select  formControlName="provincia" required class="form-control selectpicker">
+      <option value="">Seleciona tus provincia</option>
+      <option >Albacete</option>
+      <option >Alicante</option>
+      <option >Alava</option>
+      <option >Alicante</option>
+      <option >Almeria</option>
+      <option >Asturias</option>
+      <option >Avila</option>
+      <option >Badajoz</option>
+      <option >Barcelona</option>
+      <option >Burgos</option>
+      <option >Caceres</option>
+      <option >Cadiz</option>
+      <option >Cantabria</option>
+      <option >Castellon</option>
+      <option >Ciudad Real</option>
+      <option >Cordoba</option>
+      <option >Cuenca</option>
+      <option >Gerona</option>
+      <option >Granada</option>
+      <option >Guadalajara</option>
+      <option >Guipuzcoa</option>
+      <option >Huelva</option>
+      <option >Huesca</option>
+      <option >Islas Baleares</option>
+      <option >Jaen</option>
+      <option >La Coruña</option>
+      <option >La Rioja</option>
+      <option >Las Palmas</option>
+      <option >Leon</option>
+      <option >Lerida</option>
+      <option >Lugo</option>
+      <option >Madrid</option>
+      <option >Malaga</option>
+      <option >Murcia</option>
+      <option >Navarra</option>
+      <option >Orense</option>
+      <option >Palencia</option>
+      <option >Pontevedra</option>
+      <option >Salamanca</option>
+      <option >Segovia</option>
+      <option >Sevilla</option>
+      <option >Soria</option>
+      <option >Teruel</option>
+      <option >Tarragona</option>
+      <option >Tenerife</option>
+      <option >Toledo</option>
+      <option >Valencia</option>
+      <option >Valladolid</option>
+      <option >Vizcaya</option>
+      <option >Zamora</option>
+      <option >Zaragoza</option>
+    </select>
+  </div>
+</div>
+
+  
+
+
+<!-- Text input-->
+
+<div class="form-group input-group">
+  <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label >Poblacion</label>  </div>
+  <div class=" col-md-4 col-xl-4 inputGroupContainer">
+  <input formControlName="poblacion" placeholder="Poblacion" required class="form-control"  type="text">
+    
+  </div>
+</div>
+
+
+<!-- Select Basic -->
+
+<!-- Success message -->
+<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
+
+<!-- Button -->
+<div class="form-group input-group">
+  <div class="col-md-12 col-xl-12"><br>
+   <input type="submit" class="col-xl-6 btn btn-warning" [disabled]="form.invalid"><span class="glyphicon glyphicon-send" ></span>
+  </div>
+</div>
+<div>
+  
+</div>
+</fieldset>
+</form>
+</div>
+    

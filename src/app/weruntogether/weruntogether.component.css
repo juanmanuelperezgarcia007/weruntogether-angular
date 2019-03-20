@@ -1,0 +1,168 @@
+.container{
+    border:25px solid white;
+    background-color: white;
+    padding: 0px;
+   
+}
+
+label{
+    padding: 10px;
+    font-weight: 900;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    color: black
+}
+.label{
+    padding: 10px;
+    font-weight: 900;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    color: black
+}
+
+#buscador {
+    padding: 25px;
+    font-size: 3em;
+        background-color: white;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+    
+}
+.container-fluid img{
+    padding: 0px;
+}
+.container-fluid {
+    padding: 0px;
+    background-color: #eeeeee;
+   
+
+}
+.imagen{
+    border:25px solid white;
+    height: 150px;
+
+}
+div.mensaje{
+    margin-bottom: 25px;
+    margin-top: 25px
+}
+.mensaje a{
+    cursor: pointer;
+  
+    font-weight: 900;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    color: black
+}
+
+
+.post{
+   
+    color:white;
+    border-bottom:2px solid black;
+    padding: 25px;
+    padding-top: 0px
+    
+}
+
+.btn{
+	
+    margin-top: 25px;
+    background-color: #485460;
+    padding: 25px;
+    border: 1px solid black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.3em;
+	color: #ffdd59;
+
+}
+.bordere{
+    border-bottom: 3px solid black;
+    padding-bottom: 25px
+}
+
+.btn:hover{
+    background-color: #ffdd59;
+    color:#485460;
+    transition: 0.7s
+	
+}
+.col-11{
+    margin: 0 auto
+}
+
+.post div a{
+    color:black;
+    
+    
+}
+
+.descripcion{
+    text-align: center;
+
+}
+
+#icons{
+    font-size: 70px;
+    background-color: #485460;
+    
+}
+
+
+
+h2{
+    color: black
+}
+.activacion{
+    color: black
+}
+.dia{
+    margin-top: 8px
+}
+
+
+
+.onePost{
+    background-color: #eeeeee;
+   
+   
+    margin: 0 auto;
+}
+.maps{
+    margin: 40px auto;
+}
+.close{
+    width: 20px;
+    position: absolute;
+    left: 375px;
+    cursor: pointer;
+    color: black;
+    top: 350px;
+}
+
+.mapas{
+    margin-bottom: 20px;
+}
+.bordere-up{
+    border-top:none
+}
+
+.borrar{
+    color: black;
+    font-size: 25px;
+    cursor: pointer;
+}
+.textarea{
+    margin-bottom: 25px;
+}
+@media (max-width: 576px) {
+	
+	
+	.usuario{
+   border-bottom: 1px solid black;
+    }
+    .container{
+        border:10px solid white
+    }
+    }

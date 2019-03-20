@@ -1,0 +1,217 @@
+<div id="quedadas" class="container-fluid">
+
+  <img class="foto-noticias col-12" src="../../assets/noticias/noticia (16).jpg" alt="">
+
+</div>
+
+
+<div class="container col-md-12 ">
+  <h2 id="buscador">Buscador</h2>
+</div>
+
+<!-- BUSCADOR -->
+<div id="blog" class=" col-xl-12 container-fluid  blog">
+
+  <div class="container frases">
+
+    <h2><label>Busca tu quedada y unete </label></h2>
+
+    <h2><label>Puedes dejar un comentario en la quedada</label></h2>
+
+    <p class="activacion"><small>Acuerdate de activar la geolocalizacion</small></p>
+
+  </div>
+  <div class="container-fluid">
+    <div class="container bordere">
+      <form novalidate class="col-xl-12 well row form-horizontal " id="contact_form" [formGroup]="formBuscador"
+        *ngIf="formBuscador">
+
+        <div class="input col-xl-6">
+
+          <label>Dia</label>
+
+          <input class="form-control dia" (change)="filtrarDia()" formControlName="buscadorDia" type="date">
+
+        </div>
+
+        <div class="col-xl-6">
+
+          <label>Distancia</label>
+
+          <select class="form-control my-2" (change)='filtrarDistancia()' formControlName="buscadorDistancia">
+
+            <option selected value="distancia">Distancia por la que filtrar</option>
+
+            <option value="menos de 5 km">Menos de 5km</option>
+
+            <option value="5km a 10km">Desde 5 a 10 km</option>
+
+            <option value="mas de 10km">Mas de 10 km</option>
+
+            <option value="10km a 21km">Desde 10 hasta 21 km</option>
+
+          </select>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</div>
+<!-- BLOG -->
+
+
+
+<div *ngFor="let pos of AllPost" class="row onePost container-fluid">
+
+  <div class="post container" *ngIf="!AllPost?.length == 0">
+
+
+    <div class="row">
+      <div class="usuario col-xl-2 col-12 ">
+
+        <img src="../../assets/iconfinder_user_male2_172626.png" alt="">
+
+        <label>{{pos.usuario | uppercase}}</label>
+        <label>{{pos.formularioDia | date:"dd/MM/yyyy"}}</label>
+        <label>{{pos.formularioHora }}</label>
+        <label>{{pos.formularioDistancia}}</label>
+        <div *ngIf='AllPost[0].token === tokenUsuario'>
+
+          <i class="fas fa-trash borrar" (click)="deletePost(pos.eventoId)"></i>
+
+        </div>
+
+      </div>
+      <div class="col-xl-10 col-12 descripcion">
+
+        <div class="mensaje">
+          <a class="mensaje" [routerLink]="['/comentarios',pos.eventoId]">{{pos.formularioMensaje}}</a>
+
+        </div>
+
+
+
+
+
+        <div class="mapas col-12">
+          <img class="col-10"
+            src="https://maps.googleapis.com/maps/api/staticmap?center={{pos.latitude}},{{pos.longitud}}&zoom=16&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C{{pos.latitude}},{{pos.longitud}}&key=AIzaSyCsfD7R9a5zeVCisKnbWYbfKBh5lYpZC28"
+            alt="">
+        </div>
+
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- FORMULARIO -->
+<div class="container-fluid">
+  <div class="container">
+
+    <h2 id="buscador">NO encuentras tu quedada...</h2>
+
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="container frases">
+
+    <h2><label>Publica tu Quedada</label></h2>
+
+    <h2><label>Pues publica una con Fecha, distancia y lugar..
+      </label></h2>
+    <p class="activacion"><small>Acuerdate de activar la geolocalizacion</small></p>
+
+  </div>
+</div>
+
+
+<div id="formulario" class="container-fluid form col-md-12 col-12">
+
+  <div class="container bordere-up">
+    <form novalidate class="well form-horizontal" id="contact_form" [formGroup]="formPost" (ngSubmit)="guardarNewPost()"
+      *ngIf="formPost">
+
+
+      <div class="row col-11">
+
+        <div class="input col-6">
+
+          <label>Dia</label>
+
+          <input class="form-control" formControlName="formularioDia" type="date">
+
+        </div>
+
+        <div class="input col-6">
+          <label>Hora</label>
+          <input class="form-control" formControlName="formularioHora" type="time">
+
+        </div>
+
+
+      </div>
+
+      <div class="input">
+
+        <label>
+          Lugar
+        </label>
+
+        <div class="container-fluid justify-content-center map">
+
+          <div class="container bordere-up">
+            <input class="form-control col-11" type="text" id="inputPlace">
+
+            <div class="maps col-12" #googleMap style='width:900px; height:600px'>
+            </div>
+          </div>
+
+        </div>
+
+        <label>
+          Distancia
+        </label>
+
+        <select class="form-control col-11 " formControlName="formularioDistancia">
+
+          <option value="">Distancia que tienes pensado correr</option>
+
+          <option value="menos de 5 km">Menos de 5km</option>
+
+          <option value="5km a 10km">Desde 5 a 10 km</option>
+
+          <option value="mas de 10km ">Mas de 10 km</option>
+
+          <option value="10km a 21km">Desde 10 hasta 21 km</option>
+
+        </select>
+
+        <div class="mensaje">
+
+          <label>
+            Mensaje
+          </label>
+
+          <textarea class="form-control col-11 textarea" formControlName="formularioMensaje"
+            placeholder="Me acompañas en el recorrido?" rows="10">
+          </textarea>
+
+          <p><small>Acuerdate de activar la geolocalizacion</small></p>
+
+        </div>
+
+
+      </div>
+
+      <input class="btn btn-primary enviar col-6" type="submit" [disabled]="formPost.invalid">
+
+
+    </form>
+  </div>
+</div>

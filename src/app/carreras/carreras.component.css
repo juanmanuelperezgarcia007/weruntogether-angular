@@ -1,0 +1,123 @@
+
+.carreras{
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    
+    border-radius: 5px;
+    
+}
+.titulo-noticias{
+    background-color: white;
+}
+
+
+#distancia{
+    margin: 0 auto
+}
+
+input {
+    
+    text-align: center;
+    padding: 10px
+}
+label{
+    padding: 10px;
+    font-weight: 900;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+}
+.titulo{
+    padding: 25px;
+    font-size: 3em;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+   
+}
+
+.btn{
+    margin-top: 25px;
+    background-color: #485460;
+    padding: 25px;
+    border: 1px solid black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.3em;
+	color: #ffdd59;
+    
+
+}
+
+.btn:hover{
+    background-color: #ffdd59;
+    color:#485460;
+    transition: 0.7s
+}
+
+strong{
+    margin-left: 10px
+    
+}
+
+.carrer{
+  margin: 0 0;
+  text-align: left;
+  
+}
+.imagen{
+    
+    height: 150px;
+
+}
+.container-fluid img{
+    padding: 0px;
+}
+.container-fluid {
+    padding: 0px;
+}
+
+.filtradodecarreras{
+    background-color: #eeeeee
+}
+.filtro{
+    background-color: white;
+    border: 25px solid white;
+}
+
+.descripcionCarreras{
+    background-color: white;
+    
+    
+}
+.dia{
+    box-sizing: border-box;
+    border: 20px solid white;
+    font-size: 3.5em;
+    padding: 0px;
+}
+
+.carreraDescripcion{
+    box-sizing: border-box;
+    border-bottom: 25px solid white
+}
+strong{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3em
+}
+span{
+    font-family: 'Hind', sans-serif;
+    font-size: 1.3em
+}
+@media (max-width: 576px) {
+	strong{
+        display: block;
+        width: 100%;
+        text-align: center
+    }
+    span{
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center
+    }
+}

@@ -1,0 +1,65 @@
+#success_message{ display: none;}
+.container{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+label{
+    padding: 10px;
+    font-weight: 900;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    color: black
+}
+.btn-warning:hover{
+    background-color: #ffdd59;
+    color:#485460;
+    transition: 0.7s
+}
+.btn-warning{
+	
+    margin-top: 25px;
+    background-color: #485460;
+    padding: 25px;
+    border: 1px solid black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.3em;
+	color: #ffdd59;
+
+}
+
+.btn-delete:hover{
+    background-color: #485460;
+    color:#ffdd59;
+    transition: 0.7s
+}
+.btn-delete{
+	
+    margin-top: 25px;
+    background-color: #ffdd59;
+    padding: 25px;
+    border: 1px solid black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.3em;
+	color: #485460;
+
+}
+
+.photo{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: aqua;
+    margin:0 auto;
+    margin-bottom: 25px
+}
+h2.perfil{
+    padding: 25px;
+    font-size: 3em;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    
+   
+}

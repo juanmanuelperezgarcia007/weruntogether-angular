@@ -1,6 +1,42 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div style="text-align: center;">
   <app-header></app-header>
-  <router-outlet></router-outlet>
+  <div class="contenido"></div>
+  <router-outlet ></router-outlet>
   <app-footer></app-footer>
-
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-login">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="avatar">
+            <img src="./../assets/avatar.jpg" alt="Avatar">
+          </div>				
+          <h4 class="modal-title">Inicio de Sesion </h4>	
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form novalidate id="contact_form" 
+          [formGroup]="regform" 
+          (ngSubmit)="iniciar()" >
+          
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="usuario" placeholder="Usuario" required="required">		
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" formControlName="password" placeholder="Contraseña" required="required">	
+            </div>        
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Iniciar Sesion</button>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <a href="#">Olvidastes tu contraseña</a>
+        </div>
+        <div class="modal-footer">
+          <a data-dismiss="modal" [routerLink]="['registro']">¿No tienes cuenta? Registrate</a>
+        </div>
+      </div>
+    </div>
+  </div>     
+     

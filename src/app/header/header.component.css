@@ -1,19 +1,26 @@
 nav{
 	
-	margin:0 auto!important;
-	background-color: #40E0D0;
 
+	background-color: #485460
+
+}
+.titulo{
+	padding:0px;
+	
 }
 nav div div a{
 
-	padding: 25px 35px!important;
-	font-size: 1.5em;
+	padding: 25px!important;
+	font-size: 1.3em;
 	
 }
 
 nav div div a:hover{
 
-	background-color:#2BBBAD;
+	background-color: #ffdd59;
+	color: #3C4545 !important;
+	transition: 0.7s;
+	border-radius: 5px;
 	
 }
 
@@ -21,24 +28,45 @@ nav div div a:hover{
 	padding-left: 15px;
 	padding-right: 15px;
 }	
-.container{
-	padding: 0;
-	margin: 0 auto !important;
-}
+
 h1{
 	font-family: 'Monoton', cursive;
-	font-size: 4em;
-	padding: 15px 0;
-	color: green;
-	text-align: center;
-	background-color: black;
-	margin: 0 auto;
-	color: #40E0D0;
+	font-size: 2.5em;
 
+	text-align: left;
+	background-color: #485460;
+	margin: 0;
+	color : #ffdd59;
+	
+	
+
+}
+a{
+	text-decoration: none;
+	color: #ffdd59
 }
 .navbar-light .navbar-nav .nav-link {
 	color: white;
 	text-align: center
+}
+
+
+.container-fluid{
+	padding: 0;
+	margin: 0px
+}
+header{
+	position: fixed;
+	z-index: 9999999;
+}
+@media (max-width: 576px) {
+	h1{
+		font-size: 150%;    
+		padding: 19px!important;
+	
+	}
+	
+	
 }
 
 

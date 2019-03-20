@@ -1,5 +1,53 @@
+<<<<<<< HEAD
 .marco{
 	height: 500px;
 	background-color:black;
 	padding: 100px;
+=======
+.foto-portada{
+	width: 100%;	
+
+}
+
+.container-fluid{
+	padding: 0;
+}
+
+a{
+	text-decoration: none;
+	color: #ffdd59
+}
+h3{
+	padding-top: 25px;
+	font-size: 3em;
+	font-weight: 900;
+	font-family: Montserrat, "Arial Black", Gadget, sans-serif;
+}
+
+.descripcion ul li span .numeros{
+text-align: center;
+color: #ffdd59
+} 
+.descripcion p{
+	
+    font-family: 'Hind';
+    font-weight: 500;
+    letter-spacing: 3px;
+	font-style: normal;
+	padding: 15px;
+	font-size: 20px;
+
+}
+
+.circulo{
+	width: 60px;
+	padding: 15px; 
+	background-color: #485460;
+	height: 60px;
+	border-radius:50%;
+	font-size: 1.5em;
+	border: 1px solid #485460;
+	margin:0 auto;
+	
+>>>>>>> release/FINAL
 }

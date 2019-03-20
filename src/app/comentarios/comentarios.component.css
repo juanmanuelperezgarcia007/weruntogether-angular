@@ -1,0 +1,195 @@
+.container-fluid img{
+    padding: 0px;
+}
+.container-fluid {
+    padding: 0px;
+    background-color: #eeeeee;
+   
+
+}
+.container{
+    border:25px solid white;
+    background-color: white;
+    padding: 0px;
+   
+}
+#icons{
+    font-size: 70px;
+}
+    .mapas{
+        margin: 20px auto;
+    }
+#quedada {
+    padding: 25px;
+    font-size: 3em;
+        background-color: white;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+    
+}
+.btn:hover{
+    background-color: #ffdd59;
+    color:#485460;
+    transition: 0.7s
+	
+}
+.btn{
+	
+    margin:25px auto;
+    background-color: #485460;
+    padding: 25px;
+    border: 1px solid black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.3em;
+	color: #ffdd59;
+
+}
+div.mensaje{
+    margin-top:20px
+        
+    
+}
+.mensaje{
+    cursor: pointer;
+  
+    font-weight: 900;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    color: black
+}
+label{
+    
+        padding: 10px;
+        font-weight: 900;
+        font-size: 1.2em;
+        font-family: 'Montserrat', sans-serif;
+        color: black
+    
+}
+.label{
+    
+    padding: 25px;
+    font-weight: 900;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    color: black
+
+}
+.borrar{
+    color: black;
+    font-size: 25px;
+    cursor: pointer;
+}
+.titulo{
+    font-size: 5em;
+    padding:25px;
+    font-weight: 900
+}
+h2{
+    color: black
+}
+.maps{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: .25rem;
+}
+h3{
+    margin: 25px auto
+
+}
+
+.post{
+   
+    color:white;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 25px;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black
+    
+}
+
+
+.comentarios{
+    
+   padding: 15px;
+    
+   padding: 10px;
+   font-weight: 500;
+   font-size: 1.2em;
+   font-family: 'Montserrat', sans-serif;
+   color: black
+
+    
+}
+
+.enviar{
+    margin-top: 25px;
+    padding: 25px
+}
+h3{
+    padding-bottom: 25px;
+    margin-bottom: 0px
+}
+.pintarcomentario{
+    color:black;
+   
+    margin: 0 auto;
+    
+    
+    background-color: white
+}
+.comentario{
+    background-color: white;
+    padding: 10px 30px;
+    margin:10px;
+    border-radius: 5px;
+    border-bottom: 1px dashed;
+   
+
+}
+div.mensaje{
+    margin-bottom: 25px;
+    margin-top: 25px
+}
+
+.comentario hr{
+    margin-top: 1.25rem;
+    margin-bottom: .25rem;
+    border: 0;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.comentario .descomentario{
+    text-align: left;
+    font-size: 120%;
+    font-style: italic;
+}
+
+.comentario .usercoment{
+    text-align: right;
+}
+.close{
+    width: 20px;
+    position: absolute;
+    right: 52px;
+    cursor: pointer;
+    color: black;
+    margin-top: 3px;
+}
+
+.escribirpost{
+    margin: 0 auto
+}
+.row{
+    margin-right: 0px;
+    margin-left: 0px
+}
+@media (max-width: 576px) {
+	
+	
+	.usuario{
+   border-bottom: 1px solid black;
+    }
+    }

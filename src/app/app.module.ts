@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -10,7 +9,15 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routing';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { CarrerasComponent } from './carreras/carreras.component';
-import { TiendasComponent } from './tiendas/tiendas.component';
+
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { PerfilComponent } from './perfil/perfil.component';
+import { WeruntogetherComponent } from './weruntogether/weruntogether.component';
+import { ComentariosComponent } from './comentarios/comentarios.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -21,13 +28,23 @@ import { TiendasComponent } from './tiendas/tiendas.component';
     RegistroComponent,
     NoticiasComponent,
     CarrerasComponent,
-    TiendasComponent
+    PerfilComponent,
+    WeruntogetherComponent,
+    ComentariosComponent,
+ 
+ 
+ 
+    
+   
   ],
   imports: [
     BrowserModule,
-    AngularFontAwesomeModule,
-    RouterModule.forRoot(appRoutes)
- 
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+   
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
