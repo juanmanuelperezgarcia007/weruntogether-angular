@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+.marco{
+	height: 500px;
+	background-color:black;
+	padding: 100px;
+=======
 .foto-portada{
 	width: 100%;	
 
@@ -43,4 +49,5 @@ color: #ffdd59
 	border: 1px solid #485460;
 	margin:0 auto;
 	
+>>>>>>> release/FINAL
 }
