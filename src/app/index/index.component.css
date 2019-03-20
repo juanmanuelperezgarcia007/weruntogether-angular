@@ -6,6 +6,11 @@
 .container-fluid{
 	padding: 0;
 }
+
+a{
+	text-decoration: none;
+	color: #ffdd59
+}
 h3{
 	padding-top: 25px;
 	font-size: 3em;

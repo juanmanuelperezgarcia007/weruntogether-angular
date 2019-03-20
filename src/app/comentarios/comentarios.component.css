@@ -3,7 +3,7 @@
 }
 .container-fluid {
     padding: 0px;
-    background-color: #d2dae2;
+    background-color: #eeeeee;
    
 
 }
@@ -44,6 +44,11 @@
     font-size: 1.3em;
 	color: #ffdd59;
 
+}
+div.mensaje{
+    margin-top:20px
+        
+    
 }
 .mensaje{
     cursor: pointer;
@@ -111,7 +116,7 @@ h3{
    padding: 15px;
     
    padding: 10px;
-   font-weight: 506;
+   font-weight: 500;
    font-size: 1.2em;
    font-family: 'Montserrat', sans-serif;
    color: black
@@ -129,9 +134,10 @@ h3{
 }
 .pintarcomentario{
     color:black;
+   
     margin: 0 auto;
-    border-radius: 5px;
-    padding: 25px;
+    
+    
     background-color: white
 }
 .comentario{
@@ -139,8 +145,13 @@ h3{
     padding: 10px 30px;
     margin:10px;
     border-radius: 5px;
-    border: .5px solid #213b3a;
+    border-bottom: 1px dashed;
+   
 
+}
+div.mensaje{
+    margin-bottom: 25px;
+    margin-top: 25px
 }
 
 .comentario hr{
@@ -171,3 +182,14 @@ h3{
 .escribirpost{
     margin: 0 auto
 }
+.row{
+    margin-right: 0px;
+    margin-left: 0px
+}
+@media (max-width: 576px) {
+	
+	
+	.usuario{
+   border-bottom: 1px solid black;
+    }
+    }

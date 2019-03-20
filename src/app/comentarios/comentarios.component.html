@@ -6,7 +6,7 @@
 
 
 
-<div class="container col-md-12 ">
+<div class="container col-xl-12 ">
   <h2 id="quedada">Quedada</h2>
 </div>
 
@@ -16,7 +16,7 @@
 
 
     <div class="row">
-      <div class="usuario col-2 ">
+      <div class="usuario col-xl-2 col-12  ">
 
         <img src="../../assets/iconfinder_user_male2_172626.png" alt="">
 
@@ -31,7 +31,7 @@
         </div>
       </div>
 
-      <div class="col-10 descripcion">
+      <div class="col-xl-10 col-12 descripcion">
 
         <div class="mensaje">
           <span class="mensaje">{{pos.formularioMensaje}}</span>
@@ -42,8 +42,8 @@
 
 
 
-        <div col-12 class="mapas">
-          <img class="col-10"
+        <div class="col-12 mapas">
+          <img class="col-12 "
             src="https://maps.googleapis.com/maps/api/staticmap?center={{pos.latitude}},{{pos.longitud}}&zoom=16&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C{{pos.latitude}},{{pos.longitud}}&key=AIzaSyCsfD7R9a5zeVCisKnbWYbfKBh5lYpZC28"
             alt="">
         </div>
@@ -67,7 +67,7 @@
       <div *ngIf='allComent.token== tokenUsuario'></div>
       <div class="comentario">
         <div class="row">
-          <div class="usuario col-2 ">
+          <div class="usuario col-xl-2 ">
 
             <img src="../../assets/iconfinder_user_male2_172626.png" alt="">
 
@@ -78,7 +78,7 @@
           </div>
 
 
-          <div class="col-10 descripcion">
+          <div class="col-xl-10 descripcion">
 
             <div class="comentarios">
               <span class="comentarios">{{coment.comentarios}}</span>
@@ -95,13 +95,13 @@
   <!-- ESCRIBIR COMENTARIO -->
 
   <div class="row comentarios">
-    <div class="escribirpost">
+    <div class="col-12 col-xl-12 escribirpost">
       <p class="label">Escribe tu comentarios</p>
-      <textarea class="comentarios primary" #mensaje cols="80" rows="5">
+      <textarea class="comentarios primary col-xl-7"   #mensaje  placeholder="Escribe tu comentario" rows="5">
 
    </textarea>
 
-      <button (click)="saveComentario(mensaje.value)" class="btn btn-primary enviar col-6" type="submit">Guardar
+      <button (click)="saveComentario(mensaje.value)" class="btn btn-primary enviar col-9 col-xl-6" type="submit">Guardar
         Comentario</button>
     </div>
 

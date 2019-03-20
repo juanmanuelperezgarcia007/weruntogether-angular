@@ -15,9 +15,13 @@ a:hover {
 }
 
 .logos {
-margin: 0 auto
+margin: 0 auto;
+padding-bottom: 20px;
 }
 span{
 	font-size: 1em;
 	color: white
+}
+.footer-copyright{
+	margin: 0 auto;
 }

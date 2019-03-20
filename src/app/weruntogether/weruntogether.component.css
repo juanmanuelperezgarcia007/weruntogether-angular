@@ -12,6 +12,13 @@ label{
     font-family: 'Montserrat', sans-serif;
     color: black
 }
+.label{
+    padding: 10px;
+    font-weight: 900;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    color: black
+}
 
 #buscador {
     padding: 25px;
@@ -26,7 +33,7 @@ label{
 }
 .container-fluid {
     padding: 0px;
-    background-color: #d2dae2;
+    background-color: #eeeeee;
    
 
 }
@@ -37,6 +44,7 @@ label{
 }
 div.mensaje{
     margin-bottom: 25px;
+    margin-top: 25px
 }
 .mensaje a{
     cursor: pointer;
@@ -114,14 +122,9 @@ h2{
 }
 
 
-.usuario{
- 
-    height: 150px;
-    
-  
-}
+
 .onePost{
-    background-color: #d2dae2;
+    background-color: #eeeeee;
    
    
     margin: 0 auto;
@@ -153,3 +156,13 @@ h2{
 .textarea{
     margin-bottom: 25px;
 }
+@media (max-width: 576px) {
+	
+	
+	.usuario{
+   border-bottom: 1px solid black;
+    }
+    .container{
+        border:10px solid white
+    }
+    }

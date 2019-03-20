@@ -13,7 +13,7 @@
 <div class="form-group input-group">
   <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label >Nombre</label>  </div>
   <div class=" col-md-4 col-xl-4 inputGroupContainer">
-  <input formControlName="nombre"  placeholder="Nombre" class="form-control"  type="text">
+  <input formControlName="nombre"  placeholder="Nombre" class="form-control" required  type="text">
     
   </div>
 </div>
@@ -23,7 +23,7 @@
 <div class="form-group input-group">
   <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label >Apellidos</label>  </div>
   <div class=" col-md-4 col-xl-4 inputGroupContainer">
-  <input  formControlName="apellidos" placeholder="Apellidos" class="form-control"  type="text">
+  <input  formControlName="apellidos" placeholder="Apellidos" required class="form-control"  type="text">
     
   </div>
 </div>
@@ -31,7 +31,7 @@
 <div class="form-group input-group">
   <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label >Email</label>  </div>
   <div class=" col-md-4 col-xl-4 inputGroupContainer">
-  <input  formControlName="email"  placeholder="Email" class="form-control"  type="email">
+  <input  formControlName="email"  placeholder="Email" required class="form-control"  type="email">
     
   </div>
 </div>
@@ -40,7 +40,7 @@
 <div class="form-group input-group">
   <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label >Usuario</label>  </div>
   <div class=" col-md-4 col-xl-4 inputGroupContainer">
-  <input  formControlName="usuario"  placeholder="Usuario" class="form-control"  type="text">
+  <input  formControlName="usuario"  placeholder="Usuario" required class="form-control"  type="text">
     
   </div>
 </div>
@@ -50,7 +50,7 @@
 <div class="form-group input-group">
   <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label >Contraseña</label></div>
   <div class=" col-md-4 col-xl-4 inputGroupContainer">
-  <input  formControlName="password"  placeholder="password" class="form-control"  type="password">
+  <input  formControlName="password"  placeholder="password" required class="form-control"  type="password">
     
   </div>
 </div>
@@ -62,7 +62,7 @@
   
     
  
-    <select  formControlName="provincia"  class="form-control selectpicker">
+    <select  formControlName="provincia" required class="form-control selectpicker">
       <option value="">Seleciona tus provincia</option>
       <option >Albacete</option>
       <option >Alicante</option>
@@ -127,7 +127,7 @@
 <div class="form-group input-group">
   <div class=" offset-md-1 offset-xl-2 col-md-4 col-xl-3 control-label"><label >Poblacion</label>  </div>
   <div class=" col-md-4 col-xl-4 inputGroupContainer">
-  <input formControlName="poblacion" placeholder="Poblacion" class="form-control"  type="text">
+  <input formControlName="poblacion" placeholder="Poblacion" required class="form-control"  type="text">
     
   </div>
 </div>
@@ -141,7 +141,7 @@
 <!-- Button -->
 <div class="form-group input-group">
   <div class="col-md-12 col-xl-12"><br>
-   <button type="submit" class="col-xl-6 btn btn-warning">Enviar<span class="glyphicon glyphicon-send"></span></button>
+   <input type="submit" class="col-xl-6 btn btn-warning" [disabled]="form.invalid"><span class="glyphicon glyphicon-send" ></span>
   </div>
 </div>
 <div>

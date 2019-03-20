@@ -7,11 +7,12 @@ import { LoginService } from '../login.service'
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  
+  isCollapsed:boolean
 
   constructor(public loginService:LoginService) { }
 
   ngOnInit() {
+    this.isCollapsed=true
   }
   closedSession(){
     this.loginService.cerrarSesion()

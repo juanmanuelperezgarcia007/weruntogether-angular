@@ -1,43 +1,42 @@
 
 <div class="container-fluid">
+    <span id="titulares"></span>
+  <img class="foto-noticias" src="../../assets/noticias/noticia (14).jpg"  >
   
-    <img class="foto-noticias col-12" src="../../assets/noticias/noticia (14).jpg" alt="">
- 
 </div>
-<div class="contenedor">
-    <a id='titulares'></a>
-<h2 class="tituloNoticias">Noticias</h2>
+<div class="container-fluid">
+  <div class="container">
+      <h2 class="tituloNoticias">Noticias</h2>
+    <div class="row">
+        <div *ngFor="let not of noticias; let i = index;" class="my-3 col-sm-12 col-lg-6 col-xl-4 noticias" >
 
-<div class="row">
-
- 
-  <div class="titulares row col-12">
-
-    <div *ngFor="let not of noticias" class="my-3 col-4 noticias" (click)="selecionarNoticia(not)">
-
+            <div class="imagen-noticia imagen">
+              <img class="col-12 " src="../../assets/noticias_img/noticia({{i}}).jpg" alt="">
+            </div>
+    
+            <div class="titulo" (click)="selecionarNoticia(not, $event)">
+              <a href="/noticias#descripcionNoticia">
+                <p id="{{i}}" class="tituloNoticia" [innerHtml]="not.title"></p>
+              </a>
+            </div>
+    
+        </div>
+        <span id='descripcionNoticia'></span>
+    </div>
+    <hr>
+    
+    <div class="descripcionNoticia my-5" *ngIf='noticia_selecionada'>
+      <h2 class="tituloNoticiaSelecionada" [innerHtml]="noticia_selecionada.title"></h2>
       <div class="imagen-noticia">
-        <img class="col-12 imagen" src="../../assets/noticias/noticia($i).jpg" alt="">
-      </div>
-
-      <div class="titulo">
-          <a href="/noticias#descripcionNoticia"> <p class="tituloNoticia" [innerHtml]="not.title"></p></a>
-      </div>
-
+          <img class=" imagendescripcion" src="../../assets/noticias_img/noticia({{fotoSeleccionada}}).jpg" alt="">
+        </div>
+      <p class="contenido_noticia" [innerHtml]="noticia_selecionada.description"></p>
+      
     </div>
 
-  </div>
-  <hr class="col-12">
-  <a id='descripcionNoticia'></a>
-  <div class="descripcionNoticia col-12 my-5" *ngIf='noticia_selecionada'>
-
-    <p class="contenido_noticia" [innerHtml]="noticia_selecionada.description">
-
-    </p>
-    <div>
-      <div class="up justify-content-end">
-        <a href="/noticias#titulares"><img class="up col-12" src="../../assets/up.png"></a>
+    <div class="up justify-content-end">
+        <a href="/noticias#titulares"><i class="fas fa-chevron-up"></i></a>
+        
       </div>
-    </div>
   </div>
-</div>
 </div>

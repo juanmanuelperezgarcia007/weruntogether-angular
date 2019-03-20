@@ -10,6 +10,7 @@ export class NoticiasComponent implements OnInit {
     noticias: any  []  
     noticia_selecionada:any
     i:number
+    fotoSeleccionada:any
   constructor(private noticiasService:NoticiasService){
     this.i=0
      this.noticiasService.getAllNoticiasPromise().then((res)=>{
@@ -20,9 +21,13 @@ export class NoticiasComponent implements OnInit {
     
   }
 
-  selecionarNoticia(not){
-    this.noticia_selecionada= not
+  selecionarNoticia(not, evento){
+    this.noticia_selecionada= not;
+    this.fotoSeleccionada= evento.target.id;
+
   }
+
+  
 
   ngOnInit() {
   

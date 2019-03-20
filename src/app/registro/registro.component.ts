@@ -13,13 +13,13 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit() {
     this.form= new FormGroup({
-      nombre: new FormControl('', Validators.pattern(/[a-zA-Z Á-Úá-ú][^1234567890]+$/)),
-      apellidos: new FormControl('', Validators.pattern(/[a-zA-Z Á-Úá-ú][^1234567890]+$/)),
+      nombre: new FormControl('', [Validators.required,Validators.pattern(/[a-zA-Z Á-Úá-ú][^1234567890]+$/)]),
+      apellidos: new FormControl('', [Validators.required,Validators.pattern(/[a-zA-Z Á-Úá-ú][^1234567890]+$/)]),
       usuario: new FormControl(''),
-      password: new FormControl('', Validators.pattern(/(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$/)),
-      provincia: new FormControl(''),
-      poblacion: new FormControl(''),
-      email: new FormControl('',Validators.pattern(/^((([!#$%&'*+\-/=?^_`{|}~\w])|([!#$%&'*+\-/=?^_`{|}~\w][!#$%&'*+\-/=?^_`{|}~\.\w]{0,}[!#$%&'*+\-/=?^_`{|}~\w]))[@]\w+([-.]\w+)*\.\w+([-.]\w+)*)$/)),
+      password: new FormControl('', [Validators.required,Validators.pattern(/(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$/)]),
+      provincia: new FormControl('',[Validators.required]),
+      poblacion: new FormControl('',[Validators.required]),
+      email: new FormControl('',[Validators.required, Validators.pattern(/^((([!#$%&'*+\-/=?^_`{|}~\w])|([!#$%&'*+\-/=?^_`{|}~\w][!#$%&'*+\-/=?^_`{|}~\.\w]{0,}[!#$%&'*+\-/=?^_`{|}~\w]))[@]\w+([-.]\w+)*\.\w+([-.]\w+)*)$/)]),
     })
   }
   onSubmit(){

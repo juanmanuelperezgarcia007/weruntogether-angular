@@ -32,7 +32,7 @@ export class WeruntogetherComponent implements OnInit {
   fk_usuarios: any
   posicionLatitude:number
   posicionLongitude:number
-
+  tokenUsuario:any
   constructor(private postService: PostService, private router:Router) {
     
 
@@ -40,8 +40,10 @@ export class WeruntogetherComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    this.tokenUsuario = localStorage.getItem('token')
 
+
+  console.log(this.tokenUsuario)
     this.image =`https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitud}&zoom=16&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C${this.latitude},${this.longitud}&key=AIzaSyCsfD7R9a5zeVCisKnbWYbfKBh5lYpZC28`
     
    
@@ -53,18 +55,18 @@ export class WeruntogetherComponent implements OnInit {
 
     this.formBuscador = new FormGroup({
 
-      buscadorDia: new FormControl(''),
-      buscadorDistancia: new FormControl(''),
+      buscadorDia: new FormControl('',),
+      buscadorDistancia: new FormControl('',),
 
     })
 
     // FORMULARIO POST
     this.formPost = new FormGroup({
 
-      formularioDia: new FormControl(''),
-      formularioHora: new FormControl(''),
-      formularioDistancia: new FormControl(''),
-      formularioMensaje: new FormControl(''),
+      formularioDia: new FormControl('',[Validators.required]),
+      formularioHora: new FormControl('',[Validators.required]),
+      formularioDistancia: new FormControl('',[Validators.required]),
+      formularioMensaje: new FormControl('',[Validators.required]),
 
     })
 

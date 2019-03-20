@@ -32,13 +32,18 @@ nav div div a:hover{
 h1{
 	font-family: 'Monoton', cursive;
 	font-size: 2.5em;
-	padding:50px!important;;
+
 	text-align: left;
 	background-color: #485460;
 	margin: 0;
 	color : #ffdd59;
 	
+	
 
+}
+a{
+	text-decoration: none;
+	color: #ffdd59
 }
 .navbar-light .navbar-nav .nav-link {
 	color: white;
@@ -54,4 +59,14 @@ header{
 	position: fixed;
 	z-index: 9999999;
 }
+@media (max-width: 576px) {
+	h1{
+		font-size: 150%;    
+		padding: 19px!important;
+	
+	}
+	
+	
+}
+
 

@@ -7,14 +7,21 @@ label{
     font-weight: 700
 }
 .btn-warning:hover{
-    background-color: #6DA2D2 !important;
-   
-    border-color: #6DA2D2;
-    color: black;
-    
+    background-color: #ffdd59;
+    color:#485460;
+    transition: 0.7s
+	
 }
-.btn-warning {
-	color: white;
-	background-color: #70C5C0;
-	border-color: #70C5C0;
+
+.btn-warning{
+	
+    margin:25px auto;
+    background-color: #485460;
+    padding: 25px;
+    border: 1px solid black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.3em;
+	color: #ffdd59;
+
 }

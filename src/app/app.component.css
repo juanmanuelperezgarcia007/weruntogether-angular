@@ -92,9 +92,17 @@
     margin: 100px auto;
 }
 .contenido{
-	padding-top: 148px
+	padding-top:97px;
 }
 
 #myModal{
   margin-top:148px  
 }
+
+@media (max-width: 576px) {
+	
+	
+	.contenido{
+        padding-top: 112px;
+    }
+    }
