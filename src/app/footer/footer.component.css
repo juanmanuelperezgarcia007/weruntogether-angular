@@ -16,7 +16,7 @@ a:hover {
 
 .logos {
 margin: 0 auto;
-padding-bottom: 20px;
+padding: 20px;
 }
 span{
 	font-size: 1em;
@@ -24,4 +24,5 @@ span{
 }
 .footer-copyright{
 	margin: 0 auto;
+	padding: 20px;
 }

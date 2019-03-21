@@ -98,7 +98,8 @@ strong{
 
 .carreraDescripcion{
     box-sizing: border-box;
-    border-bottom: 25px solid white
+    border-bottom: 25px solid white;
+    border-top:25px solid white;
 }
 strong{
     font-family: 'Montserrat', sans-serif;

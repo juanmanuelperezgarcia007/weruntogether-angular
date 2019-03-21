@@ -24,7 +24,7 @@
           
           <a class="nav-item nav-link" [routerLink]="['carreras']" (click)="isCollapsed = !isCollapsed">Proximas Carreras</a>
           
-          <a class="nav-item nav-link trigger-btn" *ngIf="loginService.mostrar" (click)="isCollapsed = !isCollapsed" href="#myModal"  data-toggle="modal" >Iniciar Sesion</a>
+          <a class="nav-item nav-link trigger-btn" *ngIf="loginService.mostrar" (click)="isCollapsed = !isCollapsed" href="#myModal"  data-toggle="modal" >Iniciar Sesión</a>
           
           <a class="nav-item nav-link" *ngIf="loginService.mostrar" [routerLink]="['registro'] "(click)="isCollapsed = !isCollapsed">Registro</a>
           
@@ -33,7 +33,7 @@
           <a class="nav-item nav-link" *ngIf="loginService.noMostrar" [routerLink]="
           ['perfil']" (click)="isCollapsed = !isCollapsed">Perfil</a>
 
-          <a class="nav-item nav-link" *ngIf="loginService.noMostrar" (click)='closedSession()'>Cerrar Sesion</a>
+          <a class="nav-item nav-link" *ngIf="loginService.noMostrar" (click)='closedSession()'>Cerrar Sesión</a>
 
         </div>
       </div>
