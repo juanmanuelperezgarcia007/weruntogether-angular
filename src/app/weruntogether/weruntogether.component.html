@@ -14,11 +14,11 @@
 
   <div class="container frases">
 
-    <h2><label>Busca tu quedada y unete </label></h2>
+    <h2><label>Busca tu quedada y únete </label></h2>
 
     <h2><label>Puedes dejar un comentario en la quedada</label></h2>
 
-    <p class="activacion"><small>Acuerdate de activar la geolocalizacion</small></p>
+    <p class="activacion"><small>Acuérdate de activar la geolocalización</small></p>
 
   </div>
   <div class="container-fluid">
@@ -28,7 +28,7 @@
 
         <div class="input col-xl-6">
 
-          <label>Dia</label>
+          <label>Día</label>
 
           <input class="form-control dia" (change)="filtrarDia()" formControlName="buscadorDia" type="date">
 
@@ -76,7 +76,8 @@
         <label>{{pos.formularioDia | date:"dd/MM/yyyy"}}</label>
         <label>{{pos.formularioHora }}</label>
         <label>{{pos.formularioDistancia}}</label>
-        <div *ngIf='AllPost[0].token === tokenUsuario'>
+
+        <div *ngIf='pos.token === tokenUsuario'>
 
           <i class="fas fa-trash borrar" (click)="deletePost(pos.eventoId)"></i>
 
@@ -125,7 +126,7 @@
 
     <h2><label>Pues publica una con Fecha, distancia y lugar..
       </label></h2>
-    <p class="activacion"><small>Acuerdate de activar la geolocalizacion</small></p>
+    <p class="activacion"><small>Acuérdate de activar la geolocalizacion</small></p>
 
   </div>
 </div>
@@ -142,7 +143,7 @@
 
         <div class="input col-6">
 
-          <label>Dia</label>
+          <label>Día</label>
 
           <input class="form-control" formControlName="formularioDia" type="date">
 
@@ -202,7 +203,7 @@
             placeholder="Me acompañas en el recorrido?" rows="10">
           </textarea>
 
-          <p><small>Acuerdate de activar la geolocalizacion</small></p>
+          <p><small>Acuérdate de activar la geolocalizacion</small></p>
 
         </div>
 

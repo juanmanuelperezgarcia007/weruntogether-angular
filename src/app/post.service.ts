@@ -7,10 +7,11 @@ import { Router } from '@angular/router'
 })
 export class PostService {
   url: string
-  postList : any
+  postList: any
 
   constructor(private httpClient: HttpClient) {
 
+    // this.url = 'https://back.weruntogether.es/api/quedadas'
     this.url = 'http://localhost:3000/api/quedadas'
    
 
@@ -32,61 +33,62 @@ export class PostService {
 
   }
 
-  getAllPost(lon,lat) {
-  
-    return this.httpClient.post(`${this.url}/${'allPost'}`,{
-      lat:lat,
-      lon:lon})
-    .toPromise()
-    
+  getAllPost(lon, lat) {
+
+    return this.httpClient.post(`${this.url}/${'allPost'}`, {
+      lat: lat,
+      lon: lon
+    })
+      .toPromise()
+
   }
 
-  filtersDistance(pdistance){
+  filtersDistance(pdistance) {
     return this.httpClient.post(`${this.url}/${'filtrarPostDistancia'}`, {
       BuscadorDistancia: pdistance,
     }).toPromise()
   }
 
-  filtersDate(pdate){
+  filtersDate(pdate) {
     return this.httpClient.post(`${this.url}/${'filtrarPostDate'}`, {
       buscadorDia: pdate,
     }).toPromise()
   }
 
-  getComentarios(id){
+  getComentarios(id) {
     return this.httpClient.get<any>(`${this.url}/comentarios/${id}`).toPromise()
-    
+
   }
-  
-  guardarComentario(ptoken,comentario,idruta){
+
+  guardarComentario(ptoken, comentario, idruta) {
     return this.httpClient.post(`${this.url}/guardarComentarios`, {
-      tokenUsuario:ptoken,
-      comentarios:comentario,
-      fk_eventos:idruta,
-     }).toPromise()
+      tokenUsuario: ptoken,
+      comentarios: comentario,
+      fk_eventos: idruta,
+    }).toPromise()
   }
 
-  pintarComentarios(pidEventos){
-    return this.httpClient.post(`${this.url}/paintComentarios`,{
-      fk_eventos:pidEventos
-      
+  pintarComentarios(pidEventos) {
+    return this.httpClient.post(`${this.url}/paintComentarios`, {
+      fk_eventos: pidEventos
+
     }).toPromise()
-    
+
   }
 
-  borrarComentarios(pid){
-    return this.httpClient.post(`${this.url}/deleteComentario`,{
-      id:pid
-      
+  borrarComentarios(pid) {
+    return this.httpClient.post(`${this.url}/deleteComentario`, {
+      id: pid
+
     }).toPromise()
-    
+
   }
 
-  borrarPost(pid){
-    return this.httpClient.post(`${this.url}/deletePost`,{
-      id:pid
-      
+  borrarPost(pid) {
+    return this.httpClient.post(`${this.url}/deletePost`, {
+      id: pid
+
     }).toPromise()
-    
+
   }
 }

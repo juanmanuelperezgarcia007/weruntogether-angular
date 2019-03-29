@@ -41,8 +41,8 @@ export class WeruntogetherComponent implements OnInit {
 
   ngOnInit() {
     this.tokenUsuario = localStorage.getItem('token')
-
-
+    console.log(this.tokenUsuario)
+    console.log(this.AllPost)
   console.log(this.tokenUsuario)
     this.image =`https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitud}&zoom=16&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C${this.latitude},${this.longitud}&key=AIzaSyCsfD7R9a5zeVCisKnbWYbfKBh5lYpZC28`
     
