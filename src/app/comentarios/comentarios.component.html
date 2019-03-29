@@ -61,7 +61,7 @@
 
 <!-- PINTAR COMENTARIOS -->
 <div class="container-fluid">
-  <div *ngIf="!allComent?.length == 0" class="post pintarcomentario container ">
+  <div *ngIf="!(allComent?.length == 0)" class="post pintarcomentario container ">
 
     <div *ngFor="let coment of allComent">
       <div *ngIf='allComent.token== tokenUsuario'></div>

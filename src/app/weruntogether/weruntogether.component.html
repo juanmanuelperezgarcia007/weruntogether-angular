@@ -76,7 +76,8 @@
         <label>{{pos.formularioDia | date:"dd/MM/yyyy"}}</label>
         <label>{{pos.formularioHora }}</label>
         <label>{{pos.formularioDistancia}}</label>
-        <div *ngIf='AllPost[0].token === tokenUsuario'>
+
+        <div *ngIf='pos.token === tokenUsuario'>
 
           <i class="fas fa-trash borrar" (click)="deletePost(pos.eventoId)"></i>
 

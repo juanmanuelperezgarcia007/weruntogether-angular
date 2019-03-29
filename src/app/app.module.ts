@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routing';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { CarrerasComponent } from './carreras/carreras.component';
+import { HashLocationStrategy, LocationStrategy} from '@angular/common';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -46,7 +47,7 @@ import { ComentariosComponent } from './comentarios/comentarios.component';
    
    
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
