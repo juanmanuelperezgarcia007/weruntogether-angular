@@ -21,8 +21,8 @@ export class CarrerasService {
 
   }
 
-  getFilters(pmin, pmax, pdate, ptype, pcity) {
-    return this.httpClient.post(`${this.url_filter}`, { min: pmin, max: pmax, date: pdate, type: ptype, city: pcity }).toPromise()
+  getFilters(pmin, pmax, pdate, ptype, pcity, pprovincia) {
+    return this.httpClient.post(`${this.url_filter}`, { min: pmin, max: pmax, date: pdate, type: ptype, city: pcity, provincia:pprovincia }).toPromise()
   }
 
 

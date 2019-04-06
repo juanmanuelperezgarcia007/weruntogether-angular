@@ -22,6 +22,7 @@ export class CarrerasComponent implements OnInit {
       type: new FormControl('' ),
       date: new FormControl(''),
       city: new FormControl(''),
+      provincia: new FormControl('')
     })
     
     this.mostrarCarreras()
@@ -43,6 +44,7 @@ export class CarrerasComponent implements OnInit {
       this.form.value.max,
       this.form.value.date,
       this.form.value.type,
+      this.form.value.provincia,
       this.form.value.city)
     
     .then((res)=>{
