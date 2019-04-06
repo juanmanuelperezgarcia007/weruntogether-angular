@@ -11,7 +11,7 @@ export class LoginService {
   noMostrar = false
   token: any
   constructor(private httpClient: HttpClient, public router: Router) {
-    // this.url = 'https://back.weruntogether.es/api/registro'
+    // this.url = 'http://back.weruntogether.es/api/registro'
     // this.url_inicio = 'http://back.weruntogether.es/api/inicio'
     this.url = 'http://localhost:3000/api/registro'
     this.url_inicio = 'http://localhost:3000/api/inicio'

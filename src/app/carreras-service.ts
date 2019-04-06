@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 
 export class CarrerasService {
-  // url = 'https://back.weruntogether.es/api/carreras'
+  // url = 'http://back.weruntogether.es/api/carreras'
   // url_filter = 'http://back.weruntogether.es/api/carreras/filtrarCarreras'
   url='http://localhost:3000/api/carreras'
   url_filter='http://localhost:3000/api/carreras/filtrarCarreras'
