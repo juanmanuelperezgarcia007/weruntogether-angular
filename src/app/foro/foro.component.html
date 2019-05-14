@@ -1,0 +1,29 @@
+<div>
+  <div class="container-fluid">
+    <span id="titulares"></span>
+    <img class="foto-noticias" src="../../assets/noticias/noticia (14).jpg">
+  
+  </div>
+  
+  <div class="container col-md-12 ">
+    <h2 id="buscador">Foro de preguntas</h2>
+  </div>
+<div class="container-fluid preguntas"> 
+<div class="container todoPreguntas">
+  <div  *ngFor="let pre of AllPreguntas">
+      
+    <div class="container frases">
+  
+    
+     <div class="circulo"> <h2 class="label">{{pre.id}}</h2></div> <a class="respuestas" [routerLink]="['/respuestas',pre.id]"><h2 class="label">{{pre.pregunta}}</h2></a>
+      
+
+    </div>
+  
+   
+    </div>
+  
+  </div>
+  </div>
+</div>
+<!-- [disabled]="form.invalid" -->

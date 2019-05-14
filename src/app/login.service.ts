@@ -1,21 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class LoginService implements OnInit {
   url: string
   url_inicio: string
   mostrar = true
   noMostrar = false
   token: any
+  tokenUsuario:any
   constructor(private httpClient: HttpClient, public router: Router) {
     // this.url = 'http://back.weruntogether.es/api/registro'
     // this.url_inicio = 'http://back.weruntogether.es/api/inicio'
     this.url = 'http://localhost:3000/api/registro'
     this.url_inicio = 'http://localhost:3000/api/inicio'
 
+  }
+
+  ngOnInit(){
+   this.tokenUsuario = localStorage.getItem('token')
+   console.log(this.tokenUsuario)
   }
 
   getLogin(pusuario, ppassword) {
@@ -28,29 +35,46 @@ export class LoginService {
   }
 
   editUser(ptoken) {
-    let tokenVar = localStorage.getItem('token')
-    return this.httpClient.post(`${this.url}/${'edit'}`, { token: tokenVar }).toPromise()
+    let tokenUsuario = localStorage.getItem('token')
+    return this.httpClient.post(`${this.url}/${'edit'}`, { token: tokenUsuario }).toPromise()
   }
 
   updateUser(pnombre, papellidos, pemail, pusuario, pprovincia, ppoblacion) {
-    let tokenVar = localStorage.getItem('token')
-    return this.httpClient.post(`${this.url}/${'update'}`, { nombre: pnombre, apellidos: papellidos, email: pemail, usuario: pusuario, provincia: pprovincia, poblacion: ppoblacion, token: tokenVar }).toPromise()
+    let tokenUsuario = localStorage.getItem('token')
+    return this.httpClient.post(`${this.url}/${'update'}`, { nombre: pnombre, apellidos: papellidos, email: pemail, usuario: pusuario, provincia: pprovincia, poblacion: ppoblacion, token: tokenUsuario }).toPromise()
   }
 
   deleteUser() {
-    let tokenVar = localStorage.getItem('token')
-    return this.httpClient.post(`${this.url}/${'delete'}`, { token: tokenVar }).toPromise()
+    let tokenUsuario = localStorage.getItem('token')
+    return this.httpClient.post(`${this.url}/${'delete'}`, { token: tokenUsuario }).toPromise()
   }
-  toggleMostrar() {
-    this.mostrar = !this.mostrar
-    this.noMostrar = !this.noMostrar
+ 
 
+  toggleMostrar(ptokenUsuario){
+    if(this.tokenUsuario==null){
+      this.mostrar=true
+      
+    }else{
+    
+      this.mostrar = false
+    }
+  }
+
+  toggleNoMostrar(ptokenUsuario){
+    if(this.tokenUsuario==null){
+  this.noMostrar=false
+      
+    }else{
+      this.noMostrar = true
+      console.log(this.noMostrar)
+    }
   }
 
   cerrarSesion() {
     localStorage.removeItem('token'),
+    
       this.router.navigate(['index'])
-    this.toggleMostrar()
+    
   }
 
 

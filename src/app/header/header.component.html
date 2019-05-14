@@ -21,24 +21,24 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup" [ngClass]="{'collapse': isCollapsed}">
       <div class="navbar-nav">
 
-        <a class="nav-item nav-link" [routerLink]="['noticias']" (click)="isCollapsed = !isCollapsed">Noticias</a>
+        <a class="nav-item nav-link" [routerLink]="['foro']" (click)="isCollapsed = !isCollapsed">Foro</a>
 
         <a class="nav-item nav-link" [routerLink]="['carreras']" (click)="isCollapsed = !isCollapsed">Proximas
           Carreras</a>
 
-        <a class="nav-item nav-link trigger-btn" *ngIf="loginService.mostrar" (click)="isCollapsed = !isCollapsed"
+        <a class="nav-item nav-link trigger-btn" *ngIf="mostrarToken" (click)="isCollapsed = !isCollapsed"
           href="#myModal" data-toggle="modal">Iniciar Sesión</a>
 
-        <a class="nav-item nav-link" *ngIf="loginService.mostrar" [routerLink]="['registro'] "
+        <a class="nav-item nav-link" *ngIf="mostrarToken" [routerLink]="['registro'] "
           (click)="isCollapsed = !isCollapsed">Registro</a>
 
-        <a class="nav-item nav-link" *ngIf="loginService.noMostrar" [routerLink]="['weruntogether']"
+        <a class="nav-item nav-link" *ngIf="noMostrarToken" [routerLink]="['weruntogether']"
           (click)="isCollapsed = !isCollapsed">Quedadas</a>
 
-        <a class="nav-item nav-link" *ngIf="loginService.noMostrar" [routerLink]="
+        <a class="nav-item nav-link" *ngIf="noMostrarToken" [routerLink]="
           ['perfil']" (click)="isCollapsed = !isCollapsed">Perfil</a>
 
-        <a class="nav-item nav-link" *ngIf="loginService.noMostrar" (click)='closedSession()'>Cerrar Sesión</a>
+        <a class="nav-item nav-link" *ngIf="noMostrarToken" (click)='closedSession()'>Cerrar Sesión</a>
 
       </div>
     </div>

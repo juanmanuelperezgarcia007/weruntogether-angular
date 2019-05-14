@@ -16,6 +16,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { PerfilComponent } from './perfil/perfil.component';
 import { WeruntogetherComponent } from './weruntogether/weruntogether.component';
 import { ComentariosComponent } from './comentarios/comentarios.component';
+import { ForoComponent } from './foro/foro.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RespuestasComponent } from './respuestas/respuestas.component';
+import { ChartsModule } from 'ng2-charts';
+import { CarrerasfavoritasComponent } from './carrerasfavoritas/carrerasfavoritas.component';
 
 
 
@@ -32,6 +37,9 @@ import { ComentariosComponent } from './comentarios/comentarios.component';
     PerfilComponent,
     WeruntogetherComponent,
     ComentariosComponent,
+    ForoComponent,
+    RespuestasComponent,
+    CarrerasfavoritasComponent,
  
  
  
@@ -40,10 +48,12 @@ import { ComentariosComponent } from './comentarios/comentarios.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    ChartsModule
    
    
   ],

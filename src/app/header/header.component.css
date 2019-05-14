@@ -1,4 +1,8 @@
+/* .close{
+	cursor: pointer;
+	color: white !important
 
+} */
 nav{
 	
 
@@ -19,7 +23,7 @@ nav div div a{
 nav div div a:hover{
 
 	background-color: #ffdd59;
-	color: #3C4545 !important;
+	color: #3C4545;
 	transition: 0.7s;
 	border-radius: 5px;
 	
@@ -49,7 +53,8 @@ a{
 .navbar-light .navbar-nav .nav-link {
 	color: white;
 	text-align: center;
-	font-weight: 900
+	font-weight: 900;
+	cursor: pointer;
 }
 
 

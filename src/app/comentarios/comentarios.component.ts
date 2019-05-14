@@ -20,6 +20,7 @@ export class ComentariosComponent implements OnInit {
         if(res){
           console.log(res)
           this.AllPost = res
+          console.log(this.AllPost)
           this.paint()
         
         }
@@ -28,12 +29,14 @@ export class ComentariosComponent implements OnInit {
           this.tokenUsuario = JSON.parse(localStorage.getItem('token'))
           console.log(res)
           this.AllPost = res[0]
+          console.log(this.AllPost)
         }
       })
     })
    }
 
   ngOnInit() {
+   
     this.tokenUsuario = localStorage.getItem('token')
     console.log (this.tokenUsuario)
   }

@@ -24,6 +24,7 @@ export class NoticiasComponent implements OnInit {
   selecionarNoticia(not, evento){
     this.noticia_selecionada= not;
     this.fotoSeleccionada= evento.target.id;
+    console.log(this.fotoSeleccionada)
 
   }
 

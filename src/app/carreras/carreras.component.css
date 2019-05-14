@@ -11,13 +11,14 @@
 }
 
 
+
 #distancia{
     margin: 0 auto
 }
 
 input {
     
-    text-align: center;
+    text-align: left;
     padding: 10px
 }
 label{
@@ -43,7 +44,8 @@ label{
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
     font-size: 1.3em;
-	color: #ffdd59;
+    color: #ffdd59;
+    border-color: #485460
     
 
 }
@@ -108,6 +110,9 @@ strong{
 span{
     font-family: 'Hind', sans-serif;
     font-size: 1.3em
+}
+.favoritos{
+    line-height: 178px
 }
 @media (max-width: 576px) {
 	strong{

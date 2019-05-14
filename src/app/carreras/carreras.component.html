@@ -22,7 +22,7 @@
         <div class="filtrodistancia col-xl-6 col-xs-12">
 
           <label>Distancia Min</label> <select formControlName="min" class="col-12 form-control selectpicker">
-            <option selected>Selecciona tu distancia</option>
+            <option value=''>Selecciona tu distancia minima</option>
             <option value="5000">Desde 5km</option>
             <option value="10000">Desde 10km</option>
             <option value="15000">Desde 15km</option>
@@ -31,7 +31,7 @@
 
           <label>Distancia Max</label> <select formControlName="max" class="col-12 form-control selectpicker">
 
-            <option selected>Selecciona tu distancia</option>
+            <option value="">Selecciona tu distancia maxima</option>
             <option value="10000">hasta 10km</option>
             <option value="15000">hasta 15km</option>
             <option value="21000">hasta 21km</option>
@@ -44,7 +44,7 @@
 
           <label>Tipo de carrera</label>
           <select formControlName="type" class="form-control selectpicker " id="type">
-            <option value="Elije tipo de carrera" selected></option>
+            <option value="">Elije que tipo de carrera</option>
             <option value="asfalto">Asfalto</option>
             <option value="tierra">Tierra</option>
             <option value="obstaculos">Obstáculos</option>
@@ -56,7 +56,7 @@
 
         <div class="col-xl-6 col-xs-12">
           <label>Ciudad</label>
-          <input class="col-12 form-control ciudad selectpicker" formControlName="city" type="text">
+          <input placeholder='Elije la ciudad que quieres' class="col-12 form-control ciudad selectpicker" formControlName="city" type="text">
         </div>
 
         <div class=" col-xl-6 col-xs-12 inputGroupContainer">
@@ -64,7 +64,7 @@
 
 
           <select formControlName="province" class="form-control selectpicker">
-            <option selected>Seleciona una provincia</option>
+            <option value="">Seleciona tus provincia</option>
             <option value='AB'>Albacete</option>
 
             <option value='AR'>Alava</option>
@@ -149,7 +149,7 @@
         <strong>{{ car.date | date:"dd/MM"}} </strong>
 
       </div>
-      <div class="carreraDescripcion col-xl-9 col-sm-12">
+      <div class="carreraDescripcion col-xl-7 col-sm-12">
 
         <p class="carrer col-sm-12 col-12 ">
           <strong class="col-xl-3 col-sm-12">Nombre: </strong><span class="col-xl-9 col-sm-12"> {{ car.name}}</span>
@@ -170,7 +170,9 @@
 
 
       </div>
-
+      <div class="favoritos col-xl-2">
+        *
+      </div>
     </div>
 
   </div>

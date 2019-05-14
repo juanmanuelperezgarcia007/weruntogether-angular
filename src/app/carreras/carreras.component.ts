@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { CarrerasService} from '../carreras-service'
 import { ReactiveFormsModule, FormGroup, Form, FormControl, Validators } from '@angular/forms'
@@ -56,7 +57,7 @@ export class CarrerasComponent implements OnInit {
       }
     })
     
-    this.form.reset()
+    // this.form.reset()
 
   }
 

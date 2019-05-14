@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 declare var $;
 
@@ -11,20 +11,35 @@ declare var $;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  tokenUsuario: any
+  noMostrarToken = false
+  mostrarToken= true
   title = 'WERUNTOGETHER';
   userToken:any
   regform: FormGroup;
+  mostrar = true
+  noMostrar = false
+  token: any
+  
   constructor(private loginService: LoginService, public router:Router) { }
 
 
   ngOnInit() {
+    this.tokenUsuario = localStorage.getItem('token')
     this.regform = new FormGroup({
       usuario: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required, Validators.pattern(/(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$/)]),
 
     })
 
-
+    this.router.events.subscribe((evt)=>{
+      if(!(evt instanceof NavigationEnd)){
+        return
+      }
+      window.scrollTo(0,0)
+    })
+    console.log(this.tokenUsuario)
+    
   }
   iniciar() {
     
@@ -37,12 +52,32 @@ export class AppComponent implements OnInit {
 
         }else{
           localStorage.setItem('token',res.toString())
+          this.tokenUsuario = localStorage.getItem('token')
           $("[data-dismiss=modal]").trigger({ type: "click" })
-          this.loginService.toggleMostrar()
+         
+          
+          this.toggleMostrarToken(this.tokenUsuario)
+          location.reload()
+
           this.router.navigate(['index'])
         }
         
 
       })
+
+  }
+  toggleMostrarToken(ptokenUsuario){
+    console.log(this.tokenUsuario)
+    if(this.tokenUsuario==null){
+      this.noMostrarToken = false
+      this.mostrarToken=true
+      console.log(this.noMostrarToken)
+      
+    }else{
+      this.noMostrarToken = true
+      this.mostrarToken=false
+      console.log(this.noMostrarToken)
+
+    }
   }
 }

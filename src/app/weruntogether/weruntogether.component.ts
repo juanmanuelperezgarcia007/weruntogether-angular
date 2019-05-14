@@ -27,14 +27,14 @@ export class WeruntogetherComponent implements OnInit {
   longitud: any
   coords: any
   AllPost: any
-  image:any
+  image: any
   UsuarioPost: any
   fk_usuarios: any
-  posicionLatitude:number
-  posicionLongitude:number
-  tokenUsuario:any
-  constructor(private postService: PostService, private router:Router) {
-    
+  posicionLatitude: number
+  posicionLongitude: number
+  tokenUsuario: any
+  constructor(private postService: PostService, private router: Router) {
+
 
 
   }
@@ -43,30 +43,30 @@ export class WeruntogetherComponent implements OnInit {
     this.tokenUsuario = localStorage.getItem('token')
     console.log(this.tokenUsuario)
     console.log(this.AllPost)
-  console.log(this.tokenUsuario)
-    this.image =`https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitud}&zoom=16&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C${this.latitude},${this.longitud}&key=AIzaSyCsfD7R9a5zeVCisKnbWYbfKBh5lYpZC28`
-    
-   
+    console.log(this.tokenUsuario)
+    this.image = `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitud}&zoom=16&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C${this.latitude},${this.longitud}&key=AIzaSyCsfD7R9a5zeVCisKnbWYbfKBh5lYpZC28`
 
 
-  
+
+
+
 
     // FORMULARIO BUSCADOR
 
     this.formBuscador = new FormGroup({
 
-      buscadorDia: new FormControl('',),
-      buscadorDistancia: new FormControl('',),
+      buscadorDia: new FormControl(''),
+      buscadorDistancia: new FormControl(''),
 
     })
 
     // FORMULARIO POST
     this.formPost = new FormGroup({
 
-      formularioDia: new FormControl('',[Validators.required]),
-      formularioHora: new FormControl('',[Validators.required]),
-      formularioDistancia: new FormControl('',[Validators.required]),
-      formularioMensaje: new FormControl('',[Validators.required]),
+      formularioDia: new FormControl('', [Validators.required]),
+      formularioHora: new FormControl('', [Validators.required]),
+      formularioDistancia: new FormControl('', [Validators.required]),
+      formularioMensaje: new FormControl('', [Validators.required]),
 
     })
 
@@ -75,13 +75,13 @@ export class WeruntogetherComponent implements OnInit {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.coords = position.coords
-        this.posicionLatitude=position.coords.latitude
-        this.posicionLongitude=position.coords.longitude
+        this.posicionLatitude = position.coords.latitude
+        this.posicionLongitude = position.coords.longitude
         // PINTAR POST
-      this.mostrarPost()
+        this.mostrarPost()
       }, this.showError)
 
-     
+
     } else {
       console.log('La liamos')
     }
@@ -91,13 +91,13 @@ export class WeruntogetherComponent implements OnInit {
     } else {
       console.log('No funciono')
     }
-    
+
   }
 
 
   // GOOGLE MAPAS
   showPosition(position) {
-    
+
     this.loadMap(position)
   }
 
@@ -134,11 +134,11 @@ export class WeruntogetherComponent implements OnInit {
       })
       this.markers.push(m)
     })
-    let options={
-      componentRestrictions:{country:"es"}
+    let options = {
+      componentRestrictions: { country: "es" }
     }
     let input = document.getElementById('inputPlace')
-    let autocomplete = new google.maps.places.Autocomplete(input,options)
+    let autocomplete = new google.maps.places.Autocomplete(input, options)
 
     autocomplete.setFields(['address_components', 'geometry', 'icon', 'name'])
 
@@ -148,7 +148,7 @@ export class WeruntogetherComponent implements OnInit {
       let place = autocomplete.getPlace()
       let latp = place.geometry.location.lat()
       let lngP = place.geometry.location.lng()
-      
+
       self.map.setCenter(place.geometry.location)
       let m = new google.maps.Marker({
         position: place.geometry.location,
@@ -188,7 +188,7 @@ export class WeruntogetherComponent implements OnInit {
   }
   //  NUEVO POST
   guardarNewPost() {
-    
+
     console.log('entra en werun')
     this.postService.agregarPost(
 
@@ -213,49 +213,51 @@ export class WeruntogetherComponent implements OnInit {
   // MOSTRAR POSTS
 
   mostrarPost() {
-    
+
     this.postService.getAllPost(
       this.posicionLongitude,
       this.posicionLatitude
-     
-    
+
+
     )
       .then((res) => {
-      
+
         console.log(res)
         this.AllPost = res
       })
 
   }
 
-   // BUSCAR POST DISTANCIA
+  // BUSCAR POST DISTANCIA
 
-  filtrarDistancia(){
+  filtrarDistancia() {
     this.postService.filtersDistance(
       this.formBuscador.value.buscadorDistancia,
-    ).then((res)=>{
-      this.AllPost=res
+    ).then((res) => {
+      this.AllPost = res
       console.log(this.AllPost)
     })
   }
+// BUSCAR POST DIA
 
-  filtrarDia(){
-   console.log( this.formBuscador.value)
+  filtrarDia() {
+    console.log(this.formBuscador.value)
     this.postService.filtersDate(
       this.formBuscador.value.buscadorDia,
-    ).then((res)=>{
-      this.AllPost=res
+    ).then((res) => {
+      this.AllPost = res
       console.log(this.AllPost)
     })
   }
+// BORRAR POST 
 
-  deletePost(pid){
+  deletePost(pid) {
     console.log(pid)
-    this.postService.borrarPost(pid).then((res)=>{
+    this.postService.borrarPost(pid).then((res) => {
       console.log(res)
       alert('Evento borrado')
       this.mostrarPost()
-      
+
     })
   }
 
