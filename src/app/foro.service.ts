@@ -13,11 +13,18 @@ export class ForoService {
   mostrar = true
   noMostrar = false
   constructor(private httpClient: HttpClient) {
-    this.url = 'http://localhost:3000/api/foro'
-    this.url_pregunta = 'http://localhost:3000/api/foro/pregunta'
-    this.url_guardar = 'http://localhost:3000/api/foro/respuesta'
-    this.url_datos = 'http://localhost:3000/api/foro/datos'
-    this.url_comentarios = 'http://localhost:3000/api/foro/guardarComentariosForo'
+    
+    this.url = 'http://back.weruntogether.es/api/foro'
+    this.url_pregunta = 'http://back.weruntogether.es/api/foro/pregunta'
+    this.url_guardar = 'http://back.weruntogether.es/api/foro/respuesta'
+    this.url_datos = 'http://back.weruntogether.es/api/foro/datos'
+    this.url_comentarios = 'http://back.weruntogether.es/api/foro/guardarComentariosForo'
+    
+    // this.url = 'http://localhost:3000/api/foro'
+    // this.url_pregunta = 'http://localhost:3000/api/foro/pregunta'
+    // this.url_guardar = 'http://localhost:3000/api/foro/respuesta'
+    // this.url_datos = 'http://localhost:3000/api/foro/datos'
+    // this.url_comentarios = 'http://localhost:3000/api/foro/guardarComentariosForo'
   }
 
   getAllQuestions() {

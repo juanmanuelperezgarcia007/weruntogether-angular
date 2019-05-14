@@ -23,7 +23,9 @@
 
         <a class="nav-item nav-link" [routerLink]="['foro']" (click)="isCollapsed = !isCollapsed">Foro</a>
 
-        <a class="nav-item nav-link" [routerLink]="['carreras']" (click)="isCollapsed = !isCollapsed">Proximas
+        <a class="nav-item nav-link" [routerLink]="['carreras']" *ngIf="noMostrarToken" (click)="isCollapsed = !isCollapsed">Noticias</a>
+
+        <a class="nav-item nav-link" [routerLink]="['noticias']" (click)="isCollapsed = !isCollapsed">Proximas
           Carreras</a>
 
         <a class="nav-item nav-link trigger-btn" *ngIf="mostrarToken" (click)="isCollapsed = !isCollapsed"
