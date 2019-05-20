@@ -10,10 +10,16 @@ export class NoticiasComponent implements OnInit {
     noticias: any  []  
     noticia_selecionada:any
     i:number
+    cargando:boolean
     fotoSeleccionada:any
+    noticiasver:boolean
   constructor(private noticiasService:NoticiasService){
     this.i=0
+    this.cargando=true
+    this.noticiasver= false
      this.noticiasService.getAllNoticiasPromise().then((res)=>{
+      this.cargando=false
+      this.noticiasver=true
      this.noticias=res['items']
      console.log(this.noticias)
      this.noticia_selecionada=this.noticias[0]
