@@ -16,6 +16,12 @@
     margin: 0 auto
 }
 
+.favoritosEstrella{
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}
+
 input {
     
     text-align: left;

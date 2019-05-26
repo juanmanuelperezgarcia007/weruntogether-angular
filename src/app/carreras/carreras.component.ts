@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { CarrerasService} from '../carreras-service'
-import { ReactiveFormsModule, FormGroup, Form, FormControl, Validators } from '@angular/forms'
+import { FormGroup, FormControl } from '@angular/forms'
 
 import { LoginService } from '../login.service';
 @Component({
@@ -11,10 +11,15 @@ import { LoginService } from '../login.service';
 })
 export class CarrerasComponent implements OnInit {
  carrerasAll:any
+ favoritosVacio:boolean
  carrerasDistance:any
  carrerasType:any
  form : FormGroup;
-  constructor(private carrerasService:CarrerasService, private loginService:LoginService) { }
+ favoritosLleno:boolean
+  constructor(private carrerasService:CarrerasService, private loginService:LoginService) {
+    this.favoritosVacio=true
+    this.favoritosLleno=false
+   }
 
   ngOnInit() {
     this.form= new FormGroup({
@@ -61,6 +66,12 @@ export class CarrerasComponent implements OnInit {
 
   }
 
+  favoritos(){
+    console.log(this.favoritosLleno)
+    this.favoritosVacio=!this.favoritosVacio
+    this.favoritosLleno=!this.favoritosLleno
+    console.log(this.favoritosLleno)
+  }
   
 
 }
