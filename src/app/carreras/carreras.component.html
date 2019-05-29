@@ -170,9 +170,12 @@
 
 
       </div>
-      <div class="favoritos col-xl-2">
-        *
+      <div (click)="favoritos()" class="favoritos col-xl-2" *ngIf='favoritosVacio' id="{{car.id}}">
+        <img  class="favoritosEstrella" src="./../../assets/favoritos.png" alt="">
       </div>
+      <div (click)="favoritos()" class="favoritos col-xl-2"  *ngIf="favoritosLleno" id="{{car.id}}">
+          <img  class="favoritosEstrella"  src="./../../assets/favoritosLleno.png" alt="">
+        </div>
     </div>
 
   </div>
