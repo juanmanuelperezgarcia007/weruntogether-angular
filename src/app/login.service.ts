@@ -2,10 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { AppComponent} from './app.component'
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService implements OnInit {
+  
+  noMostrarToken = false
+  mostrarToken= true
   url: string
   url_inicio: string
   mostrar = true
@@ -77,6 +81,20 @@ export class LoginService implements OnInit {
     
   }
 
+  toggleMostrarToken(ptokenUsuario){
+    console.log(this.tokenUsuario)
+    if(this.tokenUsuario==null){
+      this.noMostrarToken = false
+      this.mostrarToken=true
+      console.log(this.noMostrarToken)
+      
+    }else{
+      this.noMostrarToken = true
+      this.mostrarToken=false
+      console.log(this.noMostrarToken)
+
+    }
+
 
 }
-
+}

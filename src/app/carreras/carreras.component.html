@@ -170,12 +170,16 @@
 
 
       </div>
+<<<<<<< HEAD
       <div (click)="favoritos(car.id)" class="favoritos col-xl-2" *ngIf='favoritosVacio' id="{{car.id}}">
         <img  class="favoritosEstrella" src="./../../assets/favoritos.png" alt="">
+=======
+      <div (click)="postFavoritos(car.id)" class="favoritos col-xl-2" id="{{car.id}}">
+        <img  class="classTrue" src="./../../assets/favoritos.png" alt="">
+        <img  class="classFalse"  src="./../../assets/favoritosLleno.png"> 
+>>>>>>> 52a41c7b9dd2e6db8f3cb56ae45d2caafc67d0dd
       </div>
-      <div (click)="favoritos()" class="favoritos col-xl-2"  *ngIf="favoritosLleno" id="{{car.id}}">
-          <img  class="favoritosEstrella"  src="./../../assets/favoritosLleno.png" alt="">
-        </div>
+      
     </div>
 
   </div>

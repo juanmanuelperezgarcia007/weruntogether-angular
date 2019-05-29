@@ -12,8 +12,6 @@ declare var $;
 })
 export class AppComponent implements OnInit {
   tokenUsuario: any
-  noMostrarToken = false
-  mostrarToken= true
   title = 'WERUNTOGETHER';
   userToken:any
   regform: FormGroup;
@@ -56,7 +54,7 @@ export class AppComponent implements OnInit {
           $("[data-dismiss=modal]").trigger({ type: "click" })
          
           
-          this.toggleMostrarToken(this.tokenUsuario)
+          this.loginService.toggleMostrarToken(this.tokenUsuario)
           location.reload()
 
           this.router.navigate(['index'])
@@ -66,18 +64,5 @@ export class AppComponent implements OnInit {
       })
 
   }
-  toggleMostrarToken(ptokenUsuario){
-    console.log(this.tokenUsuario)
-    if(this.tokenUsuario==null){
-      this.noMostrarToken = false
-      this.mostrarToken=true
-      console.log(this.noMostrarToken)
-      
-    }else{
-      this.noMostrarToken = true
-      this.mostrarToken=false
-      console.log(this.noMostrarToken)
-
-    }
-  }
+ 
 }
