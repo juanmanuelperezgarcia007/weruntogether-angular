@@ -9,11 +9,20 @@
 .titulo-noticias{
     background-color: white;
 }
-
-
+.classTrue{
+    display:none;
+    width:50px;
+    cursor: pointer;
+}
+.classFalse{
+    display:show;
+    width:50px;
+    cursor: pointer;
+}
 
 #distancia{
-    margin: 0 auto
+    margin: 0 auto;
+
 }
 
 .favoritosEstrella{
