@@ -66,11 +66,12 @@ export class CarrerasComponent implements OnInit {
 
   }
 
-  favoritos(){
+  favoritos(carId){
+    if(carId===this.carrerasAll.Id)
     console.log(this.favoritosLleno)
     this.favoritosVacio=!this.favoritosVacio
     this.favoritosLleno=!this.favoritosLleno
-    console.log(this.favoritosLleno)
+    
   }
   
 
