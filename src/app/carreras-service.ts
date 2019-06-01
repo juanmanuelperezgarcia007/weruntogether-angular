@@ -7,12 +7,14 @@ import { Router } from '@angular/router';
 })
 
 export class CarrerasService {
-  // url = 'http://back.weruntogether.es/api/carreras'
-  // url_filter = 'http://back.weruntogether.es/api/carreras/filtrarCarreras'
-  url='http://localhost:3000/api/carreras/WeekRace'
-  url_filter='http://localhost:3000/api/carreras/filtrarCarreras'
-  url_favoritos='http://localhost:3000/api/carreras/carrerasFavoritas'
-  url_getFilter='http://localhost:3000/api/carreras/estrella'
+  url = 'https://back.weruntogether.es/api/carreras/WeekRace'
+  url_filter = 'https://back.weruntogether.es/api/carreras/filtrarCarreras'
+  url_favoritos='https://back.weruntogether.es/api/carreras/carrerasFavoritas'
+  url_getFilter='https://back.weruntogether.es/api/carreras/estrella'
+  // url='http://localhost:3000/api/carreras/WeekRace'
+  // url_filter='http://localhost:3000/api/carreras/filtrarCarreras'
+  // url_favoritos='http://localhost:3000/api/carreras/carrerasFavoritas'
+  // url_getFilter='http://localhost:3000/api/carreras/estrella'
 
   constructor(private httpClient: HttpClient, router: Router) {
   }

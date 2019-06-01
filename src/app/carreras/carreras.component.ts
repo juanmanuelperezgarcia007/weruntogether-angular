@@ -69,14 +69,6 @@ export class CarrerasComponent implements OnInit {
 
   }
 
-<<<<<<< HEAD
-  favoritos(carId){
-    if(carId===this.carrerasAll.Id)
-    console.log(this.favoritosLleno)
-    this.favoritosVacio=!this.favoritosVacio
-    this.favoritosLleno=!this.favoritosLleno
-    
-=======
   postFavoritos(pid, id) {
     console.log(id)
     this.paintStarFavorites()
@@ -90,7 +82,6 @@ export class CarrerasComponent implements OnInit {
     })
 
 
->>>>>>> 52a41c7b9dd2e6db8f3cb56ae45d2caafc67d0dd
   }
   paintStarFavorites() {
     this.carrerasService.GetFavorite(

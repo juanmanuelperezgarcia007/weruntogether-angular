@@ -12,11 +12,11 @@
     height: auto;
 }
 .container-fluid {
-    padding: 0px;
+    padding: 0px 250px;
 }
 #buscador {
-    padding: 25px;
-    font-size: 3em;
+    padding: 20px;
+    font-size: 2em;
         background-color: white;
         font-family: 'Montserrat', sans-serif;
         font-weight: 900;
