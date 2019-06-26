@@ -32,5 +32,6 @@ span{
 }
 .footer-copyright{
 	margin: 0 auto;
-	padding: 20px;
+	padding: 20px 0;
+	background-color: #3C4545
 }

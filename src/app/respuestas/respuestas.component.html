@@ -74,8 +74,9 @@
         
       <div class="chart col-xl-8">
         <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
-          [options]="pieChartOptions" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
+          [options]="pieChartOptions" [plugins]="pieChartPlugins" [colors]="pieChartColors">
         </canvas>
+        <button mat-button mat-raised-button color="primary" (click)="pieChartLegend=!pieChartLegend">Toggle Legend</button>
       </div>
       
     </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login.service'
+import { LoginService } from '../login.service';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,18 +13,19 @@ export class HeaderComponent implements OnInit {
   noMostrarToken = false
   mostrarToken= true
 
-  constructor(public loginService:LoginService) { }
+  constructor(public loginService:LoginService, public router:Router) { }
 
   ngOnInit() {
     this.tokenUsuario = localStorage.getItem('token')
     this.isCollapsed=true
-    console.log(this.tokenUsuario)
+   
     this.toggleMostrarToken(this.tokenUsuario)
   }
   closedSession(){
     this.loginService.cerrarSesion()
     this.toggleMostrarToken(this.tokenUsuario)
-    location.reload()
+    location.reload();
+    this.router.navigate(['index']);
   }
   toggleMostrarToken(ptokenUsuario){
     if(this.tokenUsuario==null){

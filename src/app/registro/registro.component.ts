@@ -26,9 +26,9 @@ export class RegistroComponent implements OnInit {
     
     this.loginService.getForm(this.form.value.nombre,this.form.value.apellidos,this.form.value.email,this.form.value.usuario,this.form.value.password,this.form.value.provincia,this.form.value.poblacion)
     .then((res)=>{
-     
+     alert('Te has registrado correctamente')
     })
-    console.log(this.form.value)
+
   }
 
 }

@@ -15,14 +15,13 @@ export class CarrerasComponent implements OnInit {
   carrerasDistance: any
   carrerasType: any
   form: FormGroup;
-  favoritosLleno: boolean
   tokenUsuario = localStorage.getItem('token')
   listFavorite:any
+  visible:boolean
   constructor(private carrerasService: CarrerasService, private loginService: LoginService) {
-    this.favoritosVacio = true
-    this.favoritosLleno = false
+   this.visible=false
   }
-  public visible: boolean = true
+ 
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -39,7 +38,7 @@ export class CarrerasComponent implements OnInit {
   mostrarCarreras() {
     this.carrerasService.getAllCarreras()
       .then((res) => {
-        console.log(res)
+      
 
         this.carrerasAll = res
       })
@@ -57,7 +56,7 @@ export class CarrerasComponent implements OnInit {
       this.form.value.province)
 
       .then((res) => {
-        console.log(res)
+        
 
         this.carrerasAll = res
         if (this.carrerasAll == 0) {
@@ -69,18 +68,20 @@ export class CarrerasComponent implements OnInit {
 
   }
 
-  postFavoritos(pid, id) {
-    console.log(id)
-    this.paintStarFavorites()
+  postFavoritos(pid) {
+    if(this.visible===false){
+   
     this.carrerasService.postFavorite(
+      !this.visible, 
       pid, 
-      this.visible, 
       this.tokenUsuario)
       .then((res) => {
         
         this.paintStarFavorites()
     })
-
+  }else{
+    this.paintStarFavorites()
+  }
 
   }
   paintStarFavorites() {
@@ -88,8 +89,11 @@ export class CarrerasComponent implements OnInit {
     this.tokenUsuario
     ).then((res)=>{
       this.listFavorite= res
-      console.log(this.listFavorite)
-
+     console.log(this.listFavorite)
+     return this.visible=this.listFavorite.favoritosCarreras
     })
   }
+
+
+
 }

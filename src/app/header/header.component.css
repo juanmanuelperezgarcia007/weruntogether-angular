@@ -75,8 +75,14 @@ header{
 		padding: 19px!important;
 	
 	}
-	
-	
+	.navbar{
+		height: 113px;
+		padding-bottom: 0px
+	}
+	.navbar-collapse{
+
+	background-color: #485460;
+}
 }
 
 

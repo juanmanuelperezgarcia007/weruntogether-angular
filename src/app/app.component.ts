@@ -36,14 +36,14 @@ export class AppComponent implements OnInit {
       }
       window.scrollTo(0,0)
     })
-    console.log(this.tokenUsuario)
+  
     
   }
   iniciar() {
     
     this.loginService.getLogin(this.regform.value.usuario, this.regform.value.password)
       .then((res) => {
-        console.log(res)
+       
 
         if(res['error']){
           alert('Usuario y/o contraseña es incorrecta')
