@@ -17,7 +17,7 @@ export class CarrerasComponent implements OnInit {
   form: FormGroup;
   favoritosLleno: boolean
   tokenUsuario = localStorage.getItem('token')
-  listFavorite:any
+  listFavorite: any
   constructor(private carrerasService: CarrerasService, private loginService: LoginService) {
     this.favoritosVacio = true
     this.favoritosLleno = false
@@ -69,34 +69,25 @@ export class CarrerasComponent implements OnInit {
 
   }
 
-<<<<<<< HEAD
-  favoritos(carId){
-    if(carId===this.carrerasAll.Id)
-    console.log(this.favoritosLleno)
-    this.favoritosVacio=!this.favoritosVacio
-    this.favoritosLleno=!this.favoritosLleno
-    
-=======
   postFavoritos(pid, id) {
     console.log(id)
     this.paintStarFavorites()
     this.carrerasService.postFavorite(
-      pid, 
-      this.visible, 
+      pid,
+      this.visible,
       this.tokenUsuario)
       .then((res) => {
-        
+
         this.paintStarFavorites()
-    })
+      })
 
 
->>>>>>> 52a41c7b9dd2e6db8f3cb56ae45d2caafc67d0dd
   }
   paintStarFavorites() {
     this.carrerasService.GetFavorite(
-    this.tokenUsuario
-    ).then((res)=>{
-      this.listFavorite= res
+      this.tokenUsuario
+    ).then((res) => {
+      this.listFavorite = res
       console.log(this.listFavorite)
 
     })
