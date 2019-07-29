@@ -70,7 +70,7 @@
     background-color: black
 }
 .modal-login.modal-dialog {
-    margin-top: 80px;
+    margin: 80px auto;
 }
 .modal-login .btn {
     color: #fff;
