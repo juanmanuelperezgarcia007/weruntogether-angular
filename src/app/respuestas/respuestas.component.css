@@ -323,6 +323,19 @@ div.mensaje{
 	
 	
 	.usuario{
-   border-bottom: 1px solid black;
+        border-bottom: 1px solid black;
     }
+    .btn{
+        width: 202px;
+        padding: 20px 75px;
     }
+    label input{
+        width:20px;
+        padding-left: 0px;
+        margin-right: 30px;
+    }
+    input.btn.btn{
+        margin: 0px 
+    }
+}
+    

@@ -32,7 +32,7 @@ export class ForoComponent implements OnInit {
     this.ForoService.getAllQuestions()
       .then((res) => {
 
-        console.log(res)
+       
         this.AllPreguntas = res
         
       })

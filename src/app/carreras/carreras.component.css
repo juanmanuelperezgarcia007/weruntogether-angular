@@ -12,12 +12,12 @@
 .classTrue{
     display:none;
     width:50px;
-    cursor: pointer;
+    
 }
 .classFalse{
     display:show;
     width:50px;
-    cursor: pointer;
+    
 }
 
 #distancia{
@@ -28,7 +28,7 @@
 .favoritosEstrella{
     height: 50px;
     width: 50px;
-    cursor: pointer;
+  
 }
 
 input {
@@ -127,7 +127,8 @@ span{
     font-size: 1.3em
 }
 .favoritos{
-    line-height: 178px
+    line-height: 178px;
+    cursor: pointer;
 }
 @media (max-width: 576px) {
 	strong{

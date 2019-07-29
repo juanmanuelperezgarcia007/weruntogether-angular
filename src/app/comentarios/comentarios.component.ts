@@ -18,18 +18,18 @@ export class ComentariosComponent implements OnInit {
     this.activatedRoute.params.subscribe( params => { 
       this.postService.getComentarios(params.id).then((res) => {
         if(res){
-          console.log(res)
+        
           this.AllPost = res
-          console.log(this.AllPost)
+      
           this.paint()
         
         }
         else{
          
           this.tokenUsuario = JSON.parse(localStorage.getItem('token'))
-          console.log(res)
+          
           this.AllPost = res[0]
-          console.log(this.AllPost)
+     
         }
       })
     })
@@ -38,7 +38,7 @@ export class ComentariosComponent implements OnInit {
   ngOnInit() {
    
     this.tokenUsuario = localStorage.getItem('token')
-    console.log (this.tokenUsuario)
+  
   }
  
   
@@ -57,14 +57,14 @@ export class ComentariosComponent implements OnInit {
   paint(){
     this.postService.pintarComentarios(this.AllPost[0].eventoId).then((resComentarios)=>{
       this.allComent = resComentarios
-      console.log(this.allComent)
+     
     })
   }
   
   deleteComent(id){
  
     this.postService.borrarComentarios(id).then((res)=>{
-      console.log(res)
+     
       this.paint()
       alert('Comentario borrado')
 
