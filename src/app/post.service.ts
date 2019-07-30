@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { WeruntogetherComponent } from './weruntogether/weruntogether.component'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router'
 @Injectable({
@@ -13,7 +12,7 @@ export class PostService {
 
     // this.url = 'http://back.weruntogether.es/api/quedadas'
     this.url = 'http://localhost:3000/api/quedadas'
-   
+
 
   }
   agregarPost(pformularioDia, pformularioHora, pformularioDistancia, pformularioMensaje, platitude, plongitud) {

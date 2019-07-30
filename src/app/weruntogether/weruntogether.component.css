@@ -68,13 +68,13 @@ div.mensaje{
 .btn{
 	
     margin-top: 25px;
-    background-color: #485460;
+    background-color: #000000;
     padding: 25px;
     border: 1px solid black;
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
     font-size: 1.3em;
-	color: #ffdd59;
+	color: #ffcb00;
 
 }
 .bordere{
@@ -83,8 +83,8 @@ div.mensaje{
 }
 
 .btn:hover{
-    background-color: #ffdd59;
-    color:#485460;
+    background-color: #ffcb00;
+    color:#000000;
     transition: 0.7s
 	
 }

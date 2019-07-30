@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { ChartType, ChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { ForoService } from '../foro.service'
-import { ReactiveFormsModule, FormGroup, Form, FormControl, Validators } from '@angular/forms'
+import { FormGroup, FormControl } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -17,12 +15,12 @@ import { ActivatedRoute } from '@angular/router';
 export class RespuestasComponent implements OnInit {
   // VARIABLES
   noMostrarToken = false
-  allComentForo:any
-  pregunta:any
-  allDato:any
-  allDato1:any
-  allDato2:any
-  allDato3:any
+  allComentForo: any
+  pregunta: any
+  allDato: any
+  allDato1: any
+  allDato2: any
+  allDato3: any
   AllPreguntaOpcion: any
   AllPreguntaOpcion1: any
   respuestasForm: FormGroup;
@@ -32,9 +30,9 @@ export class RespuestasComponent implements OnInit {
   mostrar = true
   noMostrar = false
   AllPregunta: any
-  AllPreguntaOpcion2:any
-  AllPreguntaOpcion3:any
-  allDatos:any
+  AllPreguntaOpcion2: any
+  AllPreguntaOpcion3: any
+  allDatos: any
 
   // GRAFICA
 
@@ -60,7 +58,7 @@ export class RespuestasComponent implements OnInit {
   public pieChartPlugins = [pluginDataLabels];
   public pieChartColors = [
     {
-      backgroundColor: ['rgba(0, 230, 255, 0.3)', 'rgba(0,255,0,255)', 'rgba(0,0,255,0.3)','rgb(241, 118, 16)'],
+      backgroundColor: ['rgba(0, 230, 255, 0.3)', 'rgba(0,255,0,255)', 'rgba(0,0,255,0.3)', 'rgb(241, 118, 16)'],
     },
   ];
 
@@ -69,7 +67,7 @@ export class RespuestasComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(params =>
       this.AllPreguntasId = params.id)
-      
+
 
   }
 
@@ -80,7 +78,7 @@ export class RespuestasComponent implements OnInit {
       opciones: new FormControl('')
 
     })
-    
+
 
   }
   // grafica
@@ -100,25 +98,25 @@ export class RespuestasComponent implements OnInit {
 
 
         this.AllPregunta = res
-        this.pregunta=this.AllPregunta[0].pregunta
+        this.pregunta = this.AllPregunta[0].pregunta
 
         this.AllPreguntaOpcion = this.AllPregunta[0].opcion1
         this.AllPreguntaOpcion1 = this.AllPregunta[0].opcion2
         this.AllPreguntaOpcion2 = this.AllPregunta[0].opcion3
-        
+
         this.AllPreguntaOpcion3 = this.AllPregunta[0].opcion4
         console.log(this.pieChartLabels)
-    this.pieChartLabels.push(this.AllPreguntaOpcion)
-    this.pieChartLabels.push(this.AllPreguntaOpcion1)
-    this.pieChartLabels.push(this.AllPreguntaOpcion2)
-    console.log(this.AllPreguntaOpcion3)
-    if(this.AllPreguntaOpcion3!=null)
-      this.pieChartLabels.push(this.AllPreguntaOpcion3)
-    console.log(this.pieChartLabels)
-   
+        this.pieChartLabels.push(this.AllPreguntaOpcion)
+        this.pieChartLabels.push(this.AllPreguntaOpcion1)
+        this.pieChartLabels.push(this.AllPreguntaOpcion2)
+        console.log(this.AllPreguntaOpcion3)
+        if (this.AllPreguntaOpcion3 != null)
+          this.pieChartLabels.push(this.AllPreguntaOpcion3)
+        console.log(this.pieChartLabels)
 
-   
-        
+
+
+
       })
 
   }
@@ -133,18 +131,18 @@ export class RespuestasComponent implements OnInit {
         this.toggleMostrar()
         this.toggleMostrarToken(this.tokenUsuario)
         this.paintForo()
-        
+
       })
   }
 
   cargarDatos() {
     this.ForoService.loadData(
-      
+
       this.AllPreguntasId).then((res) => {
         console.log(res)
         this.allDatos = res
         console.log(this.allDatos[0].contador)
-        this.allDato=this.allDatos[0].contador
+        this.allDato = this.allDatos[0].contador
         console.log(this.allDato)
         console.log(this.allDatos)
         this.allDato = this.allDatos[0].contador
@@ -158,38 +156,39 @@ export class RespuestasComponent implements OnInit {
         this.pieChartData.push(this.allDato2)
         this.pieChartData.push(this.allDato3)
         console.log(this.pieChartData)
-      
+
       })
   }
 
   toggleMostrar() {
     this.mostrar = !this.mostrar
     this.noMostrar = !this.noMostrar
-    
+
   }
-  toggleMostrarToken(ptokenUsuario){
-    if(this.tokenUsuario==null){
+  toggleMostrarToken(ptokenUsuario) {
+    if (this.tokenUsuario == null) {
       console.log(this.tokenUsuario)
       console.log(this.noMostrarToken)
-      
-    }else{
+
+    } else {
       this.noMostrarToken = !this.noMostrarToken
     }
   }
 
-  saveComentario(value){
-    
+  saveComentario(value) {
+
     this.tokenUsuario = localStorage.getItem('token')
     this.AllPreguntasId
-    this.ForoService.guardarComentario(this.tokenUsuario,value,this.AllPreguntasId).then((res)=>{
+    this.ForoService.guardarComentario(this.tokenUsuario, value, this.AllPreguntasId).then((res) => {
       this.paintForo()
       alert('Comentario publicado')
     })
-   
+
+
   }
 
-  paintForo(){
-    this.ForoService.pintarComentariosForo(this.AllPreguntasId).then((res)=>{
+  paintForo() {
+    this.ForoService.pintarComentariosForo(this.AllPreguntasId).then((res) => {
       this.allComentForo = res
       console.log(this.allComentForo)
     })

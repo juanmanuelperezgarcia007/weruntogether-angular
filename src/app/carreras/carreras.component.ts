@@ -10,6 +10,8 @@ import { LoginService } from '../login.service';
   styleUrls: ['./carreras.component.css']
 })
 export class CarrerasComponent implements OnInit {
+  estoyFav: boolean[]
+  estrella: boolean
   carrerasAll: any
   favoritosVacio: boolean
   carrerasDistance: any
@@ -19,8 +21,9 @@ export class CarrerasComponent implements OnInit {
   tokenUsuario = localStorage.getItem('token')
   listFavorite: any
   constructor(private carrerasService: CarrerasService, private loginService: LoginService) {
-    this.favoritosVacio = true
-    this.favoritosLleno = false
+    this.estoyFav = []
+
+
   }
   public visible: boolean = true
 
@@ -32,19 +35,21 @@ export class CarrerasComponent implements OnInit {
       date: new FormControl(''),
       city: new FormControl(''),
       province: new FormControl(''),
-    })
+    });
 
-    this.mostrarCarreras()
+    this.mostrarCarreras();
+    this.paintStarFavorites()
   }
   mostrarCarreras() {
     this.carrerasService.getAllCarreras()
       .then((res) => {
         console.log(res)
 
-        this.carrerasAll = res
+        this.carrerasAll = res;
       })
 
   }
+
 
 
   getFiltersRace() {
@@ -79,6 +84,7 @@ export class CarrerasComponent implements OnInit {
       .then((res) => {
 
         this.paintStarFavorites()
+        // this.paintStar(id)
       })
 
 
@@ -87,9 +93,29 @@ export class CarrerasComponent implements OnInit {
     this.carrerasService.GetFavorite(
       this.tokenUsuario
     ).then((res) => {
-      this.listFavorite = res
-      console.log(this.listFavorite)
+      this.listFavorite = res;
+      this.estoyEnFav();
+      console.log(this.listFavorite);
 
     })
+
+
   }
+
+  estoyEnFav() {
+
+
+    for (let index = 0; index < this.carrerasAll.length; index++) {
+      debugger
+      if (this.listFavorite.includes(this.carrerasAll[index].id)) {
+        this.estoyFav.push(true);
+      } else {
+        this.estoyFav.push(false);
+      }
+    }
+    console.log(this.estoyFav)
+  }
+
+
+
 }

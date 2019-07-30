@@ -36,10 +36,10 @@
             <input type="submit" class="col-xl-6 btn btn-warning"><span class="glyphicon glyphicon-send"></span>
           </div>
         </div>
-      
+
 
       </div>
-     
+
     </form>
   </div>
 
@@ -54,84 +54,90 @@
     <div class="datos">
       <h2>{{pregunta}}</h2>
     </div>
-    <div class="row" >
-       
-            <div class="col-xl-4 estadisticas">
-              
-            <h3 class="pregunta">{{AllPreguntaOpcion}}</h3><h4>{{allDato}} votos</h4>
+    <div class="row">
 
-            <h3 class="pregunta1">{{AllPreguntaOpcion1}}</h3><h4>{{allDato1}} votos</h4>
+      <div class="col-xl-4 estadisticas">
 
-            <h3 class="pregunta2">{{AllPreguntaOpcion2}}</h3><h4>{{allDato2}} votos</h4>
+        <h3 class="pregunta">{{AllPreguntaOpcion}}</h3>
+        <h4>{{allDato}} votos</h4>
 
-            <h3 class="pregunta3">{{AllPreguntaOpcion3}}</h3><h4>{{allDato3}} votos</h4>
+        <h3 class="pregunta1">{{AllPreguntaOpcion1}}</h3>
+        <h4>{{allDato1}} votos</h4>
 
-            <!-- <div>
+        <h3 class="pregunta2">{{AllPreguntaOpcion2}}</h3>
+        <h4>{{allDato2}} votos</h4>
+
+        <h3 class="pregunta3">{{AllPreguntaOpcion3}}</h3>
+        <h4>{{allDato3}} votos</h4>
+
+        <!-- <div>
               <button class="btn" [routerLink]="['foro']">Volver al foro</button>
             </div> -->
-            </div>
-          
-        
+      </div>
+
+
       <div class="chart col-xl-8">
         <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
           [options]="pieChartOptions" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
         </canvas>
       </div>
-      
+
     </div>
-    
+
     <p>Gracias por participar, ahora puedes defender tu opinion dejando un comentario</p>
 
     <!-- PINTAR COMENTARIOS -->
 
 
-<div class="container-fluid">
-    <h3>Comentarios</h3>
-  <div *ngIf="!(allComentForo?.length == 0)" class="post pintarcomentario container ">
+    <div class="container-fluid">
 
-    <div *ngFor="let coment of allComentForo">
-      
-        <div class="row comentario">
-          <div class="usuario col-xl-2 ">
+      <div *ngIf="!(allComentForo?.length == 0)" class="post pintarcomentario container ">
+        <h3 class="h3comentarios">Comentarios</h3>
 
-            <img src="../../assets/iconfinder_user_male2_172626.png" alt="">
+        <div *ngFor="let coment of allComentForo">
 
-            <label>{{coment.usuario}}</label>
-            <i class="fas fa-trash borrar" (click)="deleteComent(coment.id)"></i>
-            
-            
-          </div>
+          <div class="row comentario">
+            <div class="usuario col-xl-2 ">
 
+              <img src="../../assets/iconfinder_user_male2_172626.png" alt="">
 
-          <div class="col-xl-10 descripcion">
+              <label>{{coment.usuario}}</label>
+              <i class="fas fa-trash borrar" (click)="deleteComent(coment.id)"></i>
 
-            <div class="comentarios">
-              <span class="comentarios">{{coment.comentario}}</span>
 
             </div>
+
+
+            <div class="col-xl-10 descripcion">
+
+              <div class="comentarios">
+                <span class="comentarios">{{coment.comentario}}</span>
+
+              </div>
+            </div>
+
+
+
           </div>
-
-
-
         </div>
+
       </div>
-    
-  </div>
-  <!-- ESCRIBIR COMENTARIO -->
+      <!-- ESCRIBIR COMENTARIO -->
 
-  <div class="row comentarios" *ngIf="noMostrarToken">
-    <div class="col-12 col-xl-12 escribirpost">
-      <p class="label">Escribe tu comentarios</p>
-      <textarea class="comentarios primary col-xl-7"   #mensaje  placeholder="Escribe tu comentario" rows="5">
+      <div class="row comentarios" *ngIf="noMostrarToken">
+        <div class="col-12 col-xl-12 escribirpost">
+          <p class="label">Escribe tu comentarios</p>
+          <textarea class="comentarios primary col-xl-7" #mensaje placeholder="Escribe tu comentario" rows="5">
 
-   </textarea>
+          </textarea>
 
-      <button (click)="saveComentario(mensaje.value)" class="btn btn-primary enviar col-9 col-xl-6" type="submit">Guardar
-        Comentario</button>
+          <button (click)="saveComentario(mensaje.value)" class="btn btn-primary enviar col-9 col-xl-6"
+            type="submit">Guardar
+            Comentario</button>
+        </div>
+
+      </div>
     </div>
 
   </div>
-  </div>
-
-</div>
-<!-- [disabled]="form.invalid" -->
+  <!-- [disabled]="form.invalid" -->
