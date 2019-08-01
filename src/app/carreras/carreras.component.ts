@@ -2,7 +2,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarrerasService } from '../carreras-service'
 import { FormGroup, FormControl } from '@angular/forms'
-
 import { LoginService } from '../login.service';
 @Component({
   selector: 'app-carreras',
@@ -11,6 +10,9 @@ import { LoginService } from '../login.service';
 })
 export class CarrerasComponent implements OnInit {
   estoyFav: boolean[]
+  cargando: boolean
+  carrerasVer: boolean;
+  arrayFav: any[]
   estrella: boolean
   carrerasAll: any
   favoritosVacio: boolean
@@ -21,13 +23,18 @@ export class CarrerasComponent implements OnInit {
   tokenUsuario = localStorage.getItem('token')
   listFavorite: any
   constructor(private carrerasService: CarrerasService, private loginService: LoginService) {
+    this.carrerasVer = false
+    this.cargando = true
     this.estoyFav = []
+    this.arrayFav = []
+    // this.paintStarFavorites()
 
 
   }
   public visible: boolean = true
 
   ngOnInit() {
+
     this.form = new FormGroup({
       min: new FormControl(''),
       max: new FormControl(''),
@@ -37,8 +44,9 @@ export class CarrerasComponent implements OnInit {
       province: new FormControl(''),
     });
 
-    this.mostrarCarreras();
     this.paintStarFavorites()
+    this.mostrarCarreras();
+
   }
   mostrarCarreras() {
     this.carrerasService.getAllCarreras()
@@ -49,8 +57,6 @@ export class CarrerasComponent implements OnInit {
       })
 
   }
-
-
 
   getFiltersRace() {
     this.carrerasService.getFilters(
@@ -70,51 +76,68 @@ export class CarrerasComponent implements OnInit {
         }
       })
 
-    // this.form.reset()
+    this.form.reset()
 
   }
 
-  postFavoritos(pid, id) {
-    console.log(id)
-    this.paintStarFavorites()
+  postFavoritos(pid) {
+    console.log(pid)
+    // this.paintStarFavorites()
     this.carrerasService.postFavorite(
       pid,
       this.visible,
       this.tokenUsuario)
       .then((res) => {
 
-        this.paintStarFavorites()
+
         // this.paintStar(id)
       })
 
 
   }
+
+
   paintStarFavorites() {
     this.carrerasService.GetFavorite(
       this.tokenUsuario
-    ).then((res) => {
+    ).subscribe((res) => {
       this.listFavorite = res;
-      this.estoyEnFav();
-      console.log(this.listFavorite);
 
+      this.cargando = false
+      this.carrerasVer = true
+      // this.changeObjArray()
     })
 
 
   }
 
-  estoyEnFav() {
+  // changeObjArray() {
 
+  //   for (let index = 0; index < this.listFavorite.length; index++) {
+  //     this.arrayFav.push(this.listFavorite[index])
 
-    for (let index = 0; index < this.carrerasAll.length; index++) {
-      debugger
-      if (this.listFavorite.includes(this.carrerasAll[index].id)) {
-        this.estoyFav.push(true);
-      } else {
-        this.estoyFav.push(false);
+  //   }
+
+  //   console.log(this.arrayFav)
+  // }
+  estoyEnFav(id) {
+    console.log(id)
+    // this.estoyFav = []
+    let estoyFav = false;
+    this.listFavorite.forEach(element => {
+      if (element.id_Carreras === id) {
+        estoyFav = true;
+        // this.estoyFav.push(true)
       }
-    }
-    console.log(this.estoyFav)
+      // else {
+      //   this.estoyFav.push(false)
+      // }
+    })
+    return estoyFav;
+
+    // console.log(this.estoyFav)
   }
+
 
 
 

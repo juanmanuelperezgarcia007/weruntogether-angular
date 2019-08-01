@@ -139,7 +139,7 @@
   </div>
 </div>
 
-<div class="container-fluid filtradodecarreras">
+<div *ngIf="carrerasVer" class="container-fluid filtradodecarreras">
 
   <div class="container  descripcionCarreras">
 
@@ -173,13 +173,13 @@
       </div>
 
       <div (click)="postFavoritos(car.id)" class="favoritos col-xl-2" id="{{car.id}}">
-        <!-- <div *ngIf="estoyFav[index]"> -->
-        Quitar fav
-        <!-- </div> -->
-        <!-- <div *ngIf="!estoyFav[index]"> -->
-        Poner fav
+        <div *ngIf="estoyEnFav(car.id)">
+          <p> Quitar fav</p>
+        </div>
+        <div *ngIf="!estoyEnFav(car.id)">
+          <p> poner fav</p>
+        </div>
 
-        <!-- </div> -->
 
       </div>
 
@@ -187,4 +187,7 @@
 
   </div>
 
+</div>
+<div *ngIf='cargando'>
+  <img src="./../../assets//cargando.gif" alt="">
 </div>
