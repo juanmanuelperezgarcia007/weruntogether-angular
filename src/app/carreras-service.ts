@@ -14,6 +14,9 @@ export class CarrerasService {
   url_favoritos = 'http://localhost:3000/api/carreras/carrerasFavoritas'
   url_getFilter = 'http://localhost:3000/api/carreras/estrella'
   url_favoritos_delete = 'http://localhost:3000/api/carreras/quitarFavoritos'
+  url_fav = 'http://localhost:3000/api/carreras/paintFav'
+  url_getFilterCount = 'http://localhost:3000/api/carreras/estrellaCount'
+
   constructor(private httpClient: HttpClient, router: Router) {
   }
 
@@ -21,9 +24,13 @@ export class CarrerasService {
     return this.httpClient.get(`${this.url}`).toPromise()
 
   }
+  getFavCarrer(pid) {
+    return this.httpClient.post(`${this.url_fav}`, { id: pid })
+  }
+
 
   getFilters(pmin, pmax, pdate, ptype, pcity, pprovince) {
-    console.log(typeof pprovince)
+
     return this.httpClient.post(`${this.url_filter}`, { min: pmin, max: pmax, date: pdate, type: ptype, city: pcity, province: pprovince }).toPromise()
 
   }
@@ -39,6 +46,9 @@ export class CarrerasService {
 
   GetFavorite(tokenusuario) {
     return this.httpClient.post(`${this.url_getFilter}`, { token: tokenusuario })
+  }
+  GetFavoriteCount(tokenusuario) {
+    return this.httpClient.post(`${this.url_getFilterCount}`, { token: tokenusuario })
   }
 
 

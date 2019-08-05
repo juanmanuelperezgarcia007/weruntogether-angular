@@ -1,3 +1,73 @@
-<p>
-  carrerasfavoritas works!
-</p>
+<div class="container-fluid">
+
+  <img class="foto-noticias col-12" src="../../assets/noticias/noticia(17).jpg" alt="">
+
+</div>
+
+
+<div class="container titulo-noticias ">
+  <div class="titulo-noticias">
+    <h2 class="titulo">Carreras favoritas</h2>
+  </div>
+</div>
+
+<div *ngIf="carrerasVer" class="container-fluid filtradodecarreras">
+
+  <div class="container  descripcionCarreras">
+
+    <div class="carreras row col-12" *ngFor="let car of arrayCarrerFav">
+
+      <div class="dia col-xl-3 col-xs-12">
+
+        <strong>{{ car.date | date:"dd/MM"}} </strong>
+
+      </div>
+      <div class="carreraDescripcion col-xl-8 col-sm-12">
+
+        <p class="carrer ">
+          <strong class="col-xl-3 col-sm-12">Nombre: </strong><span class="col-xl-9 col-sm-12"> {{ car.name}}</span>
+
+        </p>
+
+        <p class="carrer "><strong class="col-xl-3">Distancia: </strong> <span class="col-xl-9">{{ car.distance}}
+          </span></p>
+
+        <p class="carrer">
+
+          <strong class="col-xl-3">Ciudad: </strong><span class="col-9">{{ car.city}}</span>
+
+        </p>
+
+        <p class="carrer"><strong class="col-md-3 col-sm-12">Tipo de Carrera: </strong><span class="col-9 col-sm-12">
+            {{ car.type}}</span></p>
+
+
+      </div>
+
+      <div *ngIf="!OnlyUsers()" class="favoritos col-xl-1" id="{{car.id}}">
+
+        <div class="poner" (click)="selectFav(car.id, $event)" *ngIf="!estoyEnFav(car.id)">
+          <i class="fa fa-star star star--black"></i>
+        </div>
+        <div class="poner" (click)="selectFav(car.id, $event)" *ngIf="estoyEnFav(car.id)">
+          <i class="fa fa-star star star--gold"></i>
+        </div>
+
+      </div>
+
+      <div *ngIf="OnlyUsers()" class="favoritos col-xl-2" id="{{car.id}}">
+        <p> <a class="session" data-toggle="modal" href="#myModal">Inicia sesion</a> para ver tus carreras favoritas.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<div *ngIf='cargando'>
+  <div *ngIf="mensajeCont===0" class="container-fluid filtradodecarreras">
+    Añade carreras las carreras que mas te gusten para que aparezcan aqui
+  </div>
+  <img src="./../../assets//cargando.gif" alt="">
+</div>

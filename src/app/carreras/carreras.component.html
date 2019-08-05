@@ -150,33 +150,29 @@
         <strong>{{ car.date | date:"dd/MM"}} </strong>
 
       </div>
-      <div class="carreraDescripcion col-xl-7 col-sm-12">
+      <div class="carreraDescripcion col-xl-8 col-sm-12">
 
-        <p class="carrer col-sm-12 col-12 ">
+        <p class="carrer ">
           <strong class="col-xl-3 col-sm-12">Nombre: </strong><span class="col-xl-9 col-sm-12"> {{ car.name}}</span>
 
         </p>
 
-        <p class="carrer col-xl-12 "><strong class="col-xl-3">Distancia: </strong> <span
-            class="col-xl-9">{{ car.distance}} </span></p>
+        <p class="carrer "><strong class="col-xl-3">Distancia: </strong> <span class="col-xl-9">{{ car.distance}}
+          </span></p>
 
-        <p class="carrer col-sm-12 col-12 ">
+        <p class="carrer">
 
           <strong class="col-xl-3">Ciudad: </strong><span class="col-9">{{ car.city}}</span>
 
         </p>
 
-        <p class="carrer col-sm-12 col-12"><strong class="col-md-3 col-sm-12">Tipo de Carrera: </strong><span
-            class="col-9 col-sm-12"> {{ car.type}}</span></p>
+        <p class="carrer"><strong class="col-md-3 col-sm-12">Tipo de Carrera: </strong><span class="col-9 col-sm-12">
+            {{ car.type}}</span></p>
 
 
       </div>
 
-      <div class="favoritos col-xl-2" id="{{car.id}}">
-
-        <!-- <div class="poner" (click)="selectFav(car.id, $event)">
-          <i class="fa fa-star star star--black "></i>
-        </div> -->
+      <div *ngIf="!OnlyUsers()" class="favoritos col-xl-1" id="{{car.id}}">
 
         <div class="poner" (click)="selectFav(car.id, $event)" *ngIf="!estoyEnFav(car.id)">
           <i class="fa fa-star star star--black"></i>
@@ -185,8 +181,11 @@
           <i class="fa fa-star star star--gold"></i>
         </div>
 
+      </div>
 
-
+      <div *ngIf="OnlyUsers()" class="favoritos col-xl-1" id="{{car.id}}">
+        <p> <a class="session" data-toggle="modal" href="#myModal">Inicia sesion</a> para ver tus carreras favoritas.
+        </p>
       </div>
 
     </div>

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 
 import { Component, OnInit } from '@angular/core';
 import { CarrerasService } from '../carreras-service'
@@ -51,8 +52,6 @@ export class CarrerasComponent implements OnInit {
   mostrarCarreras() {
     this.carrerasService.getAllCarreras()
       .then((res) => {
-        console.log(res)
-
         this.carrerasAll = res;
       })
 
@@ -68,8 +67,6 @@ export class CarrerasComponent implements OnInit {
       this.form.value.province)
 
       .then((res) => {
-        console.log(res)
-
         this.carrerasAll = res
         if (this.carrerasAll == 0) {
           alert('No hay resultados vuelve a realizar una busqueda')
@@ -82,7 +79,6 @@ export class CarrerasComponent implements OnInit {
   selectFav(id, e) {
     this.paintStarFavorites()
     this.estoyEnFav(id)
-    console.log(this.estoyFav)
     if (this.estoyFav === true) {
       this.deleteListFavoritos(id, e)
     } else {
@@ -92,19 +88,17 @@ export class CarrerasComponent implements OnInit {
   }
   deleteListFavoritos(pid, e) {
     e.target.classList.replace('star--gold', 'star--black')
-    console.log(pid)
 
     this.carrerasService.deleteFavorite(
       pid,
       this.tokenUsuario)
       .then((res) => {
         this.paintStarFavorites()
-        // this.paintStar(id)
+
       })
   }
 
   postFavoritos(pid, e) {
-    console.log(pid)
     e.target.classList.replace('star--black', 'star--gold')
     this.carrerasService.postFavorite(
       pid,
@@ -121,7 +115,6 @@ export class CarrerasComponent implements OnInit {
       this.tokenUsuario
     ).subscribe((res) => {
       this.listFavorite = res;
-      console.log(this.listFavorite)
       this.cargando = false
       this.carrerasVer = true
     })
@@ -130,7 +123,6 @@ export class CarrerasComponent implements OnInit {
   estoyEnFav(id) {
 
     this.estoyFav = false;
-    console.log(this.listFavorite)
     this.listFavorite.forEach(element => {
       if (element.id_Carreras === id) {
         this.estoyFav = true;
@@ -142,7 +134,14 @@ export class CarrerasComponent implements OnInit {
 
   }
 
-  OnlyUsers() { }
+  OnlyUsers() {
+
+    if (this.tokenUsuario == null) {
+      return true
+    } else {
+      return false
+    }
+  }
 
 
 

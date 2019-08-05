@@ -28,6 +28,10 @@
         <a class="nav-item nav-link" [routerLink]="['carreras']" (click)="isCollapsed = !isCollapsed">Proximas
           Carreras</a>
 
+        <a class="nav-item nav-link" *ngIf="noMostrarToken " [routerLink]="['proximascarreras']"
+          (click)="isCollapsed = !isCollapsed">Carreras
+          Favoritas</a>
+
         <a class="nav-item nav-link trigger-btn" *ngIf="mostrarToken" (click)="isCollapsed = !isCollapsed"
           href="#myModal" data-toggle="modal">Iniciar Sesión</a>
 

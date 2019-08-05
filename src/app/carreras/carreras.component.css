@@ -1,10 +1,7 @@
-
 .carreras{
     border-bottom: 1px solid black;
-    border-top: 1px solid black;
-    
-    border-radius: 5px;
-    
+    border-top: 1px solid black;    
+    border-radius: 5px;    
 }
 .titulo-noticias{
     background-color: white;
@@ -103,14 +100,14 @@ strong{
 
 .descripcionCarreras{
     background-color: white;
-    
-    
 }
 .dia{
     box-sizing: border-box;
     border: 20px solid white;
     font-size: 3.5em;
     padding: 0px;
+    display: flex;
+    align-items: center;
 }
 
 .carreraDescripcion{
@@ -126,8 +123,17 @@ span{
     font-family: 'Hind', sans-serif;
     font-size: 1.3em
 }
+.session{
+    color:  #ffdd59;
+    font-weight: bolder;
+}
+.session:hover{
+    color:  #485460;
+}
 .favoritos{
-    line-height: 178px
+    /* line-height: 178px */
+    display: flex;
+    align-items: center;
 }
 .poner{
     cursor: pointer;
@@ -142,7 +148,7 @@ span{
 }
 
 .star--gold{
-    color: gold;
+    color:  #ffdd59;;
 }
 @media (max-width: 576px) {
 	strong{
