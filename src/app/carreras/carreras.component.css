@@ -129,6 +129,21 @@ span{
 .favoritos{
     line-height: 178px
 }
+.poner{
+    cursor: pointer;
+}
+
+.star{
+    font-size: 3rem;
+}
+
+.star--black{
+    color: #000;
+}
+
+.star--gold{
+    color: gold;
+}
 @media (max-width: 576px) {
 	strong{
         display: block;

@@ -172,13 +172,19 @@
 
       </div>
 
-      <div (click)="postFavoritos(car.id)" class="favoritos col-xl-2" id="{{car.id}}">
-        <div *ngIf="estoyEnFav(car.id)">
-          <p> Quitar fav</p>
+      <div class="favoritos col-xl-2" id="{{car.id}}">
+
+        <!-- <div class="poner" (click)="selectFav(car.id, $event)">
+          <i class="fa fa-star star star--black "></i>
+        </div> -->
+
+        <div class="poner" (click)="selectFav(car.id, $event)" *ngIf="!estoyEnFav(car.id)">
+          <i class="fa fa-star star star--black"></i>
         </div>
-        <div *ngIf="!estoyEnFav(car.id)">
-          <p> poner fav</p>
+        <div class="poner" (click)="selectFav(car.id, $event)" *ngIf="estoyEnFav(car.id)">
+          <i class="fa fa-star star star--gold"></i>
         </div>
+
 
 
       </div>

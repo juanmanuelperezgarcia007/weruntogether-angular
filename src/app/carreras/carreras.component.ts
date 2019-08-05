@@ -9,7 +9,7 @@ import { LoginService } from '../login.service';
   styleUrls: ['./carreras.component.css']
 })
 export class CarrerasComponent implements OnInit {
-  estoyFav: boolean[]
+  estoyFav: boolean
   cargando: boolean
   carrerasVer: boolean;
   arrayFav: any[]
@@ -25,7 +25,7 @@ export class CarrerasComponent implements OnInit {
   constructor(private carrerasService: CarrerasService, private loginService: LoginService) {
     this.carrerasVer = false
     this.cargando = true
-    this.estoyFav = []
+
     this.arrayFav = []
     // this.paintStarFavorites()
 
@@ -79,65 +79,70 @@ export class CarrerasComponent implements OnInit {
     this.form.reset()
 
   }
+  selectFav(id, e) {
+    this.paintStarFavorites()
+    this.estoyEnFav(id)
+    console.log(this.estoyFav)
+    if (this.estoyFav === true) {
+      this.deleteListFavoritos(id, e)
+    } else {
+      this.postFavoritos(id, e)
+    }
 
-  postFavoritos(pid) {
+  }
+  deleteListFavoritos(pid, e) {
+    e.target.classList.replace('star--gold', 'star--black')
     console.log(pid)
-    // this.paintStarFavorites()
-    this.carrerasService.postFavorite(
+
+    this.carrerasService.deleteFavorite(
       pid,
-      this.visible,
       this.tokenUsuario)
       .then((res) => {
-
-
+        this.paintStarFavorites()
         // this.paintStar(id)
       })
+  }
 
-
+  postFavoritos(pid, e) {
+    console.log(pid)
+    e.target.classList.replace('star--black', 'star--gold')
+    this.carrerasService.postFavorite(
+      pid,
+      this.tokenUsuario)
+      .then((res) => {
+        this.paintStarFavorites()
+      })
   }
 
 
   paintStarFavorites() {
+
     this.carrerasService.GetFavorite(
       this.tokenUsuario
     ).subscribe((res) => {
       this.listFavorite = res;
-
+      console.log(this.listFavorite)
       this.cargando = false
       this.carrerasVer = true
-      // this.changeObjArray()
     })
-
-
   }
 
-  // changeObjArray() {
-
-  //   for (let index = 0; index < this.listFavorite.length; index++) {
-  //     this.arrayFav.push(this.listFavorite[index])
-
-  //   }
-
-  //   console.log(this.arrayFav)
-  // }
   estoyEnFav(id) {
-    console.log(id)
-    // this.estoyFav = []
-    let estoyFav = false;
+
+    this.estoyFav = false;
+    console.log(this.listFavorite)
     this.listFavorite.forEach(element => {
       if (element.id_Carreras === id) {
-        estoyFav = true;
-        // this.estoyFav.push(true)
+        this.estoyFav = true;
       }
-      // else {
-      //   this.estoyFav.push(false)
-      // }
-    })
-    return estoyFav;
 
-    // console.log(this.estoyFav)
+    })
+    return this.estoyFav
+
+
   }
 
+  OnlyUsers() { }
 
 
 
