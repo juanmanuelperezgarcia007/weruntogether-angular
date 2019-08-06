@@ -9,13 +9,13 @@ import { Router } from '@angular/router';
 export class CarrerasService {
 
   //online
-  url = 'http://back.weruntogether.es/api/carreras'
-  url_filter = 'http://back.weruntogether.es/api/carreras/filtrarCarreras'
-  url_favoritos = 'http://back.weruntogether.es/api/carreras/carrerasFavoritas'
-  url_getFilter = 'http://back.weruntogether.es/api/carreras/estrella'
-  url_favoritos_delete = 'http://back.weruntogether.es/api/carreras/quitarFavoritos'
-  url_fav = 'http://back.weruntogether.es/api/carreras/paintFav'
-  url_getFilterCount = 'http://back.weruntogether.es/api/carreras/estrellaCount'
+  url = 'https://back.weruntogether.es/api/carreras/WeekRace'
+  url_filter = 'https://back.weruntogether.es/api/carreras/filtrarCarreras'
+  url_favoritos = 'https://back.weruntogether.es/api/carreras/carrerasFavoritas'
+  url_getFilter = 'https://back.weruntogether.es/api/carreras/estrella'
+  url_favoritos_delete = 'https://back.weruntogether.es/api/carreras/quitarFavoritos'
+  url_fav = 'https://back.weruntogether.es/api/carreras/paintFav'
+  url_getFilterCount = 'https://back.weruntogether.es/api/carreras/estrellaCount'
 
   //local
   // url = 'http://localhost:3000/api/carreras/WeekRace'

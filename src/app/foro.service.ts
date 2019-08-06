@@ -14,11 +14,11 @@ export class ForoService {
   noMostrar = false
   constructor(private httpClient: HttpClient) {
     //ONLINE
-    this.url = 'http://back.weruntogether.es/api/foro'
-    this.url_pregunta = 'http://back.weruntogether.es/api/foro/pregunta'
-    this.url_guardar = 'http://back.weruntogether.es/api/foro/respuesta'
-    this.url_datos = 'http://back.weruntogether.es/api/foro/datos'
-    this.url_comentarios = 'http://back.weruntogether.es/api/foro/guardarComentariosForo'
+    this.url = 'https://back.weruntogether.es/api/foro'
+    this.url_pregunta = 'https://back.weruntogether.es/api/foro/pregunta'
+    this.url_guardar = 'https://back.weruntogether.es/api/foro/respuesta'
+    this.url_datos = 'https://back.weruntogether.es/api/foro/datos'
+    this.url_comentarios = 'https://back.weruntogether.es/api/foro/guardarComentariosForo'
 
     //LOCAL
     // this.url = 'http://localhost:3000/api/foro'
