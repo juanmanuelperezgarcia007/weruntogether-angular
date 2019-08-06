@@ -10,8 +10,8 @@ export class PostService {
 
   constructor(private httpClient: HttpClient) {
 
-    // this.url = 'http://back.weruntogether.es/api/quedadas'
-    this.url = 'http://localhost:3000/api/quedadas'
+    this.url = 'http://back.weruntogether.es/api/quedadas'
+    // this.url = 'http://localhost:3000/api/quedadas'
 
 
   }

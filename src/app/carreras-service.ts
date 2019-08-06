@@ -7,15 +7,24 @@ import { Router } from '@angular/router';
 })
 
 export class CarrerasService {
-  // url = 'http://back.weruntogether.es/api/carreras'
-  // url_filter = 'http://back.weruntogether.es/api/carreras/filtrarCarreras'
-  url = 'http://localhost:3000/api/carreras/WeekRace'
-  url_filter = 'http://localhost:3000/api/carreras/filtrarCarreras'
-  url_favoritos = 'http://localhost:3000/api/carreras/carrerasFavoritas'
-  url_getFilter = 'http://localhost:3000/api/carreras/estrella'
-  url_favoritos_delete = 'http://localhost:3000/api/carreras/quitarFavoritos'
-  url_fav = 'http://localhost:3000/api/carreras/paintFav'
-  url_getFilterCount = 'http://localhost:3000/api/carreras/estrellaCount'
+
+  //online
+  url = 'http://back.weruntogether.es/api/carreras'
+  url_filter = 'http://back.weruntogether.es/api/carreras/filtrarCarreras'
+  url_favoritos = 'http://back.weruntogether.es/api/carreras/carrerasFavoritas'
+  url_getFilter = 'http://back.weruntogether.es/api/carreras/estrella'
+  url_favoritos_delete = 'http://back.weruntogether.es/api/carreras/quitarFavoritos'
+  url_fav = 'http://back.weruntogether.es/api/carreras/paintFav'
+  url_getFilterCount = 'http://back.weruntogether.es/api/carreras/estrellaCount'
+
+  //local
+  // url = 'http://localhost:3000/api/carreras/WeekRace'
+  // url_filter = 'http://localhost:3000/api/carreras/filtrarCarreras'
+  // url_favoritos = 'http://localhost:3000/api/carreras/carrerasFavoritas'
+  // url_getFilter = 'http://localhost:3000/api/carreras/estrella'
+  // url_favoritos_delete = 'http://localhost:3000/api/carreras/quitarFavoritos'
+  // url_fav = 'http://localhost:3000/api/carreras/paintFav'
+  // url_getFilterCount = 'http://localhost:3000/api/carreras/estrellaCount'
 
   constructor(private httpClient: HttpClient, router: Router) {
   }
@@ -51,9 +60,4 @@ export class CarrerasService {
     return this.httpClient.post(`${this.url_getFilterCount}`, { token: tokenusuario })
   }
 
-
-  // GetFavorite(tokenusuario){
-  //   console.log(tokenusuario)
-  //   return this.httpClient.post(`${this.url_getFilter}`,{token:tokenusuario}).toPromise()
-  // }
 }
