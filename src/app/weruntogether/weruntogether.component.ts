@@ -80,13 +80,13 @@ export class WeruntogetherComponent implements OnInit {
 
 
     } else {
-      console.log('La liamos')
+
     }
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition.bind(this), this.showError)
     } else {
-      console.log('No funciono')
+
     }
 
   }
@@ -186,7 +186,7 @@ export class WeruntogetherComponent implements OnInit {
   //  NUEVO POST
   guardarNewPost() {
 
-    console.log('entra en werun')
+
     this.postService.agregarPost(
 
       this.formPost.value.formularioDia,
@@ -200,7 +200,7 @@ export class WeruntogetherComponent implements OnInit {
     ).then((res) => {
       this.mostrarPost()
 
-      console.log(res)
+
     })
     this.formPost.reset()
   }
@@ -219,7 +219,7 @@ export class WeruntogetherComponent implements OnInit {
     )
       .then((res) => {
 
-        console.log(res)
+
         this.AllPost = res
       })
 
@@ -232,26 +232,26 @@ export class WeruntogetherComponent implements OnInit {
       this.formBuscador.value.buscadorDistancia,
     ).then((res) => {
       this.AllPost = res
-      console.log(this.AllPost)
+
     })
   }
   // BUSCAR POST DIA
 
   filtrarDia() {
-    console.log(this.formBuscador.value)
+
     this.postService.filtersDate(
       this.formBuscador.value.buscadorDia,
     ).then((res) => {
       this.AllPost = res
-      console.log(this.AllPost)
+
     })
   }
   // BORRAR POST 
 
   deletePost(pid) {
-    console.log(pid)
+
     this.postService.borrarPost(pid).then((res) => {
-      console.log(res)
+
       alert('Evento borrado')
       this.mostrarPost()
 

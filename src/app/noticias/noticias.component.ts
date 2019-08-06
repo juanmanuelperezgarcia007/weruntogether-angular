@@ -24,7 +24,7 @@ export class NoticiasComponent implements OnInit {
       this.cargando = false
       this.noticiasver = true
       this.noticias = res['items']
-      console.log(this.noticias)
+
       this.noticia_selecionada = this.noticias[0]
     })
 
@@ -33,7 +33,6 @@ export class NoticiasComponent implements OnInit {
   selecionarNoticia(not, evento) {
     this.noticia_selecionada = not;
     this.fotoSeleccionada = evento.target.id;
-    console.log(this.fotoSeleccionada)
     this.mostrar = true
 
   }

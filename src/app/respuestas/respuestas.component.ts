@@ -83,16 +83,16 @@ export class RespuestasComponent implements OnInit {
   }
   // grafica
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
+
   }
 
   public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
+
   }
 
 
   mostrarPostId(pAllPreguntasId) {
-    console.log(pAllPreguntasId)
+
     this.ForoService.getPregunta(this.AllPreguntasId)
       .then((res) => {
 
@@ -105,14 +105,14 @@ export class RespuestasComponent implements OnInit {
         this.AllPreguntaOpcion2 = this.AllPregunta[0].opcion3
 
         this.AllPreguntaOpcion3 = this.AllPregunta[0].opcion4
-        console.log(this.pieChartLabels)
+
         this.pieChartLabels.push(this.AllPreguntaOpcion)
         this.pieChartLabels.push(this.AllPreguntaOpcion1)
         this.pieChartLabels.push(this.AllPreguntaOpcion2)
-        console.log(this.AllPreguntaOpcion3)
+
         if (this.AllPreguntaOpcion3 != null)
           this.pieChartLabels.push(this.AllPreguntaOpcion3)
-        console.log(this.pieChartLabels)
+
 
 
 
@@ -126,7 +126,7 @@ export class RespuestasComponent implements OnInit {
       this.respuestasForm.value.opciones,
       this.AllPreguntasId).then((res) => {
         alert('Tu votacion se a realizado correctamente')
-        console.log(this.tokenUsuario)
+
         this.cargarDatos()
         this.toggleMostrar()
         this.toggleMostrarToken(this.tokenUsuario)
@@ -140,23 +140,21 @@ export class RespuestasComponent implements OnInit {
     this.ForoService.loadData(
 
       this.AllPreguntasId).then((res) => {
-        console.log(res)
+
         this.allDatos = res
-        console.log(this.allDatos[0].contador)
+
         this.allDato = this.allDatos[0].contador
-        console.log(this.allDato)
-        console.log(this.allDatos)
+
         this.allDato = this.allDatos[0].contador
         this.allDato1 = this.allDatos[1].contador
         this.allDato2 = this.allDatos[2].contador
         this.allDato3 = this.allDatos[3].contador
-        console.log(this.pieChartData)
-        console.log(this.allDato1)
+
         this.pieChartData.push(this.allDato)
         this.pieChartData.push(this.allDato1)
         this.pieChartData.push(this.allDato2)
         this.pieChartData.push(this.allDato3)
-        console.log(this.pieChartData)
+
 
       })
   }
@@ -168,8 +166,6 @@ export class RespuestasComponent implements OnInit {
   }
   toggleMostrarToken(ptokenUsuario) {
     if (this.tokenUsuario == null) {
-      console.log(this.tokenUsuario)
-      console.log(this.noMostrarToken)
 
     } else {
       this.noMostrarToken = !this.noMostrarToken
@@ -191,7 +187,7 @@ export class RespuestasComponent implements OnInit {
   paintForo() {
     this.ForoService.pintarComentariosForo(this.AllPreguntasId).then((res) => {
       this.allComentForo = res
-      console.log(this.allComentForo)
+
     })
   }
 }

@@ -75,9 +75,9 @@ export class CarrerasfavoritasComponent implements OnInit {
   changeClass(e) {
     e.target.classList.replace('star--gold', 'star--black')
     e.path[3].classList.replace('show', 'none')
-    console.log(this.listFavorite)
+
     if (this.listFavorite.length == 1) {
-      console.log('entra en if')
+
       e.path[4].children[0].classList.replace('none', 'show')
     }
   }
