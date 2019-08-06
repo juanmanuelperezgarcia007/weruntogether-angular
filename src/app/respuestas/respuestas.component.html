@@ -7,7 +7,8 @@
 
 
   <div class="pregunta" *ngIf="mostrar">
-    <form novalidate class="well form-horizontal" id="" [formGroup]="respuestasForm" (ngSubmit)="guardarRespuestas()">
+    <form novalidate class="well form-horizontal" id="" [formGroup]="respuestasForm"
+      (ngSubmit)="guardarRespuestas($event)">
 
       <div class="container col-md-12 ">
         <h2 id="buscador">Danos tu opinion</h2>
@@ -22,19 +23,29 @@
 
 
 
-            <label class="opciones"><input formControlName="opciones" type="radio" name='opciones'
-                class="btn btn-primary respuesta" value="1">{{pre.opcion1}}</label>
-            <label class="opciones"><input formControlName="opciones" type="radio" name='opciones'
-                class="btn btn-primary respuesta" value="2">{{pre.opcion2}}</label>
-            <label class="opciones"><input formControlName="opciones" type="radio" name='opciones'
-                class="btn btn-primary respuesta" value="3">{{pre.opcion3}}</label>
-            <label class="opciones"><input formControlName="opciones" type="radio" name='opciones'
-                class="btn btn-primary respuesta" value="4">{{pre.opcion4}}</label>
+            <label class="opciones">
+              <input formControlName="opciones" onclick="btnForm.disabled = !this.checked" type="radio" name='opciones'
+                class="btn btn-primary respuesta" value="1">{{pre.opcion1}}
+            </label>
+            <label class="opciones">
+              <input formControlName="opciones" onclick="btnForm.disabled = !this.checked" type="radio" name='opciones'
+                class="btn btn-primary respuesta" value="2">{{pre.opcion2}}
+            </label>
+            <label class="opciones">
+              <input formControlName="opciones" onclick="btnForm.disabled = !this.checked" type="radio" name='opciones'
+                class="btn btn-primary respuesta" value="3">{{pre.opcion3}}
+            </label>
+            <label class="opciones">
+              <input formControlName="opciones" onclick="btnForm.disabled = !this.checked" type="radio" name='opciones'
+                class="btn btn-primary respuesta" value="4">{{pre.opcion4}}
+            </label>
+          </div>
 
-          </div>
           <div class="container"><br>
-            <input type="submit" class="col-xl-6 btn btn-warning"><span class="glyphicon glyphicon-send"></span>
+            <input type="submit" name="btnForm" disabled class="col-xl-6 btn btn-warning"><span
+              class="glyphicon glyphicon-send"></span>
           </div>
+
         </div>
 
 

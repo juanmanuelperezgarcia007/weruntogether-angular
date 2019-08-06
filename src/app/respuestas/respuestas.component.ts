@@ -121,7 +121,7 @@ export class RespuestasComponent implements OnInit {
 
   }
 
-  guardarRespuestas() {
+  guardarRespuestas(e) {
     this.ForoService.saveRespuesta(
       this.respuestasForm.value.opciones,
       this.AllPreguntasId).then((res) => {
@@ -133,6 +133,7 @@ export class RespuestasComponent implements OnInit {
         this.paintForo()
 
       })
+
   }
 
   cargarDatos() {
