@@ -162,4 +162,10 @@ span{
         width: 100%;
         text-align: center
     }
+    .star{
+        margin: 0 140px;
+    }
+    .poner{
+        margin-bottom: 25px;
+    }
 }

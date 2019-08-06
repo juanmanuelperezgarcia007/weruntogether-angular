@@ -9,6 +9,17 @@
 .none{
     display: none
 }
+
+.subtitulo{
+    padding: 20px 20px;
+    display: block;
+    font-size: 35px
+}
+.medio{
+    padding-bottom: 0px;
+    padding-top: 0px
+}
+
 .carreras{
     border-bottom: 1px solid black; 
     border-radius: 5px;
@@ -72,4 +83,23 @@ span{
 strong{
     font-family: 'Montserrat', sans-serif;
     font-size: 1.3em
+}
+@media (max-width: 576px) {
+	strong{
+        display: block;
+        width: 100%;
+        text-align: center
+    }
+    span{
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center
+    }
+    .star{
+        margin: 0 140px;
+    }
+    .poner{
+        margin-bottom: 25px;
+    }
 }

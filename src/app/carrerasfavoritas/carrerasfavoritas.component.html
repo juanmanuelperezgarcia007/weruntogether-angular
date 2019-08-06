@@ -11,11 +11,20 @@
   </div>
 </div>
 
+
+
 <div *ngIf="carrerasVer" class="container-fluid filtradodecarreras">
 
   <div class="container  descripcionCarreras">
 
-    <div class="carreras row col-12" *ngFor="let car of arrayCarrerFav">
+    <div class="none " [ngClass]="{'none': carreraLLena, 'show': CarreraVacia}">
+      <h2 class="subtitulo">No tienes ninguna carrera actualmente.<span class="subtitulo">Añade las carreras</span>
+        <span class="medio subtitulo">que mas te gusten
+        </span><span class="subtitulo">para que aparezcan
+          aqui</span></h2>
+    </div>
+
+    <div class="carreras show row col-12" *ngFor="let car of arrayCarrerFav">
 
       <div class="dia col-xl-3 col-xs-12">
 
@@ -66,8 +75,6 @@
 
 </div>
 <div *ngIf='cargando'>
-  <div *ngIf="mensajeCont===0" class="container-fluid filtradodecarreras">
-    Añade carreras las carreras que mas te gusten para que aparezcan aqui
-  </div>
+
   <img src="./../../assets//cargando.gif" alt="">
 </div>
