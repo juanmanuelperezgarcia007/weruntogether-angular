@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { ChartType, ChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { ForoService } from '../foro.service'
-import { ReactiveFormsModule, FormGroup, Form, FormControl, Validators } from '@angular/forms'
+import { FormGroup, FormControl } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -123,7 +121,7 @@ export class RespuestasComponent implements OnInit {
 
   }
 
-  guardarRespuestas() {
+  guardarRespuestas(e) {
     this.ForoService.saveRespuesta(
       this.respuestasForm.value.opciones,
       this.AllPreguntasId).then((res) => {
@@ -135,14 +133,23 @@ export class RespuestasComponent implements OnInit {
         this.paintForo()
 
       })
+
   }
 
   cargarDatos() {
     this.ForoService.loadData(
 
       this.AllPreguntasId).then((res) => {
+<<<<<<< HEAD
         this.allDatos = res
         this.allDato = this.allDatos[0].contador
+=======
+
+        this.allDatos = res
+
+        this.allDato = this.allDatos[0].contador
+
+>>>>>>> develop
         this.allDato = this.allDatos[0].contador
         this.allDato1 = this.allDatos[1].contador
         this.allDato2 = this.allDatos[2].contador
@@ -152,7 +159,11 @@ export class RespuestasComponent implements OnInit {
         this.pieChartData.push(this.allDato1)
         this.pieChartData.push(this.allDato2)
         this.pieChartData.push(this.allDato3)
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> develop
 
       })
   }
@@ -165,7 +176,11 @@ export class RespuestasComponent implements OnInit {
   toggleMostrarToken(ptokenUsuario) {
     if (this.tokenUsuario == null) {
 
+<<<<<<< HEAD
         } else {
+=======
+    } else {
+>>>>>>> develop
       this.noMostrarToken = !this.noMostrarToken
     }
   }
@@ -179,6 +194,10 @@ export class RespuestasComponent implements OnInit {
       alert('Comentario publicado')
     })
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
   }
 
   paintForo() {

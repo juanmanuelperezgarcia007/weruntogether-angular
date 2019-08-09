@@ -33,15 +33,18 @@ export class WeruntogetherComponent implements OnInit {
   posicionLatitude: number
   posicionLongitude: number
   tokenUsuario: any
+
   constructor(private postService: PostService, private router: Router) {
-
-
 
   }
 
   ngOnInit() {
     this.tokenUsuario = localStorage.getItem('token')
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> develop
     this.image = `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitud}&zoom=16&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C${this.latitude},${this.longitud}&key=AIzaSyCsfD7R9a5zeVCisKnbWYbfKBh5lYpZC28`
 
 
@@ -81,13 +84,21 @@ export class WeruntogetherComponent implements OnInit {
 
 
     } else {
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> develop
     }
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition.bind(this), this.showError)
     } else {
+<<<<<<< HEAD
    
+=======
+
+>>>>>>> develop
     }
 
   }
@@ -187,7 +198,11 @@ export class WeruntogetherComponent implements OnInit {
   //  NUEVO POST
   guardarNewPost() {
 
+<<<<<<< HEAD
    
+=======
+
+>>>>>>> develop
     this.postService.agregarPost(
 
       this.formPost.value.formularioDia,
@@ -201,7 +216,11 @@ export class WeruntogetherComponent implements OnInit {
     ).then((res) => {
       this.mostrarPost()
 
+<<<<<<< HEAD
      
+=======
+
+>>>>>>> develop
     })
     this.formPost.reset()
   }
@@ -220,6 +239,10 @@ export class WeruntogetherComponent implements OnInit {
     )
       .then((res) => {
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
         this.AllPost = res
       })
 
@@ -232,26 +255,44 @@ export class WeruntogetherComponent implements OnInit {
       this.formBuscador.value.buscadorDistancia,
     ).then((res) => {
       this.AllPost = res
+<<<<<<< HEAD
      
+=======
+
+>>>>>>> develop
     })
   }
-// BUSCAR POST DIA
+  // BUSCAR POST DIA
 
   filtrarDia() {
+<<<<<<< HEAD
    
+=======
+
+>>>>>>> develop
     this.postService.filtersDate(
       this.formBuscador.value.buscadorDia,
     ).then((res) => {
       this.AllPost = res
+<<<<<<< HEAD
      
+=======
+
+>>>>>>> develop
     })
   }
-// BORRAR POST 
+  // BORRAR POST 
 
   deletePost(pid) {
+<<<<<<< HEAD
   
     this.postService.borrarPost(pid).then((res) => {
       
+=======
+
+    this.postService.borrarPost(pid).then((res) => {
+
+>>>>>>> develop
       alert('Evento borrado')
       this.mostrarPost()
 

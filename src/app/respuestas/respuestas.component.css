@@ -258,9 +258,11 @@ h3{
     margin-top: 25px;
     padding: 25px
 }
-h3{
+.h3comentarios{
     padding-bottom: 25px;
-    margin-bottom: 0px
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-top: 25px;
 }
 .pintarcomentario{
     color:black;

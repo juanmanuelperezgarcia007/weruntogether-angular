@@ -18,7 +18,7 @@
     <form novalidate id="contact_form" [formGroup]="form" (ngSubmit)="getFiltersRace()">
 
 
-      <div class="col12 container row">
+      <div class="col-12 sin container row">
         <div class="filtrodistancia col-xl-6 col-xs-12">
 
           <label>Distancia Min</label> <select formControlName="min" class="col-12 form-control selectpicker">
@@ -56,7 +56,8 @@
 
         <div class="col-xl-6 col-xs-12">
           <label>Ciudad</label>
-          <input placeholder='Elije la ciudad que quieres' class="col-12 form-control ciudad selectpicker" formControlName="city" type="text">
+          <input placeholder='Elije la ciudad que quieres' class="col-12 form-control ciudad selectpicker"
+            formControlName="city" type="text">
         </div>
 
         <div class=" col-xl-6 col-xs-12 inputGroupContainer">
@@ -138,7 +139,7 @@
   </div>
 </div>
 
-<div class="container-fluid filtradodecarreras">
+<div *ngIf="carrerasVer" class="container-fluid filtradodecarreras">
 
   <div class="container  descripcionCarreras">
 
@@ -149,34 +150,55 @@
         <strong>{{ car.date | date:"dd/MM"}} </strong>
 
       </div>
-      <div class="carreraDescripcion col-xl-7 col-sm-12">
+      <div class="carreraDescripcion col-xl-8 col-sm-12">
 
-        <p class="carrer col-sm-12 col-12 ">
+        <p class="carrer ">
           <strong class="col-xl-3 col-sm-12">Nombre: </strong><span class="col-xl-9 col-sm-12"> {{ car.name}}</span>
 
         </p>
 
-        <p class="carrer col-xl-12 "><strong class="col-xl-3">Distancia: </strong> <span
-            class="col-xl-9">{{ car.distance}} </span></p>
+        <p class="carrer "><strong class="col-xl-3">Distancia: </strong> <span class="col-xl-9">{{ car.distance}}
+          </span></p>
 
-        <p class="carrer col-sm-12 col-12 ">
+        <p class="carrer">
 
           <strong class="col-xl-3">Ciudad: </strong><span class="col-9">{{ car.city}}</span>
 
         </p>
 
-        <p class="carrer col-sm-12 col-12"><strong class="col-md-3 col-sm-12">Tipo de Carrera: </strong><span
-            class="col-9 col-sm-12"> {{ car.type}}</span></p>
+        <p class="carrer"><strong class="col-md-3 col-sm-12">Tipo de Carrera: </strong><span class="col-9 col-sm-12">
+            {{ car.type}}</span></p>
 
 
       </div>
+<<<<<<< HEAD
       <div (click)="postFavoritos(car.id)" class="favoritos col-xl-2" id="{{car.id}}">
         <img  class="classTrue" src="./../../assets/favoritos.png" alt="">
         <img  class="classFalse"  src="./../../assets/favoritosLleno.png"> 
+=======
+
+      <div *ngIf="!OnlyUsers()" class="favoritos col-xl-1" id="{{car.id}}">
+
+        <div class="poner" (click)="selectFav(car.id, $event)" *ngIf="!estoyEnFav(car.id)">
+          <i class="fa fa-star star star--black"></i>
+        </div>
+        <div class="poner" (click)="selectFav(car.id, $event)" *ngIf="estoyEnFav(car.id)">
+          <i class="fa fa-star star star--gold"></i>
+        </div>
+
+>>>>>>> develop
       </div>
-      
+
+      <div *ngIf="OnlyUsers()" class="favoritos col-xl-1" id="{{car.id}}">
+        <p> <a class="session" data-toggle="modal" href="#myModal">Inicia sesion</a> para ver tus carreras favoritas.
+        </p>
+      </div>
+
     </div>
 
   </div>
 
+</div>
+<div *ngIf='cargando'>
+  <img src="./../../assets//cargando.gif" alt="">
 </div>

@@ -9,17 +9,26 @@ export class ForoService {
   url_guardar: string
   url_pregunta: string
   url_comentarios: string
-  url_datos:any
+  url_datos: any
   mostrar = true
   noMostrar = false
   constructor(private httpClient: HttpClient) {
+<<<<<<< HEAD
     
+=======
+    //ONLINE
+>>>>>>> develop
     // this.url = 'https://back.weruntogether.es/api/foro'
     // this.url_pregunta = 'https://back.weruntogether.es/api/foro/pregunta'
     // this.url_guardar = 'https://back.weruntogether.es/api/foro/respuesta'
     // this.url_datos = 'https://back.weruntogether.es/api/foro/datos'
     // this.url_comentarios = 'https://back.weruntogether.es/api/foro/guardarComentariosForo'
+<<<<<<< HEAD
     
+=======
+
+    //LOCAL
+>>>>>>> develop
     this.url = 'http://localhost:3000/api/foro'
     this.url_pregunta = 'http://localhost:3000/api/foro/pregunta'
     this.url_guardar = 'http://localhost:3000/api/foro/respuesta'
@@ -46,22 +55,22 @@ export class ForoService {
   }
 
   saveRespuesta(popciones, pAllPreguntasId) {
-    console.log(popciones,pAllPreguntasId)
+    console.log(popciones, pAllPreguntasId)
     return this.httpClient.post<any>(`${this.url_guardar}`, {
-        fk_respuesta: pAllPreguntasId,
-        respuesta: popciones
+      fk_respuesta: pAllPreguntasId,
+      respuesta: popciones
     }).toPromise()
   }
-  
 
-  guardarComentario(tokenUsuario,value,AllPreguntasId) {
-    console.log(tokenUsuario,value,AllPreguntasId)
+
+  guardarComentario(tokenUsuario, value, AllPreguntasId) {
+    console.log(tokenUsuario, value, AllPreguntasId)
     return this.httpClient.post<any>(`${this.url_comentarios}`, {
-      
-      tokenUsuario:tokenUsuario,
+
+      tokenUsuario: tokenUsuario,
       comentario: value,
       fk_respuesta: AllPreguntasId,
-       
+
     }).toPromise()
   }
 
@@ -72,7 +81,7 @@ export class ForoService {
     }).toPromise()
 
   }
-  
+
   toggleMostrar() {
     this.mostrar = !this.mostrar
     this.noMostrar = !this.noMostrar

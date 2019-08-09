@@ -2,31 +2,41 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { AppComponent} from './app.component'
+import { AppComponent } from './app.component'
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService implements OnInit {
-  
+
   noMostrarToken = false
-  mostrarToken= true
+  mostrarToken = true
   url: string
   url_inicio: string
   mostrar = true
   noMostrar = false
   token: any
-  tokenUsuario:any
+  tokenUsuario: any
   constructor(private httpClient: HttpClient, public router: Router) {
+<<<<<<< HEAD
     // this.url = 'https://back.weruntogether.es/api/registro'
     // this.url_inicio = 'https://back.weruntogether.es/api/inicio'
       this.url = 'http://localhost:3000/api/registro'
       this.url_inicio = 'http://localhost:3000/api/inicio'
+=======
+    // //ONLINE
+    // this.url = 'https://back.weruntogether.es/api/registro'
+    // this.url_inicio = 'https://back.weruntogether.es/api/inicio'
+
+    //LOCAL
+    this.url = 'http://localhost:3000/api/registro'
+    this.url_inicio = 'http://localhost:3000/api/inicio'
+>>>>>>> develop
 
   }
 
-  ngOnInit(){
-   this.tokenUsuario = localStorage.getItem('token')
-   console.log(this.tokenUsuario)
+  ngOnInit() {
+    this.tokenUsuario = localStorage.getItem('token')
+    console.log(this.tokenUsuario)
   }
 
   getLogin(pusuario, ppassword) {
@@ -52,23 +62,23 @@ export class LoginService implements OnInit {
     let tokenUsuario = localStorage.getItem('token')
     return this.httpClient.post(`${this.url}/${'delete'}`, { token: tokenUsuario }).toPromise()
   }
- 
 
-  toggleMostrar(ptokenUsuario){
-    if(this.tokenUsuario==null){
-      this.mostrar=true
-      
-    }else{
-    
+
+  toggleMostrar(ptokenUsuario) {
+    if (this.tokenUsuario == null) {
+      this.mostrar = true
+
+    } else {
+
       this.mostrar = false
     }
   }
 
-  toggleNoMostrar(ptokenUsuario){
-    if(this.tokenUsuario==null){
-  this.noMostrar=false
-      
-    }else{
+  toggleNoMostrar(ptokenUsuario) {
+    if (this.tokenUsuario == null) {
+      this.noMostrar = false
+
+    } else {
       this.noMostrar = true
       console.log(this.noMostrar)
     }
@@ -76,25 +86,25 @@ export class LoginService implements OnInit {
 
   cerrarSesion() {
     localStorage.removeItem('token'),
-    
+
       this.router.navigate(['index'])
-    
+
   }
 
-  toggleMostrarToken(ptokenUsuario){
+  toggleMostrarToken(ptokenUsuario) {
     console.log(this.tokenUsuario)
-    if(this.tokenUsuario==null){
+    if (this.tokenUsuario == null) {
       this.noMostrarToken = false
-      this.mostrarToken=true
+      this.mostrarToken = true
       console.log(this.noMostrarToken)
-      
-    }else{
+
+    } else {
       this.noMostrarToken = true
-      this.mostrarToken=false
+      this.mostrarToken = false
       console.log(this.noMostrarToken)
 
     }
 
 
-}
+  }
 }

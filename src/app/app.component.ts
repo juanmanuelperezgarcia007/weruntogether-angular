@@ -13,13 +13,13 @@ declare var $;
 export class AppComponent implements OnInit {
   tokenUsuario: any
   title = 'WERUNTOGETHER';
-  userToken:any
+  userToken: any
   regform: FormGroup;
   mostrar = true
   noMostrar = false
   token: any
-  
-  constructor(private loginService: LoginService, public router:Router) { }
+
+  constructor(private loginService: LoginService, public router: Router) { }
 
 
   ngOnInit() {
@@ -30,39 +30,44 @@ export class AppComponent implements OnInit {
 
     })
 
-    this.router.events.subscribe((evt)=>{
-      if(!(evt instanceof NavigationEnd)){
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
         return
       }
-      window.scrollTo(0,0)
+      window.scrollTo(0, 0)
     })
+<<<<<<< HEAD
   
     
+=======
+
+
+>>>>>>> develop
   }
   iniciar() {
-    
+
     this.loginService.getLogin(this.regform.value.usuario, this.regform.value.password)
       .then((res) => {
        
 
-        if(res['error']){
+        if (res['error']) {
           alert('Usuario y/o contraseña es incorrecta')
 
-        }else{
-          localStorage.setItem('token',res.toString())
+        } else {
+          localStorage.setItem('token', res.toString())
           this.tokenUsuario = localStorage.getItem('token')
           $("[data-dismiss=modal]").trigger({ type: "click" })
-         
-          
+
+
           this.loginService.toggleMostrarToken(this.tokenUsuario)
           location.reload()
 
           this.router.navigate(['index'])
         }
-        
+
 
       })
 
   }
- 
+
 }

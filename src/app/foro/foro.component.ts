@@ -13,7 +13,7 @@ export class ForoComponent implements OnInit {
   respuestasForm: FormGroup;
 
   chart: any
- 
+
   AllPreguntas: any
 
   constructor(private ForoService: ForoService, private http: HttpClient) {
@@ -31,10 +31,13 @@ export class ForoComponent implements OnInit {
   mostrarPost() {
     this.ForoService.getAllQuestions()
       .then((res) => {
+<<<<<<< HEAD
 
        
+=======
+>>>>>>> develop
         this.AllPreguntas = res
-        
+
       })
 
   }

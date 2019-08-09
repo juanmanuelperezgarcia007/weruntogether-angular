@@ -1,3 +1,4 @@
+import { CarrerasService } from './../carreras-service';
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
 import { Router, NavigationEnd } from '@angular/router';
@@ -8,34 +9,50 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isCollapsed:boolean
+  isCollapsed: boolean
   tokenUsuario: any
   noMostrarToken = false
-  mostrarToken= true
+  mostrarToken = true
+  listFavorite: any
 
+<<<<<<< HEAD
   constructor(public loginService:LoginService, public router:Router) { }
+=======
+  constructor(public loginService: LoginService, private carrerasService: CarrerasService) {
+
+  }
+>>>>>>> develop
 
   ngOnInit() {
+
     this.tokenUsuario = localStorage.getItem('token')
+<<<<<<< HEAD
     this.isCollapsed=true
    
+=======
+    this.isCollapsed = true
+
+>>>>>>> develop
     this.toggleMostrarToken(this.tokenUsuario)
   }
-  closedSession(){
+
+
+
+  closedSession() {
     this.loginService.cerrarSesion()
     this.toggleMostrarToken(this.tokenUsuario)
     location.reload();
     this.router.navigate(['index']);
   }
-  toggleMostrarToken(ptokenUsuario){
-    if(this.tokenUsuario==null){
+  toggleMostrarToken(ptokenUsuario) {
+    if (this.tokenUsuario == null) {
       this.noMostrarToken = false
-      this.mostrarToken=true
-      
-      
-    }else{
+      this.mostrarToken = true
+
+
+    } else {
       this.noMostrarToken = true
-      this.mostrarToken=false
+      this.mostrarToken = false
 
     }
   }

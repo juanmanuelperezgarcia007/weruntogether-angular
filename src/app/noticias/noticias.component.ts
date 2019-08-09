@@ -33,7 +33,10 @@ export class NoticiasComponent implements OnInit {
   selecionarNoticia(not, evento) {
     this.noticia_selecionada = not;
     this.fotoSeleccionada = evento.target.id;
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
     this.mostrar = true
 
   }
