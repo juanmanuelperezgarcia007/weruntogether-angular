@@ -17,13 +17,13 @@ export class LoginService implements OnInit {
   token: any
   tokenUsuario: any
   constructor(private httpClient: HttpClient, public router: Router) {
-    //ONLINE
-    this.url = 'https://back.weruntogether.es/api/registro'
-    this.url_inicio = 'https://back.weruntogether.es/api/inicio'
+    // //ONLINE
+    // this.url = 'https://back.weruntogether.es/api/registro'
+    // this.url_inicio = 'https://back.weruntogether.es/api/inicio'
 
     //LOCAL
-    // this.url = 'http://localhost:3000/api/registro'
-    // this.url_inicio = 'http://localhost:3000/api/inicio'
+    this.url = 'http://localhost:3000/api/registro'
+    this.url_inicio = 'http://localhost:3000/api/inicio'
 
   }
 
