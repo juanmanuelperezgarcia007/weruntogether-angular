@@ -79,11 +79,13 @@ export class WeruntogetherComponent implements OnInit {
 
 
     } else {
+
     }
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition.bind(this), this.showError)
     } else {
+
     }
 
   }
@@ -182,7 +184,6 @@ export class WeruntogetherComponent implements OnInit {
   }
   //  NUEVO POST
   guardarNewPost() {
-
     this.postService.agregarPost(
 
       this.formPost.value.formularioDia,
@@ -195,7 +196,6 @@ export class WeruntogetherComponent implements OnInit {
 
     ).then((res) => {
       this.mostrarPost()
-
     })
     this.formPost.reset()
   }
@@ -213,7 +213,6 @@ export class WeruntogetherComponent implements OnInit {
 
     )
       .then((res) => {
-
         this.AllPost = res
       })
 
@@ -226,15 +225,18 @@ export class WeruntogetherComponent implements OnInit {
       this.formBuscador.value.buscadorDistancia,
     ).then((res) => {
       this.AllPost = res
+
     })
   }
   // BUSCAR POST DIA
 
   filtrarDia() {
+
     this.postService.filtersDate(
       this.formBuscador.value.buscadorDia,
     ).then((res) => {
       this.AllPost = res
+
     })
   }
   // BORRAR POST 

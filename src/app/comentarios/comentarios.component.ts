@@ -38,6 +38,7 @@ export class ComentariosComponent implements OnInit {
   ngOnInit() {
 
     this.tokenUsuario = localStorage.getItem('token')
+
   }
 
 
