@@ -20,7 +20,6 @@ export class CarrerasComponent implements OnInit {
   carrerasDistance: any
   carrerasType: any
   form: FormGroup;
-  favoritosLleno: boolean
   tokenUsuario = localStorage.getItem('token')
   listFavorite: any
   constructor(private carrerasService: CarrerasService, private loginService: LoginService) {
@@ -32,7 +31,7 @@ export class CarrerasComponent implements OnInit {
 
 
   }
-  public visible: boolean = true
+
 
   ngOnInit() {
 

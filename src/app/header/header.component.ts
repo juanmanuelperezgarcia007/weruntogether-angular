@@ -1,6 +1,7 @@
 import { CarrerasService } from './../carreras-service';
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login.service'
+import { LoginService } from '../login.service';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,7 @@ export class HeaderComponent implements OnInit {
   mostrarToken = true
   listFavorite: any
 
-  constructor(public loginService: LoginService, private carrerasService: CarrerasService) {
+  constructor(public loginService: LoginService, private carrerasService: CarrerasService, private router: Router) {
 
   }
 
@@ -31,7 +32,8 @@ export class HeaderComponent implements OnInit {
   closedSession() {
     this.loginService.cerrarSesion()
     this.toggleMostrarToken(this.tokenUsuario)
-    location.reload()
+    location.reload();
+    this.router.navigate(['index']);
   }
   toggleMostrarToken(ptokenUsuario) {
     if (this.tokenUsuario == null) {

@@ -52,7 +52,7 @@ export class RespuestasComponent implements OnInit {
     }
   };
   public pieChartLabels: Label[] = [];
-  public pieChartData: number[] = [];
+  public pieChartData: number[] = []
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [pluginDataLabels];
@@ -64,7 +64,7 @@ export class RespuestasComponent implements OnInit {
 
 
   constructor(private ForoService: ForoService, private activatedRoute: ActivatedRoute) {
-
+    this.pieChartLegend = false
     this.activatedRoute.params.subscribe(params =>
       this.AllPreguntasId = params.id)
 
@@ -155,7 +155,6 @@ export class RespuestasComponent implements OnInit {
         this.pieChartData.push(this.allDato2)
         this.pieChartData.push(this.allDato3)
 
-
       })
   }
 
@@ -180,7 +179,6 @@ export class RespuestasComponent implements OnInit {
       this.paintForo()
       alert('Comentario publicado')
     })
-
 
   }
 

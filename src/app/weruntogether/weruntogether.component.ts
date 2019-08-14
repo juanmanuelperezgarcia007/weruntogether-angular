@@ -40,7 +40,6 @@ export class WeruntogetherComponent implements OnInit {
 
   ngOnInit() {
     this.tokenUsuario = localStorage.getItem('token')
-
     this.image = `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitud}&zoom=16&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C${this.latitude},${this.longitud}&key=AIzaSyCsfD7R9a5zeVCisKnbWYbfKBh5lYpZC28`
 
 
@@ -80,13 +79,11 @@ export class WeruntogetherComponent implements OnInit {
 
 
     } else {
-
     }
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition.bind(this), this.showError)
     } else {
-
     }
 
   }
@@ -186,7 +183,6 @@ export class WeruntogetherComponent implements OnInit {
   //  NUEVO POST
   guardarNewPost() {
 
-
     this.postService.agregarPost(
 
       this.formPost.value.formularioDia,
@@ -199,7 +195,6 @@ export class WeruntogetherComponent implements OnInit {
 
     ).then((res) => {
       this.mostrarPost()
-
 
     })
     this.formPost.reset()
@@ -219,7 +214,6 @@ export class WeruntogetherComponent implements OnInit {
     )
       .then((res) => {
 
-
         this.AllPost = res
       })
 
@@ -232,18 +226,15 @@ export class WeruntogetherComponent implements OnInit {
       this.formBuscador.value.buscadorDistancia,
     ).then((res) => {
       this.AllPost = res
-
     })
   }
   // BUSCAR POST DIA
 
   filtrarDia() {
-
     this.postService.filtersDate(
       this.formBuscador.value.buscadorDia,
     ).then((res) => {
       this.AllPost = res
-
     })
   }
   // BORRAR POST 

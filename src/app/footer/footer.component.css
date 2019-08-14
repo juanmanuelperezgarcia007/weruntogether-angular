@@ -3,7 +3,10 @@
 .footer{
 	background-color:  #3C4545;
 	box-sizing: border-box;
-	padding: 25px
+	padding: 25px;
+	height: 77px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 a{
 	cursor: pointer;
@@ -13,16 +16,22 @@ a{
 a:hover {
 	color: #ffdd59 !important;
 }
-
+.fa-2x{
+	font-size: 1.5em;
+}
+.mr-md-5, .mx-md-5 {
+    margin-right: 2rem !important;
+}
 .logos {
 margin: 0 auto;
 padding: 20px;
 }
 span{
-	font-size: 1em;
+	font-size: 0.7em;
 	color: white
 }
 .footer-copyright{
 	margin: 0 auto;
-	padding: 20px;
+	padding: 20px 0;
+	background-color: #3C4545
 }
