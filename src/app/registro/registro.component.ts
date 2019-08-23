@@ -24,7 +24,7 @@ export class RegistroComponent implements OnInit {
   }
   onSubmit() {
 
-    this.loginService.getForm(this.form.value.nombre, this.form.value.apellidos, this.form.value.email, this.form.value.usuario, this.form.value.password, this.form.value.provincia, this.form.value.poblacion)
+    this.loginService.getForm(this.form.value.email, this.form.value.usuario, this.form.value.password)
       .then((res) => {
 
       })

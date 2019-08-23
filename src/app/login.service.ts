@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from './app.component'
+import { BehaviorSubject, fromEvent, interval, merge } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +17,7 @@ export class LoginService implements OnInit {
   noMostrar = false
   token: any
   tokenUsuario: any
+
   constructor(private httpClient: HttpClient, public router: Router) {
     // //ONLINE
     // this.url = 'https://back.weruntogether.es/api/registro'
@@ -29,15 +31,19 @@ export class LoginService implements OnInit {
 
   ngOnInit() {
     this.tokenUsuario = localStorage.getItem('token')
-    console.log(this.tokenUsuario)
+
   }
 
-  getLogin(pusuario, ppassword) {
-    return this.httpClient.post(`${this.url_inicio}/${'login'}`, { usuario: pusuario, password: ppassword }).toPromise()
+  getLoginGoogle(pnombre, ptoken, pUseremail, pcreacion, pultimaconexion, pphoto) {
+    return this.httpClient.post(`${this.url_inicio}/${'loginGoogle'}`, { email: pUseremail, token: ptoken, nombre: pnombre, creacion: pcreacion, ultimaconexion: pultimaconexion, photo: pphoto }).toPromise()
   }
 
-  getForm(pnombre, papellidos, pemail, pusuario, ppassword, pprovincia, ppoblacion) {
-    return this.httpClient.post(`${this.url}/${'newUser'}`, { nombre: pnombre, apellidos: papellidos, email: pemail, usuario: pusuario, password: ppassword, provincia: pprovincia, poblacion: ppoblacion }).toPromise(),
+  getLogin(pemail, ppassword) {
+    return this.httpClient.post(`${this.url_inicio}/${'login'}`, { email: pemail, password: ppassword }).toPromise()
+  }
+
+  getForm(pemail, pusuario, ppassword) {
+    return this.httpClient.post(`${this.url}/${'newUser'}`, { email: pemail, usuario: pusuario, password: ppassword }).toPromise(),
       this.router.navigate(['#myModal'])
   }
 
@@ -46,9 +52,9 @@ export class LoginService implements OnInit {
     return this.httpClient.post(`${this.url}/${'edit'}`, { token: tokenUsuario }).toPromise()
   }
 
-  updateUser(pnombre, papellidos, pemail, pusuario, pprovincia, ppoblacion) {
+  updateUser(pemail, pusuario) {
     let tokenUsuario = localStorage.getItem('token')
-    return this.httpClient.post(`${this.url}/${'update'}`, { nombre: pnombre, apellidos: papellidos, email: pemail, usuario: pusuario, provincia: pprovincia, poblacion: ppoblacion, token: tokenUsuario }).toPromise()
+    return this.httpClient.post(`${this.url}/${'update'}`, { email: pemail, usuario: pusuario, token: tokenUsuario }).toPromise()
   }
 
   deleteUser() {
@@ -56,48 +62,11 @@ export class LoginService implements OnInit {
     return this.httpClient.post(`${this.url}/${'delete'}`, { token: tokenUsuario }).toPromise()
   }
 
-
-  toggleMostrar(ptokenUsuario) {
-    if (this.tokenUsuario == null) {
-      this.mostrar = true
-
-    } else {
-
-      this.mostrar = false
-    }
-  }
-
-  toggleNoMostrar(ptokenUsuario) {
-    if (this.tokenUsuario == null) {
-      this.noMostrar = false
-
-    } else {
-      this.noMostrar = true
-      console.log(this.noMostrar)
-    }
-  }
-
   cerrarSesion() {
     localStorage.removeItem('token'),
+      localStorage.removeItem('photo'),
 
       this.router.navigate(['index'])
-
-  }
-
-  toggleMostrarToken(ptokenUsuario) {
-    console.log(this.tokenUsuario)
-    if (this.tokenUsuario == null) {
-      this.noMostrarToken = false
-      this.mostrarToken = true
-      console.log(this.noMostrarToken)
-
-    } else {
-      this.noMostrarToken = true
-      this.mostrarToken = false
-      console.log(this.noMostrarToken)
-
-    }
-
 
   }
 }
