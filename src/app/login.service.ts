@@ -17,6 +17,7 @@ export class LoginService implements OnInit {
   token: any
   tokenUsuario: any
   constructor(private httpClient: HttpClient, public router: Router) {
+    
     //ONLINE
     this.url = 'https://back.weruntogether.es/api/registro'
     this.url_inicio = 'https://back.weruntogether.es/api/inicio'

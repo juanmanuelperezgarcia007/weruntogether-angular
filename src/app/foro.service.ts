@@ -14,18 +14,18 @@ export class ForoService {
   noMostrar = false
   constructor(private httpClient: HttpClient) {
     //ONLINE
-    this.url = 'https://back.weruntogether.es/api/foro'
-    this.url_pregunta = 'https://back.weruntogether.es/api/foro/pregunta'
-    this.url_guardar = 'https://back.weruntogether.es/api/foro/respuesta'
-    this.url_datos = 'https://back.weruntogether.es/api/foro/datos'
-    this.url_comentarios = 'https://back.weruntogether.es/api/foro/guardarComentariosForo'
+    // this.url = 'https://back.weruntogether.es/api/foro'
+    // this.url_pregunta = 'https://back.weruntogether.es/api/foro/pregunta'
+    // this.url_guardar = 'https://back.weruntogether.es/api/foro/respuesta'
+    // this.url_datos = 'https://back.weruntogether.es/api/foro/datos'
+    // this.url_comentarios = 'https://back.weruntogether.es/api/foro/guardarComentariosForo'
 
     //LOCAL
-    // this.url = 'http://localhost:3000/api/foro'
-    // this.url_pregunta = 'http://localhost:3000/api/foro/pregunta'
-    // this.url_guardar = 'http://localhost:3000/api/foro/respuesta'
-    // this.url_datos = 'http://localhost:3000/api/foro/datos'
-    // this.url_comentarios = 'http://localhost:3000/api/foro/guardarComentariosForo'
+    this.url = 'http://localhost:3000/api/foro'
+    this.url_pregunta = 'http://localhost:3000/api/foro/pregunta'
+    this.url_guardar = 'http://localhost:3000/api/foro/respuesta'
+    this.url_datos = 'http://localhost:3000/api/foro/datos'
+    this.url_comentarios = 'http://localhost:3000/api/foro/guardarComentariosForo'
   }
 
   getAllQuestions() {
