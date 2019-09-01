@@ -9,8 +9,10 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routing';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { CarrerasComponent } from './carreras/carreras.component';
-import { HashLocationStrategy, LocationStrategy} from '@angular/common';
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PerfilComponent } from './perfil/perfil.component';
@@ -21,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RespuestasComponent } from './respuestas/respuestas.component';
 import { ChartsModule } from 'ng2-charts';
 import { CarrerasfavoritasComponent } from './carrerasfavoritas/carrerasfavoritas.component';
+import { HeaderActivoComponent } from './header-activo/header-activo.component';
 
 
 
@@ -40,24 +43,27 @@ import { CarrerasfavoritasComponent } from './carrerasfavoritas/carrerasfavorita
     ForoComponent,
     RespuestasComponent,
     CarrerasfavoritasComponent,
- 
- 
- 
-    
-   
+    HeaderActivoComponent,
+
+
+
+
+
   ],
   imports: [
     BrowserModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
     ChartsModule
-   
-   
+
+
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

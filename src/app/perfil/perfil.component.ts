@@ -36,7 +36,7 @@ export class PerfilComponent implements OnInit {
 
   updateSubmit() {
 
-    this.loginService.updateUser(this.form.value.nombre, this.form.value.apellidos, this.form.value.email, this.form.value.usuario, this.form.value.provincia, this.form.value.poblacion)
+    this.loginService.updateUser(this.form.value.email, this.form.value.usuario)
       .then((res) => {
         alert('Perfil actualizado')
 

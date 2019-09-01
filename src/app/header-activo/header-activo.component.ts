@@ -1,6 +1,5 @@
-import { AppComponent } from './../app.component';
-import { CarrerasService } from './../carreras-service';
 import { Component, OnInit } from '@angular/core';
+import { CarrerasService } from './../carreras-service';
 import { LoginService } from '../login.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -8,29 +7,28 @@ import { auth } from 'firebase/app';
 
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-header-activo',
+  templateUrl: './header-activo.component.html',
+  styleUrls: ['./header-activo.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderActivoComponent implements OnInit {
   isCollapsed: boolean
   tokenUsuario: any
   noMostrarToken = false
   mostrarToken = true
   listFavorite: any
   photourl: any
-
-  constructor(public loginService: LoginService, private appcomponent: AppComponent, private carrerasService: CarrerasService, public afAuth: AngularFireAuth, private router: Router) {
+  constructor(public loginService: LoginService, private carrerasService: CarrerasService, public afAuth: AngularFireAuth, private router: Router) {
 
   }
-
   ngOnInit() {
-
     this.tokenUsuario = localStorage.getItem('token')
     this.isCollapsed = true
     this.photourl = localStorage.getItem('photo')
 
   }
+
+
 
   closedSession(e) {
     this.afAuth.auth.signOut();
@@ -57,5 +55,4 @@ export class HeaderComponent implements OnInit {
       return false
     }
   }
-
 }

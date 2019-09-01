@@ -4,12 +4,15 @@ import { Component, OnInit } from '@angular/core';
 import { CarrerasService } from '../carreras-service'
 import { FormGroup, FormControl } from '@angular/forms'
 import { LoginService } from '../login.service';
+
 @Component({
   selector: 'app-carreras',
   templateUrl: './carreras.component.html',
   styleUrls: ['./carreras.component.css']
 })
+
 export class CarrerasComponent implements OnInit {
+
   estoyFav: boolean
   cargando: boolean
   carrerasVer: boolean;
@@ -20,7 +23,6 @@ export class CarrerasComponent implements OnInit {
   carrerasDistance: any
   carrerasType: any
   form: FormGroup;
-  favoritosLleno: boolean
   tokenUsuario = localStorage.getItem('token')
   listFavorite: any
   constructor(private carrerasService: CarrerasService, private loginService: LoginService) {
@@ -32,7 +34,7 @@ export class CarrerasComponent implements OnInit {
 
 
   }
-  public visible: boolean = true
+
 
   ngOnInit() {
 
