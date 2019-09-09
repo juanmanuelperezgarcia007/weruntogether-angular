@@ -17,6 +17,8 @@ export class LoginService implements OnInit {
   noMostrar = false
   token: any
   tokenUsuario: any
+  photourl: any
+  subject = new BehaviorSubject(true)
 
   constructor(private httpClient: HttpClient, public router: Router) {
     // //ONLINE
@@ -31,6 +33,11 @@ export class LoginService implements OnInit {
 
   ngOnInit() {
     this.tokenUsuario = localStorage.getItem('token')
+    this.subject.asObservable().subscribe((result) => {
+
+      this.photourl = localStorage.getItem('photo')
+
+    })
 
   }
 

@@ -6,7 +6,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { BehaviorSubject, fromEvent, interval, merge } from 'rxjs';
 
-import { map, tap, mergeMap } from 'rxjs/operators';
 
 declare var $;
 
@@ -24,8 +23,7 @@ export class AppComponent implements OnInit {
   noMostrar = false
   token: any
   photourl: any
-
-  subject = new BehaviorSubject(false)
+  ChangeHeaderPerfil: boolean
 
   constructor(private loginService: LoginService, public router: Router, public afAuth: AngularFireAuth) {
 
@@ -33,12 +31,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.tokenUsuario = localStorage.getItem('token')
-    this.subject.asObservable().subscribe((result) => {
-      console.log(this.subject)
-      this.photourl = localStorage.getItem('photo')
-
-    })
-    console.log(this.subject._value)
     this.regform = new FormGroup({
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required, Validators.pattern(/(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$/)]),
@@ -64,7 +56,7 @@ export class AppComponent implements OnInit {
           e.path[3].children[0].children[4].children[0].classList.replace('hide', 'show')
 
         } else {
-          this.ChangeHeader(e)
+          this.Perfil(e)
           localStorage.setItem('token', res.toString())
           this.tokenUsuario = localStorage.getItem('token')
           $("[data-dismiss=modal]").trigger({ type: "click" })
@@ -81,8 +73,8 @@ export class AppComponent implements OnInit {
       let photo = res.user.providerData[0].photoURL
       localStorage.setItem('photo', photo)
       console.log('estoy dentro iniciar google')
-      this.subject.next(true);
-      console.log(this.subject._value)
+      this.loginService.subject.next(false);
+      this.loginService.subject.subscribe
       let token = res.credential.idToken
       let nombre = res.user.displayName
       let Useremail = res.user.email
@@ -91,7 +83,7 @@ export class AppComponent implements OnInit {
       localStorage.setItem('token', res.credential.idToken.toString())
       this.tokenUsuario = localStorage.getItem('token')
       $("[data-dismiss=modal]").trigger({ type: "click" })
-      this.ChangeHeaderGoogle(e)
+      this.PerfilGoogle(e)
       this.loginService.getLoginGoogle(nombre, token, Useremail, creacion, ultimaconexion, photo)
         .then((ret) => {
           console.log(ret)
@@ -103,7 +95,7 @@ export class AppComponent implements OnInit {
 
   }
 
-  ChangeHeader(e) {
+  Perfil(e) {
     e.path[7].children[0].children[0].children[0].children[2].children[0].children[3].classList.add('hide')
     e.path[7].children[0].children[0].children[0].children[2].children[0].children[4].classList.add('hide')
     e.path[7].children[0].children[0].children[0].children[2].children[0].children[2].classList.remove('hide')
@@ -113,7 +105,7 @@ export class AppComponent implements OnInit {
 
   }
 
-  ChangeHeaderGoogle(e) {
+  PerfilGoogle(e) {
     e.path[7].children[0].children[0].children[0].children[2].children[0].children[3].classList.add('hide')
     e.path[7].children[0].children[0].children[0].children[2].children[0].children[4].classList.add('hide')
     e.path[7].children[0].children[0].children[0].children[2].children[0].children[2].classList.remove('hide')

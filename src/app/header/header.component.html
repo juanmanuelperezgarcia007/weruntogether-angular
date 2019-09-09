@@ -38,7 +38,7 @@
 
         <a class="nav-item nav-link " (click)='closedSession($event)'>Cerrar Sesión</a>
 
-        <img class="perfil" src="{{photourl}}" alt="">
+        <img *ngIf="loginService.subject._value" class="perfil" src="{{photourl}}" alt="">
 
       </div>
     </div>
