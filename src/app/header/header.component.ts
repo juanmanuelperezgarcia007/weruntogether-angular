@@ -1,5 +1,5 @@
 import { AppComponent } from './../app.component';
-import { CarrerasService } from './../carreras-service';
+import { RaceService } from './../carreras-service';
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
 import { Router, NavigationEnd } from '@angular/router';
@@ -20,15 +20,18 @@ export class HeaderComponent implements OnInit {
   listFavorite: any
   photourl: any
 
-  constructor(public loginService: LoginService, private appcomponent: AppComponent, private carrerasService: CarrerasService, public afAuth: AngularFireAuth, private router: Router) {
+  constructor(public loginService: LoginService, private appcomponent: AppComponent, private raceService: RaceService, public afAuth: AngularFireAuth, private router: Router) {
 
+    console.log(this.loginService.getPhoto())
   }
 
   ngOnInit() {
 
+    this.photourl = localStorage.getItem('photo')
+    console.log(this.photourl)
     this.tokenUsuario = localStorage.getItem('token')
     this.isCollapsed = true
-    this.photourl = localStorage.getItem('photo')
+
 
   }
 
@@ -37,6 +40,10 @@ export class HeaderComponent implements OnInit {
     this.loginService.cerrarSesion()
     this.ChangeHeaderClosed(e)
     this.router.navigate(['index']);
+    localStorage.removeItem('photo')
+    this.photourl = localStorage.getItem('photo')
+    console.log(this.photourl)
+
 
   }
 
@@ -47,7 +54,7 @@ export class HeaderComponent implements OnInit {
     e.path[1].children[5].classList.add('hide')
     e.path[1].children[6].classList.add('hide')
     e.path[1].children[7].classList.add('hide')
-    e.path[1].children[8].classList.add('hide')
+
   }
   OnlyUsers() {
 

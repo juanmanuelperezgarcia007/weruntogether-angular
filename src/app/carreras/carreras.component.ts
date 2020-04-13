@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 
 import { Component, OnInit } from '@angular/core';
-import { CarrerasService } from '../carreras-service'
+import { RaceService } from '../carreras-service'
 import { FormGroup, FormControl } from '@angular/forms'
 import { LoginService } from '../login.service';
 
@@ -25,7 +25,7 @@ export class CarrerasComponent implements OnInit {
   form: FormGroup;
   tokenUsuario = localStorage.getItem('token')
   listFavorite: any
-  constructor(private carrerasService: CarrerasService, private loginService: LoginService) {
+  constructor(private carrerasService: RaceService, private loginService: LoginService) {
     this.carrerasVer = false
     this.cargando = true
 

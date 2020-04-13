@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CarrerasService } from './../carreras-service';
+import { RaceService } from './../carreras-service';
 import { LoginService } from '../login.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -18,7 +18,7 @@ export class HeaderActivoComponent implements OnInit {
   mostrarToken = true
   listFavorite: any
   photourl: any
-  constructor(public loginService: LoginService, private carrerasService: CarrerasService, public afAuth: AngularFireAuth, private router: Router) {
+  constructor(public loginService: LoginService, private raceService: RaceService, public afAuth: AngularFireAuth, private router: Router) {
 
   }
   ngOnInit() {

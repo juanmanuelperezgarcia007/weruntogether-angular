@@ -18,27 +18,33 @@ export class LoginService implements OnInit {
   token: any
   tokenUsuario: any
   photourl: any
+  addCarreras: string
   subject = new BehaviorSubject(true)
 
   constructor(private httpClient: HttpClient, public router: Router) {
-    // //ONLINE
+    // ONLINE
     // this.url = 'https://back.weruntogether.es/api/registro'
     // this.url_inicio = 'https://back.weruntogether.es/api/inicio'
 
-    //LOCAL
-    this.url = 'http://localhost:3000/api/registro'
-    this.url_inicio = 'http://localhost:3000/api/inicio'
+    // LOCAL
+    this.url = 'http://localhost:3000/api/registro';
+    this.url_inicio = 'http://localhost:3000/api/inicio';
+    this.addCarreras = 'http://localhost:3000/api/carreras';
 
   }
 
   ngOnInit() {
-    this.tokenUsuario = localStorage.getItem('token')
+    this.tokenUsuario = localStorage.getItem('token');
     this.subject.asObservable().subscribe((result) => {
+      console.log(result);
+    });
 
-      this.photourl = localStorage.getItem('photo')
-
-    })
-
+  }
+  getPhoto() {
+    return localStorage.getItem('photo')
+  }
+  saveCarreras(id, date, name, status, distance, province, city, type) {
+    return this.httpClient.post(`${this.addCarreras}/${'addCarreras'}`, { id: id, date: date, name: name, status: status, distance: distance, province: province, city: city, type: type }).toPromise()
   }
 
   getLoginGoogle(pnombre, ptoken, pUseremail, pcreacion, pultimaconexion, pphoto) {

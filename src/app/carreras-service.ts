@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 
-export class CarrerasService {
+export class RaceService {
 
   //online
   // url = 'https://back.weruntogether.es/api/carreras/WeekRace'

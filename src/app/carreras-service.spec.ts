@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CarrerasService } from './carreras-service';
+import { RaceService } from './carreras-service';
 
-describe('CarrerasService', () => {
+describe('RaceService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: CarrerasService = TestBed.get(CarrerasService);
+    const service: RaceService = TestBed.get(RaceService);
     expect(service).toBeTruthy();
   });
 });

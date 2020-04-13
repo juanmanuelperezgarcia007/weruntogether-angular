@@ -1,5 +1,5 @@
 import { Router, NavigationEnd } from '@angular/router';
-import { CarrerasService } from './../carreras-service';
+import { RaceService } from './../carreras-service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -16,7 +16,7 @@ export class CarrerasfavoritasComponent implements OnInit {
   cargando: boolean
   carrerasVer: boolean;
   tokenUsuario = localStorage.getItem('token')
-  constructor(private carrerasService: CarrerasService, public router: Router) { }
+  constructor(private raceService: RaceService, public router: Router) { }
   arrayCarrerFav = []
   CarreraVacia
   carreraLLena
@@ -27,7 +27,7 @@ export class CarrerasfavoritasComponent implements OnInit {
   }
   getFav() {
 
-    this.carrerasService.GetFavorite(
+    this.raceService.GetFavorite(
 
       this.tokenUsuario
     ).subscribe((res) => {
@@ -39,7 +39,7 @@ export class CarrerasfavoritasComponent implements OnInit {
       for (let index = 0; index < this.listFavorite.length; index++) {
 
         let id = this.listFavorite[index].id_Carreras
-        this.carrerasService.getFavCarrer(id
+        this.raceService.getFavCarrer(id
         ).subscribe((resFav) => {
 
           this.arrayCarrerFav.push(resFav[0])
@@ -85,7 +85,7 @@ export class CarrerasfavoritasComponent implements OnInit {
   deleteListFavoritos(pid, e) {
 
     this.changeClass(e)
-    this.carrerasService.deleteFavorite(
+    this.raceService.deleteFavorite(
 
       pid,
       this.tokenUsuario)
@@ -98,7 +98,7 @@ export class CarrerasfavoritasComponent implements OnInit {
   postFavoritos(pid, e) {
 
     e.target.classList.replace('star--black', 'star--gold')
-    this.carrerasService.postFavorite(
+    this.raceService.postFavorite(
       pid,
       this.tokenUsuario)
       .then((res) => {
@@ -109,7 +109,7 @@ export class CarrerasfavoritasComponent implements OnInit {
 
   paintStarFavorites() {
 
-    this.carrerasService.GetFavorite(
+    this.raceService.GetFavorite(
       this.tokenUsuario
     ).subscribe((res) => {
       this.listFavorite = res;
