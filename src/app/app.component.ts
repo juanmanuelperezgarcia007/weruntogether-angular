@@ -4,8 +4,7 @@ import { LoginService } from './login.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
-
-
+import { LocalstorageService } from './localstorage.service';
 
 declare var $;
 
@@ -15,7 +14,7 @@ declare var $;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  tokenUsuario: string;
+
   title = 'WERUNTOGETHER';
   userToken: string;
   regform: FormGroup;
@@ -25,67 +24,79 @@ export class AppComponent implements OnInit {
   photourl: string;
   ChangeHeaderPerfil: boolean;
 
-  constructor(private loginService: LoginService, public router: Router, public afAuth: AngularFireAuth) {
-    this.photourl = localStorage.getItem('photo');
-  }
+  constructor(
+    private loginService: LoginService,
+    public router: Router,
+    public afAuth: AngularFireAuth,
+    public localstorageService: LocalstorageService
+  ) { }
 
   ngOnInit() {
-    this.tokenUsuario = localStorage.getItem('token');
     this.regform = new FormGroup({
       email: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required, Validators.pattern(/(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$/)]),
-
+      password: new FormControl('', [Validators.required, Validators.pattern(/(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$/)])
     });
-
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
         return;
       }
       window.scrollTo(0, 0);
     });
-
-
-
   }
-  iniciar(e) {
+  // async iniciar(e) {
 
-    this.loginService.getLogin(this.regform.value.email, this.regform.value.password)
-      .then((res: any) => {
+  //   const result: any = await this.loginService.getLogin(this.regform.value.email, this.regform.value.password);
 
-        if (res.error !== undefined) {
-          e.path[3].children[0].children[4].children[0].classList.replace('hide', 'show');
+  //   if (result.error !== undefined) {
+  //     e.path[3].children[0].children[4].children[0].classList.replace('hide', 'show');
+  //     console.log(e.path[3].children[0].children[4].children[0])
 
-        } else {
-          this.Perfil(e);
-          localStorage.setItem('token', res.toString());
-          this.tokenUsuario = localStorage.getItem('token');
-          $('[data-dismiss=modal]').trigger({ type: 'click' });
-          this.router.navigate(['index']);
-        }
+  //   } else {
+  //     this.Perfil(e);
+  //     localStorage.setItem('token', result.toString());
+  //     this.tokenUsuario = localStorage.getItem('token');
+  //     $('[data-dismiss=modal]').trigger({ type: 'click' });
+  //     this.router.navigate(['index']);
+  //   }
 
 
-      });
+
+  // }
+
+  async iniciarGoogle(event) {
+    const src = event.path[7].children[0].children[0].children[0].children[2].children[0].children;
+
+    this.getGoogle().then(newGoogleUser => {
+      this.localstorage(newGoogleUser);
+      this.loginService.subject.next(false);
+      $('[data-dismiss=modal]').trigger({ type: 'click' });
+      this.PerfilGoogle(src);
+      this.getLoginGoogle(newGoogleUser);
+      this.router.navigate(['index']);
+    });
   }
 
-  async iniciarGoogle(e) {
-
+  async getGoogle() {
     const googleUser: any = await this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
     const newGoogleUser = {
       photo: googleUser.user.providerData[0].photoURL,
-      token: googleUser.credential.idToken,
+      token: googleUser.credential.idToken.toString(),
       nombre: googleUser.user.displayName,
       useremail: googleUser.user.email,
       creacion: googleUser.user.metadata.creationTime,
       ultimaconexion: googleUser.user.metadata.lastSignInTime,
     };
-    localStorage.setItem('photo', newGoogleUser.photo);
-    this.photourl = newGoogleUser.photo;
-    localStorage.setItem('token', googleUser.credential.idToken.toString());
-    this.tokenUsuario = newGoogleUser.token;
-    this.loginService.subject.next(false);
-    $('[data-dismiss=modal]').trigger({ type: 'click' });
-    this.PerfilGoogle(e);
+    return newGoogleUser;
+  }
 
+  localstorage(newGoogleUser) {
+    this.localstorageService.postLocalstorage('photo', newGoogleUser.photo);
+    this.photourl = newGoogleUser.photo;
+    this.localstorageService.postLocalstorage('token', newGoogleUser.token);
+  }
+
+  async getLoginGoogle(newGoogleUser) {
+    console.log(newGoogleUser);
     await this.loginService.getLoginGoogle(
       newGoogleUser.nombre,
       newGoogleUser.token,
@@ -93,36 +104,16 @@ export class AppComponent implements OnInit {
       newGoogleUser.creacion,
       newGoogleUser.ultimaconexion,
       newGoogleUser.photo);
-    this.router.navigate(['index']);
-
   }
 
-  Perfil(e) {
-    e.path[7].children[0].children[0].children[0].children[2].children[0].children[3].classList.add('hide');
-    e.path[7].children[0].children[0].children[0].children[2].children[0].children[4].classList.add('hide');
-    e.path[7].children[0].children[0].children[0].children[2].children[0].children[2].classList.remove('hide');
-    e.path[7].children[0].children[0].children[0].children[2].children[0].children[5].classList.remove('hide');
-    e.path[7].children[0].children[0].children[0].children[2].children[0].children[6].classList.remove('hide');
-    e.path[7].children[0].children[0].children[0].children[2].children[0].children[7].classList.remove('hide');
+  PerfilGoogle(hijo) {
 
-  }
+    hijo[3].classList.add('hide');
+    hijo[4].classList.add('hide');
+    hijo[2].classList.remove('hide');
+    hijo[5].classList.remove('hide');
+    hijo[7].classList.remove('hide');
 
-  PerfilGoogle(e) {
-    console.log(this.photourl);
-    e.path[7].children[0].children[0].children[0].children[2].children[0].children[3].classList.add('hide');
-    e.path[7].children[0].children[0].children[0].children[2].children[0].children[4].classList.add('hide');
-    e.path[7].children[0].children[0].children[0].children[2].children[0].children[2].classList.remove('hide');
-    e.path[7].children[0].children[0].children[0].children[2].children[0].children[5].classList.remove('hide');
-    e.path[7].children[0].children[0].children[0].children[2].children[0].children[7].classList.remove('hide');
-
-  }
-
-  tokenStart() {
-    if (this.tokenUsuario == null) {
-      return false;
-    } else {
-      return true;
-    }
   }
 
 }
