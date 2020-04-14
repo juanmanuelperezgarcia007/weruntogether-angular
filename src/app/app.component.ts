@@ -16,13 +16,7 @@ declare var $;
 export class AppComponent implements OnInit {
 
   title = 'WERUNTOGETHER';
-  userToken: string;
   regform: FormGroup;
-  mostrar = true;
-  noMostrar = false;
-  token: string;
-  photourl: string;
-  ChangeHeaderPerfil: boolean;
 
   constructor(
     private loginService: LoginService,
@@ -43,35 +37,35 @@ export class AppComponent implements OnInit {
       window.scrollTo(0, 0);
     });
   }
-  // async iniciar(e) {
+  async iniciar(e) {
 
-  //   const result: any = await this.loginService.getLogin(this.regform.value.email, this.regform.value.password);
+    const result: any = await this.loginService.getLogin(this.regform.value.email, this.regform.value.password);
 
-  //   if (result.error !== undefined) {
-  //     e.path[3].children[0].children[4].children[0].classList.replace('hide', 'show');
-  //     console.log(e.path[3].children[0].children[4].children[0])
+    // if (result.error !== undefined) {
+    //   e.path[3].children[0].children[4].children[0].classList.replace('hide', 'show');
+    //   console.log(e.path[3].children[0].children[4].children[0])
 
-  //   } else {
-  //     this.Perfil(e);
-  //     localStorage.setItem('token', result.toString());
-  //     this.tokenUsuario = localStorage.getItem('token');
-  //     $('[data-dismiss=modal]').trigger({ type: 'click' });
-  //     this.router.navigate(['index']);
-  //   }
+    // } else {
+    //   this.Perfil(e);
+    //   localStorage.setItem('token', result.toString());
+    //   this.tokenUsuario = localStorage.getItem('token');
+    //   $('[data-dismiss=modal]').trigger({ type: 'click' });
+    //   this.router.navigate(['index']);
+    // }
 
 
 
-  // }
+  }
 
   async iniciarGoogle(event) {
     const src = event.path[7].children[0].children[0].children[0].children[2].children[0].children;
 
     this.getGoogle().then(newGoogleUser => {
       this.localstorage(newGoogleUser);
-      this.loginService.subject.next(false);
       $('[data-dismiss=modal]').trigger({ type: 'click' });
       this.PerfilGoogle(src);
       this.getLoginGoogle(newGoogleUser);
+      this.loginService.getLoginGoogle$.next(true);
       this.router.navigate(['index']);
     });
   }
@@ -91,19 +85,19 @@ export class AppComponent implements OnInit {
 
   localstorage(newGoogleUser) {
     this.localstorageService.postLocalstorage('photo', newGoogleUser.photo);
-    this.photourl = newGoogleUser.photo;
     this.localstorageService.postLocalstorage('token', newGoogleUser.token);
   }
 
   async getLoginGoogle(newGoogleUser) {
-    console.log(newGoogleUser);
-    await this.loginService.getLoginGoogle(
+    const password = await this.loginService.getLoginGoogle(
       newGoogleUser.nombre,
       newGoogleUser.token,
       newGoogleUser.useremail,
       newGoogleUser.creacion,
       newGoogleUser.ultimaconexion,
-      newGoogleUser.photo);
+      newGoogleUser.photo
+    );
+    console.log(password)
   }
 
   PerfilGoogle(hijo) {

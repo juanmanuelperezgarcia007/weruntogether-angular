@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
-import { AppComponent } from './app.component'
-import { BehaviorSubject, fromEvent, interval, merge } from 'rxjs';
+import { OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +18,8 @@ export class LoginService implements OnInit {
   tokenUsuario: any
   photourl: any
   addCarreras: string
-  subject = new BehaviorSubject(true)
+  getLoginGoogle$ = new BehaviorSubject(true);
+  initSesion: boolean;
 
   constructor(private httpClient: HttpClient, public router: Router) {
     // ONLINE
@@ -35,9 +35,7 @@ export class LoginService implements OnInit {
 
   ngOnInit() {
     this.tokenUsuario = localStorage.getItem('token');
-    this.subject.asObservable().subscribe((result) => {
-      console.log(result);
-    });
+    this.getLoginGoogle$.asObservable();
 
   }
   getPhoto() {
