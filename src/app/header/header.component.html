@@ -1,12 +1,9 @@
 <header class="container-fluid row">
-
-  <!-- Navigation -->
-
   <nav class=" col-12 navbar navbar-expand-lg navbar-light">
 
     <div class='col-6 titulo'>
       <a [routerLink]="['index']">
-        <h1>WE RUN TOGETHER</h1>
+        <h1>{{msg.weruntogether}}</h1>
       </a>
     </div>
 
@@ -14,29 +11,33 @@
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup" [ngClass]="{'collapse': isCollapsed}">
       <div class="navbar-nav">
 
         <a class="nav-item nav-link" [routerLink]="['foro']" (click)="isCollapsed = !isCollapsed">Foro</a>
 
-        <!-- <a class="nav-item nav-link" [routerLink]="['noticias']" *ngIf="noMostrarToken" (click)="isCollapsed = !isCollapsed">Noticias</a> -->
+        <!-- <a class="nav-item nav-link" [routerLink]="['noticias']" *ngIf="noMostrarToken" *ngIf='tokenUser' (click)="isCollapsed = !isCollapsed">Noticias</a> -->
 
         <a class="nav-item nav-link" [routerLink]="['carreras']" (click)="isCollapsed = !isCollapsed">Proximas
           Carreras</a>
 
-        <a class="nav-item nav-link " [routerLink]="['proximascarreras']" (click)="isCollapsed = !isCollapsed">Carreras
-          Favoritas</a>
+        <a class="nav-item nav-link " [routerLink]="['carrerasFavoritas']" *ngIf='tokenUser'
+          (click)="isCollapsed = !isCollapsed">Carreras Favoritas</a>
 
-        <a class="nav-item nav-link hide trigger-btn" (click)=" isCollapsed=!isCollapsed" href="#myModal"
+        <a class="nav-item nav-link trigger-btn" *ngIf='!tokenUser' (click)=" isCollapsed=!isCollapsed" href="#myModal"
           data-toggle="modal">Iniciar Sesión</a>
 
-        <a class="nav-item hide nav-link" [routerLink]="['registro'] " (click)="isCollapsed = !isCollapsed">Registro</a>
+        <a class="nav-item nav-link" [routerLink]="['registro'] " *ngIf='!tokenUser'
+          (click)="isCollapsed = !isCollapsed">Registro</a>
 
-        <a class="nav-item nav-link " [routerLink]="['weruntogether']" (click)="isCollapsed = !isCollapsed">Quedadas</a>
+        <a class="nav-item nav-link" [routerLink]="['weruntogether']" *ngIf='tokenUser'
+          (click)="isCollapsed = !isCollapsed">Quedadas</a>
 
-        <a class="nav-item nav-link hide" [routerLink]="['perfil']" (click)="isCollapsed = !isCollapsed">Perfil</a>
+        <a class="nav-item nav-link" [routerLink]="['perfil']" *ngIf='tokenUser'
+          (click)="isCollapsed = !isCollapsed">Perfil</a>
 
-        <a class="nav-item nav-link " (click)='closedSession($event)'>Cerrar Sesión</a>
+        <a class="nav-item nav-link" *ngIf="tokenUser" (click)='closedSession($event)'>Cerrar Sesión</a>
 
         <img *ngIf="loginService.getPhoto() !== null" class="perfil" src="{{photourl}}" alt="">
 

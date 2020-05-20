@@ -23,8 +23,7 @@
   </div>
   <div class="container-fluid">
     <div class="container bordere">
-      <form novalidate class="col-xl-12 well row form-horizontal " id="contact_form" [formGroup]="formBuscador"
-        *ngIf="formBuscador">
+      <form novalidate class="col-xl-12 well row form-horizontal " [formGroup]="formBuscador" *ngIf="formBuscador">
 
         <div class="input col-xl-6">
 
@@ -133,8 +132,7 @@
 <div id="formulario" class="container-fluid form col-md-12 col-12">
 
   <div class="container bordere-up">
-    <form novalidate class="well form-horizontal" id="contact_form" [formGroup]="formPost" (ngSubmit)="guardarNewPost()"
-      *ngIf="formPost">
+    <form novalidate class="well form-horizontal" [formGroup]="formPost" (ngSubmit)="guardarNewPost()" *ngIf="formPost">
 
 
       <div class="row col-11">

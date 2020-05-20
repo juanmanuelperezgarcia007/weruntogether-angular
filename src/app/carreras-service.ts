@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 
 export class RaceService {
 
-  //online
+  // online
   // url = 'https://back.weruntogether.es/api/carreras/WeekRace'
   // url_filter = 'https://back.weruntogether.es/api/carreras/filtrarCarreras'
   // url_favoritos = 'https://back.weruntogether.es/api/carreras/carrerasFavoritas'
@@ -17,48 +17,50 @@ export class RaceService {
   // url_fav = 'https://back.weruntogether.es/api/carreras/paintFav'
   // url_getFilterCount = 'https://back.weruntogether.es/api/carreras/estrellaCount'
 
-  //local
-  url = 'http://localhost:3000/api/carreras/WeekRace'
-  url_filter = 'http://localhost:3000/api/carreras/filtrarCarreras'
-  url_favoritos = 'http://localhost:3000/api/carreras/carrerasFavoritas'
-  url_getFilter = 'http://localhost:3000/api/carreras/estrella'
-  url_favoritos_delete = 'http://localhost:3000/api/carreras/quitarFavoritos'
-  url_fav = 'http://localhost:3000/api/carreras/paintFav'
-  url_getFilterCount = 'http://localhost:3000/api/carreras/estrellaCount'
+  // local
+  url = {
+    WeekRace: 'http://localhost:3000/api/carreras/WeekRace',
+    filter: 'http://localhost:3000/api/carreras/filtrarCarreras',
+    favoritos: 'http://localhost:3000/api/carreras/carrerasFavoritas',
+    getFilter: 'http://localhost:3000/api/carreras/estrella',
+    favoritos_delete: 'http://localhost:3000/api/carreras/quitarFavoritos',
+    fav: 'http://localhost:3000/api/carreras/paintFav',
+    getFilterCount: 'http://localhost:3000/api/carreras/estrellaCount'
+  };
 
   constructor(private httpClient: HttpClient, router: Router) {
 
   }
 
   getAllCarreras() {
-    return this.httpClient.get(`${this.url}`).toPromise()
+    return this.httpClient.get(`${this.url.WeekRace}`).toPromise();
 
   }
   getFavCarrer(pid) {
-    return this.httpClient.post(`${this.url_fav}`, { id: pid })
+    return this.httpClient.post(`${this.url.fav}`, { id: pid });
   }
 
 
-  getFilters(pmin, pmax, pdate, ptype, pcity, pprovince) {
-
-    return this.httpClient.post(`${this.url_filter}`, { min: pmin, max: pmax, date: pdate, type: ptype, city: pcity, province: pprovince }).toPromise()
-
+  getFilters(form) {
+    return this.httpClient.post(`${this.url.filter}`, { form }).toPromise();
   }
 
   postFavorite(pid, tokenusuario) {
-
-    return this.httpClient.post(`${this.url_favoritos}`, { id_Carreras: pid, token: tokenusuario }).toPromise()
+    return this.httpClient.post(`${this.url.favoritos}`, { id_Carreras: pid, token: tokenusuario }).toPromise();
   }
 
   deleteFavorite(pid, tokenusuario) {
-    return this.httpClient.post(`${this.url_favoritos_delete}`, { id_Carreras: pid, token: tokenusuario }).toPromise()
+    return this.httpClient.post(`${this.url.favoritos_delete}`, { id_Carreras: pid, token: tokenusuario }).toPromise();
   }
 
   GetFavorite(tokenusuario) {
-    return this.httpClient.post(`${this.url_getFilter}`, { token: tokenusuario })
+    return this.httpClient.post(`${this.url.getFilter}`, { token: tokenusuario });
   }
+
   GetFavoriteCount(tokenusuario) {
-    return this.httpClient.post(`${this.url_getFilterCount}`, { token: tokenusuario })
+    return this.httpClient.post(`${this.url.getFilterCount}`, { token: tokenusuario });
   }
+
+
 
 }

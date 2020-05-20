@@ -74,10 +74,8 @@ export class LoginService implements OnInit {
   }
 
   cerrarSesion() {
-    localStorage.removeItem('token'),
-      localStorage.removeItem('photo'),
-
-      this.router.navigate(['index'])
+    localStorage.clear();
+    this.router.navigate(['index']);
 
   }
 }

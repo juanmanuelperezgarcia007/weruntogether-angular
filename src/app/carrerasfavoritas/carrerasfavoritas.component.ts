@@ -1,6 +1,8 @@
-import { Router, NavigationEnd } from '@angular/router';
-import { RaceService } from './../carreras-service';
+import { Router } from '@angular/router';
+import { RaceService } from '../carreras-service';
 import { Component, OnInit } from '@angular/core';
+import { Carrer } from '../models/carrer.model';
+import { LocalstorageService } from '../localstorage.service';
 
 @Component({
 
@@ -10,64 +12,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarrerasfavoritasComponent implements OnInit {
 
-  carrerFav: any
-  estoyFav: boolean
   listFavorite: any
-  cargando: boolean
-  carrerasVer: boolean;
+  loading: boolean
   tokenUsuario = localStorage.getItem('token')
-  constructor(private raceService: RaceService, public router: Router) { }
+  showCarrer: boolean;
+  constructor(
+    private localstorageService: LocalstorageService,
+    private carrerasService: RaceService,
+    public router: Router) { }
   arrayCarrerFav = []
-  CarreraVacia
-  carreraLLena
+  listCarreraVacia: boolean;
 
   ngOnInit() {
-
-    this.getFav()
+    this.getFav();
   }
+
   getFav() {
+    const tokenUser = this.localstorageService.getLocalstorage('token');
+    this.carrerasService.GetFavorite(tokenUser)
+      .subscribe((listFavorite) => {
+        this.listFavorite = listFavorite;
+        this.loading = false;
+        this.showCarrer = true;
+        for (let index = 0; index < this.listFavorite.length; index++) {
+          const id = this.listFavorite[index].id_Carreras;
+          this.carrerasService.getFavCarrer(id)
+            .subscribe((resFav) => this.arrayCarrerFav.push(resFav[0]));
+        }
+        this.listCarreraVacia = this.listFavorite.length === 0 ? true : false;
 
-    this.raceService.GetFavorite(
-
-      this.tokenUsuario
-    ).subscribe((res) => {
-
-      this.listFavorite = res;
-      this.cargando = false
-      this.carrerasVer = true
-
-      for (let index = 0; index < this.listFavorite.length; index++) {
-
-        let id = this.listFavorite[index].id_Carreras
-        this.raceService.getFavCarrer(id
-        ).subscribe((resFav) => {
-
-          this.arrayCarrerFav.push(resFav[0])
-
-        })
-      }
-
-
-      if (this.listFavorite.length == 0) {
-        this.CarreraVacia = true
-
-        return this.CarreraVacia
-      }
-
-      this.carreraLLena = true
-      return this.carreraLLena
-    })
+      });
   }
 
   selectFav(id, e) {
-
-    this.paintStarFavorites()
-    this.estoyEnFav(id)
-
-    if (this.estoyFav === true) {
-      this.deleteListFavoritos(id, e)
+    this.paintStarFavorites();
+    const estoyFav = this.estoyEnFav(id);
+    if (estoyFav === true) {
+      this.deleteListFavoritos(id, e);
     } else {
-      this.postFavoritos(id, e)
+      this.postFavoritos(id, e);
     }
 
   }
@@ -83,62 +66,52 @@ export class CarrerasfavoritasComponent implements OnInit {
   }
 
   deleteListFavoritos(pid, e) {
-
+    const tokenUser = this.localstorageService.getLocalstorage('token');
     this.changeClass(e)
-    this.raceService.deleteFavorite(
-
-      pid,
-      this.tokenUsuario)
+    this.carrerasService.deleteFavorite(pid, tokenUser)
       .then((res) => {
         this.paintStarFavorites()
-
       })
   }
 
   postFavoritos(pid, e) {
-
+    const tokenUser = this.localstorageService.getLocalstorage('token');
     e.target.classList.replace('star--black', 'star--gold')
-    this.raceService.postFavorite(
+    this.carrerasService.postFavorite(
       pid,
-      this.tokenUsuario)
+      tokenUser)
       .then((res) => {
         this.paintStarFavorites()
       })
   }
 
-
   paintStarFavorites() {
-
-    this.raceService.GetFavorite(
-      this.tokenUsuario
-    ).subscribe((res) => {
-      this.listFavorite = res;
-      this.cargando = false
-      this.carrerasVer = true
-    })
+    const tokenUser = this.localstorageService.getLocalstorage('token');
+    this.carrerasService.GetFavorite(tokenUser)
+      .subscribe((carrerFavorites: Carrer[]) => {
+        this.listFavorite = carrerFavorites;
+        this.loading = false;
+        this.showCarrer = true;
+      });
   }
 
-  estoyEnFav(id) {
 
-    this.estoyFav = false;
+  estoyEnFav(id) {
+    let estoyFav = false;
     this.listFavorite.forEach(element => {
       if (element.id_Carreras === id) {
-        this.estoyFav = true;
+        estoyFav = true;
       }
-
     })
-    return this.estoyFav
+    return estoyFav;
 
 
   }
 
   OnlyUsers() {
-
-    if (this.tokenUsuario == null) {
-      return true
-    } else {
-      return false
-    }
+    const tokenUser = this.localstorageService.getLocalstorage('token');
+    const OnlyUsers = tokenUser === null ? true : false;
+    return OnlyUsers;
   }
 
 }

@@ -23,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RespuestasComponent } from './respuestas/respuestas.component';
 import { ChartsModule } from 'ng2-charts';
 import { CarrerasfavoritasComponent } from './carrerasfavoritas/carrerasfavoritas.component';
-import { HeaderActivoComponent } from './header-activo/header-activo.component';
+import { MeterAkmPipe } from './meter-akm.pipe';
+import { ProvincePipe } from './province.pipe';
 
 
 
@@ -43,7 +44,8 @@ import { HeaderActivoComponent } from './header-activo/header-activo.component';
     ForoComponent,
     RespuestasComponent,
     CarrerasfavoritasComponent,
-    HeaderActivoComponent,
+    MeterAkmPipe,
+    ProvincePipe,
 
 
 

@@ -37,33 +37,15 @@ export class AppComponent implements OnInit {
       window.scrollTo(0, 0);
     });
   }
+
   async iniciar(e) {
-
     const result: any = await this.loginService.getLogin(this.regform.value.email, this.regform.value.password);
-
-    // if (result.error !== undefined) {
-    //   e.path[3].children[0].children[4].children[0].classList.replace('hide', 'show');
-    //   console.log(e.path[3].children[0].children[4].children[0])
-
-    // } else {
-    //   this.Perfil(e);
-    //   localStorage.setItem('token', result.toString());
-    //   this.tokenUsuario = localStorage.getItem('token');
-    //   $('[data-dismiss=modal]').trigger({ type: 'click' });
-    //   this.router.navigate(['index']);
-    // }
-
-
-
   }
 
   async iniciarGoogle(event) {
-    const src = event.path[7].children[0].children[0].children[0].children[2].children[0].children;
-
     this.getGoogle().then(newGoogleUser => {
       this.localstorage(newGoogleUser);
       $('[data-dismiss=modal]').trigger({ type: 'click' });
-      this.PerfilGoogle(src);
       this.getLoginGoogle(newGoogleUser);
       this.loginService.getLoginGoogle$.next(true);
       this.router.navigate(['index']);
@@ -89,6 +71,7 @@ export class AppComponent implements OnInit {
   }
 
   async getLoginGoogle(newGoogleUser) {
+    console.log(newGoogleUser)
     const password = await this.loginService.getLoginGoogle(
       newGoogleUser.nombre,
       newGoogleUser.token,
@@ -100,14 +83,5 @@ export class AppComponent implements OnInit {
     console.log(password)
   }
 
-  PerfilGoogle(hijo) {
-
-    hijo[3].classList.add('hide');
-    hijo[4].classList.add('hide');
-    hijo[2].classList.remove('hide');
-    hijo[5].classList.remove('hide');
-    hijo[7].classList.remove('hide');
-
-  }
 
 }

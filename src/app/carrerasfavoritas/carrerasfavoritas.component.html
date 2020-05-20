@@ -1,23 +1,16 @@
 <div class="container-fluid">
-
   <img class="foto-noticias col-12" src="../../assets/noticias/noticia(17).jpg" alt="">
-
 </div>
-
-
 <div class="container titulo-noticias ">
   <div class="titulo-noticias">
     <h2 class="titulo">Carreras favoritas</h2>
   </div>
 </div>
-
-
-
-<div *ngIf="carrerasVer" class="container-fluid filtradodecarreras">
+<div *ngIf="showCarrer" class="container-fluid filtradodecarreras">
 
   <div class="container  descripcionCarreras">
 
-    <div class="none " [ngClass]="{'none': carreraLLena, 'show': CarreraVacia}">
+    <div class="none " *ngIf="listCarreraVacia">
       <h2 class="subtitulo">No tienes ninguna carrera actualmente.<span class="subtitulo">Añade las carreras</span>
         <span class="medio subtitulo">que mas te gusten
         </span><span class="subtitulo">para que aparezcan
@@ -54,27 +47,15 @@
       </div>
 
       <div *ngIf="!OnlyUsers()" class="favoritos col-xl-1" id="{{car.id}}">
-
         <div class="poner" (click)="selectFav(car.id, $event)" *ngIf="!estoyEnFav(car.id)">
           <i class="fa fa-star star star--black"></i>
         </div>
+
         <div class="poner" (click)="selectFav(car.id, $event)" *ngIf="estoyEnFav(car.id)">
           <i class="fa fa-star star star--gold"></i>
         </div>
 
       </div>
-
-      <div *ngIf="OnlyUsers()" class="favoritos col-xl-2" id="{{car.id}}">
-        <p> <a class="session" data-toggle="modal" href="#myModal">Inicia sesion</a> para ver tus carreras favoritas.
-        </p>
-      </div>
-
     </div>
-
   </div>
-
-</div>
-<div *ngIf='cargando'>
-
-  <img src="./../../assets//cargando.gif" alt="">
 </div>

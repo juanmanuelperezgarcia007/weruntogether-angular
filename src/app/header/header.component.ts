@@ -2,9 +2,12 @@ import { AppComponent } from './../app.component';
 import { RaceService } from './../carreras-service';
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase/app';
+import { ConstApp } from '../constantes/constApp';
+import { CommonService } from '../common.service';
+import { LocalstorageService } from '../localstorage.service';
+
 
 
 @Component({
@@ -13,56 +16,44 @@ import { auth } from 'firebase/app';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isCollapsed: boolean
-  tokenUsuario: any
+  msg = {
+    weruntogether: ConstApp.WE_RUN_TOGETHER,
+  };
+  isCollapsed = true;
+  tokenUser: string;
   noMostrarToken = false
   mostrarToken = true
   listFavorite: any
-  photourl: any
+  photourl: string;
 
-  constructor(public loginService: LoginService, private appcomponent: AppComponent, private raceService: RaceService, public afAuth: AngularFireAuth, private router: Router) {
-
-    console.log(this.loginService.getPhoto())
-  }
+  constructor(
+    public loginService: LoginService,
+    public localstorageService: LocalstorageService,
+    public commonService: CommonService,
+    public afAuth: AngularFireAuth,
+    private router: Router) { }
 
   ngOnInit() {
-
-    this.photourl = localStorage.getItem('photo')
-    console.log(this.photourl)
-    this.tokenUsuario = localStorage.getItem('token')
-    this.isCollapsed = true
-
-
+    this.photourl = this.getLocalstorage('photo');
+    this.tokenUser = this.getLocalstorage('token');
   }
 
   closedSession(e) {
     this.afAuth.auth.signOut();
-    this.loginService.cerrarSesion()
-    this.ChangeHeaderClosed(e)
+    this.loginService.cerrarSesion();
     this.router.navigate(['index']);
-    localStorage.removeItem('photo')
-    this.photourl = localStorage.getItem('photo')
-    console.log(this.photourl)
-
+    this.photourl = this.getLocalstorage('photo');
+    this.tokenUser = this.getLocalstorage('token');
 
   }
 
-  ChangeHeaderClosed(e) {
-    e.path[1].children[3].classList.remove('hide')
-    e.path[1].children[4].classList.remove('hide')
-    e.path[1].children[2].classList.add('hide')
-    e.path[1].children[5].classList.add('hide')
-    e.path[1].children[6].classList.add('hide')
-    e.path[1].children[7].classList.add('hide')
-
+  onlyUsers() {
+    return this.commonService.OnlyUsers();
   }
-  OnlyUsers() {
 
-    if (this.tokenUsuario == null) {
-      return true
-    } else {
-      return false
-    }
+  getLocalstorage(key) {
+    return this.localstorageService.getLocalstorage(key);
   }
+
 
 }

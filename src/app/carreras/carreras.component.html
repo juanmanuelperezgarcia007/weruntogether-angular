@@ -7,192 +7,109 @@
 
 <div class="container titulo-noticias ">
   <div class="titulo-noticias">
-    <h2 class="titulo">Carreras</h2>
+    <h2 class="titulo">{{msg.tittle}}</h2>
   </div>
 </div>
 
 <div class="filtradodecarreras container-fluid">
-
   <div class="filtro container">
-
-    <form novalidate id="contact_form" [formGroup]="form" (ngSubmit)="getFiltersRace()">
-
-
+    <form novalidate [formGroup]="form" (ngSubmit)="getFiltersRace()">
       <div class="col-12 sin container row">
         <div class="filtrodistancia col-xl-6 col-xs-12">
-
-          <label>Distancia Min</label> <select formControlName="min" class="col-12 form-control selectpicker">
-            <option value=''>Selecciona tu distancia minima</option>
-            <option value="5000">Desde 5km</option>
-            <option value="10000">Desde 10km</option>
-            <option value="15000">Desde 15km</option>
-            <option value="21000">Desde 21km</option>
+          <label>{{msg.distmin}}</label>
+          <select formControlName="min" class="col-12 form-control selectpicker">
+            <option value="">{{msg.mindist}}</option>
+            <option *ngFor="let item of arraySinceDistance" [value]=item>desde {{item | meterAkm}}km</option>
           </select>
 
-          <label>Distancia Max</label> <select formControlName="max" class="col-12 form-control selectpicker">
-
-            <option value="">Selecciona tu distancia maxima</option>
-            <option value="10000">hasta 10km</option>
-            <option value="15000">hasta 15km</option>
-            <option value="21000">hasta 21km</option>
-            <option value="43000">hasta 42km</option>
+          <label>{{msg.distmax}}</label>
+          <select formControlName="min" class="col-12 form-control selectpicker">
+            <option value="">{{msg.maxdist}}</option>
+            <option *ngFor="let item of arrayToDistance" [value]=item>hasta {{item | meterAkm}}km</option>
           </select>
         </div>
+
         <div class="col-xl-6 col-xs-12">
           <label>Día</label>
           <input class="form-control selectpicker " formControlName="date" type="date">
 
-          <label>Tipo de carrera</label>
+          <label>{{msg.typeCarrer}}</label>
           <select formControlName="type" class="form-control selectpicker " id="type">
-            <option value="">Elije que tipo de carrera</option>
-            <option value="asfalto">Asfalto</option>
-            <option value="tierra">Tierra</option>
-            <option value="obstaculos">Obstáculos</option>
-
+            <option value="">{{msg.chooseTypeCarrer}}</option>
+            <option *ngFor="let item of typeCarrer" [value]=item>{{item| titlecase}}</option>
           </select>
-
-
         </div>
 
         <div class="col-xl-6 col-xs-12">
-          <label>Ciudad</label>
+          <label>{{msg.city}}</label>
           <input placeholder='Elije la ciudad que quieres' class="col-12 form-control ciudad selectpicker"
             formControlName="city" type="text">
         </div>
 
         <div class=" col-xl-6 col-xs-12 inputGroupContainer">
-          <label>Provincia</label>
-
-
+          <label>{{msg.province}}</label>
           <select formControlName="province" class="form-control selectpicker">
-            <option value="">Seleciona tus provincia</option>
-            <option value='AB'>Albacete</option>
-
-            <option value='AR'>Alava</option>
-            <option value='A'>Alicante</option>
-            <option value='AL'>Almeria</option>
-            <option value='AS'>Asturias</option>
-            <option value='AV'>Avila</option>
-            <option value='BA'>Badajoz</option>
-            <option value='B'>Barcelona</option>
-            <option value='BU'>Burgos</option>
-            <option value='CC'>Caceres</option>
-            <option value='CA'>Cadiz</option>
-            <option value='CT'>Cantabria</option>
-            <option value='CS'>Castellon</option>
-
-            <option value='Ce'>Ceuta</option>
-            <option value='CR'>Ciudad Real</option>
-            <option value='CO'>Cordoba</option>
-            <option value='CU'>Cuenca</option>
-            <option value='Pi'>Formentera</option>
-            <option value='Fu'>Fuerteventura</option>
-
-            <option value='Gc'>Gran Canaria</option>
-            <option value='GI'>Gerona</option>
-            <option value='GR'>Granada</option>
-            <option value='GU'>Guadalajara</option>
-            <option value='GK'>Guipuzcoa</option>
-            <option value='H'>Huelva</option>
-            <option value='HU'>Huesca</option>
-
-            <option value='J'>Jaen</option>
-            <option value='C'>La Coruña</option>
-            <option value='RI'>La Rioja</option>
-            <option value='Lp'>Las Palmas</option>
-
-            <option value='Lz'>Lanzarote</option>
-            <option value='LE'>Leon</option>
-            <option value='L'>Lerida</option>
-            <option value='LU'>Lugo</option>
-            <option value="M">Madrid</option>
-            <option value='Ma'>Mallorca</option>
-            <option value='MG'>Malaga</option>
-            <option value='Me'>Menorca</option>
-            <option value='MU'>Murcia</option>
-
-            <option value='NA'>Navarra</option>
-            <option value='OU'>Orense</option>
-            <option value='P'>Palencia</option>
-            <option value='PO'>Pontevedra</option>
-            <option value='SA'>Salamanca</option>
-            <option value='Segovia'>Segovia</option>
-            <option value='SE'>Sevilla</option>
-            <option value='SO'>Soria</option>
-            <option value='TE'>Teruel</option>
-            <option value='T'>Tarragona</option>
-            <option value='Tf'>Tenerife</option>
-            <option value='TO'>Toledo</option>
-            <option value='V'>Valencia</option>
-            <option value='VA'>Valladolid</option>
-            <option value='VI'>Vizcaya</option>
-            <option value='Z'>Zamora</option>
-            <option value='ZA'>Zaragoza</option>
+            <option value="">{{msg.chooseProvince}}</option>
+            <option *ngFor="let item of selectProvince" [value]=item>{{item| province}}</option>
           </select>
         </div>
-
       </div>
 
-      <button type="submit" class="col-xl-4 col-xs-8 btn btn-primary">Filtrar</button>
-
+      <button type="submit" class="col-xl-4 col-xs-8 btn btn-primary">{{msg.filter}}</button>
     </form>
   </div>
 </div>
 
 <div class="container-fluid filtradodecarreras">
-
   <div class="container  descripcionCarreras">
-
     <div class="carreras row col-12" *ngFor="let car of carrerasAll">
-
       <div class="dia col-xl-3 col-xs-12">
-
         <strong>{{ car.date | date:"dd/MM"}} </strong>
-
       </div>
       <div class="carreraDescripcion col-xl-8 col-sm-12">
+        <p class="carrer ">
+          <strong class="col-xl-3 col-sm-12">{{msg.nameCarrer}}</strong>
+          <span class="col-xl-9 col-sm-12">{{ car.name}}</span>
+        </p>
 
         <p class="carrer ">
-          <strong class="col-xl-3 col-sm-12">Nombre: </strong><span class="col-xl-9 col-sm-12"> {{ car.name}}</span>
-
+          <strong class="col-xl-3">{{msg.distance}}</strong>
+          <span class="col-xl-9">{{ car.distance}}</span>
         </p>
-
-        <p class="carrer "><strong class="col-xl-3">Distancia: </strong> <span class="col-xl-9">{{ car.distance}}
-          </span></p>
 
         <p class="carrer">
-
-          <strong class="col-xl-3">Ciudad: </strong><span class="col-9">{{ car.city}}</span>
-
+          <strong class="col-xl-3">{{msg.city}}:</strong>
+          <span class="col-9">{{car.city}}</span>
         </p>
 
-        <p class="carrer"><strong class="col-md-3 col-sm-12">Tipo de Carrera: </strong><span class="col-9 col-sm-12">
-            {{ car.type}}</span></p>
+        <p class="carrer">
+          <strong class="col-md-3 col-sm-12">{{msg.typeCarrer}}:</strong>
+          <span class="col-9 col-sm-12">{{ car.type | titlecase}}</span>
+        </p>
 
 
       </div>
 
       <div *ngIf="!OnlyUsers()" class="favoritos col-xl-1" id="{{car.id}}">
 
-        <div class="poner" (click)="selectFav(car.id, $event)" *ngIf="!estoyEnFav(car.id)">
-          <i class="fa fa-star star star--black"></i>
-        </div>
-        <div class="poner" (click)="selectFav(car.id, $event)" *ngIf="estoyEnFav(car.id)">
-          <i class="fa fa-star star star--gold"></i>
+        <div class="poner" (click)="isdeleteOrPost(car.id, $event)">
+          <i *ngIf="!isFavOrNotFav(car.id)" class="fa fa-star star star--black"></i>
+          <i *ngIf="isFavOrNotFav(car.id)" class="fa fa-star star star--gold"></i>
         </div>
 
       </div>
 
       <div *ngIf="OnlyUsers()" class="favoritos col-xl-1" id="{{car.id}}">
-        <p> <a class="session" data-toggle="modal" href="#myModal">Inicia sesion</a> para ver tus carreras favoritas.
+        <p>
+          <a class="session" data-toggle="modal" href="#myModal">{{msg.inicialSesion}}</a>
+          {{msg.lookCarrer}}
         </p>
       </div>
+    </div>
 
+    <div class="container" *ngIf="noCarrer">
+      <img src="../../assets/noma.gif" alt="noMatch">
     </div>
 
   </div>
-
 </div>
-<!-- <div *ngIf='cargando'>
-  <img src="./../../assets//cargando.gif" alt="">
-</div> -->
