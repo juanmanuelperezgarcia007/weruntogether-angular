@@ -28,7 +28,7 @@ export class WeruntogetherComponent implements OnInit {
   coords: any
   AllPost: any
   image: any
-  UsuarioPost: any
+  UsuarioPost: any;
   fk_usuarios: any
   posicionLatitude: number
   posicionLongitude: number
@@ -239,7 +239,7 @@ export class WeruntogetherComponent implements OnInit {
 
     })
   }
-  // BORRAR POST 
+  // BORRAR POST
 
   deletePost(pid) {
 
